@@ -4,6 +4,7 @@
     </a>
     <h1 align="center">Yii 2 Advanced Project Template</h1>
     <br>
+	...
 </p>
 
 Yii 2 Advanced Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
