@@ -1,25 +1,19 @@
-2018-12-24 20:19:50 [127.0.0.1][-][hd1p7bjk26ac76s8jptn1583ce][error][yii\base\UnknownPropertyException] yii\base\UnknownPropertyException: Getting unknown property: frontend\models\SignupForm::first_name in C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Component.php:154
+2018-12-28 20:31:49 [::1][-][u87d7c0m273q7r2r8nqnb9pfnu][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: model in C:\wamp64\www\advanced\frontend\views\layouts\main.php:61
 Stack trace:
-#0 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\helpers\BaseHtml.php(2193): yii\base\Component->__get('first_name')
-#1 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\helpers\BaseHtml.php(1323): yii\helpers\BaseHtml::getAttributeValue(Object(frontend\models\SignupForm), 'first_name')
-#2 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\helpers\BaseHtml.php(1377): yii\helpers\BaseHtml::activeInput('text', Object(frontend\models\SignupForm), 'first_name', Array)
-#3 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\widgets\ActiveField.php(404): yii\helpers\BaseHtml::activeTextInput(Object(frontend\models\SignupForm), 'first_name', Array)
-#4 C:\wamp64\www\dnevnik\frontend\views\site\signup.php(22): yii\widgets\ActiveField->textInput(Array)
-#5 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(336): require('C:\\wamp64\\www\\d...')
-#6 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(254): yii\base\View->renderPhpFile('C:\\wamp64\\www\\d...', Array)
-#7 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile('C:\\wamp64\\www\\d...', Array, Object(frontend\controllers\SiteController))
-#8 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('signup', Array, Object(frontend\controllers\SiteController))
-#9 C:\wamp64\www\dnevnik\frontend\controllers\SiteController.php(163): yii\base\Controller->render('signup', Array)
-#10 [internal function]: frontend\controllers\SiteController->actionSignup()
-#11 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
-#12 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
-#13 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('signup', Array)
-#14 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/signup', Array)
-#15 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
-#16 C:\wamp64\www\dnevnik\frontend\web\index.php(17): yii\base\Application->run()
-#17 {main}
-2018-12-24 20:19:50 [127.0.0.1][-][hd1p7bjk26ac76s8jptn1583ce][info][application] $_GET = [
-    'r' => 'site/signup'
+#0 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\View.php(254): yii\web\View->renderPhpFile()
+#1 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Controller.php(399): yii\web\View->renderFile()
+#2 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Controller.php(385): frontend\controllers\SiteController->renderContent()
+#3 C:\wamp64\www\advanced\frontend\controllers\SiteController.php(96): frontend\controllers\SiteController->render()
+#4 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\InlineAction.php(57): frontend\controllers\SiteController->actionLogin()
+#5 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#6 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#7 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Module.php(528): frontend\controllers\SiteController->runAction()
+#8 C:\wamp64\www\advanced\vendor\yiisoft\yii2\web\Application.php(103): yii\web\Application->runAction()
+#9 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#10 C:\wamp64\www\advanced\frontend\web\index.php(17): yii\web\Application->run()
+#11 {main}
+2018-12-28 20:31:49 [::1][-][u87d7c0m273q7r2r8nqnb9pfnu][info][application] $_GET = [
+    'r' => 'site/login'
 ]
 
 $_POST = []
@@ -27,8 +21,198 @@ $_POST = []
 $_FILES = []
 
 $_COOKIE = [
-    '_csrf-frontend' => '74581ca8b8329c3f0a41f9cb0e636a4b1be4185824fc129c9aa4d303aa6a427ea:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"6RhofvDCfvCMZpsSzWAicyiXB0bBlUfd\";}'
-    'advanced-frontend' => 'hd1p7bjk26ac76s8jptn1583ce'
+    'advanced-frontend' => 'u87d7c0m273q7r2r8nqnb9pfnu'
+    '_csrf-frontend' => '7dba4fbea325021444c340e0d902b48a771905c72cd795828628d18b880b9ddca:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"9YPkaPSndoYPUtcE5DKfN-c4Uhln6x5u\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__captcha/site/captcha' => 'mohbce'
+    '__captcha/site/captchacount' => 1
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/advanced/frontend/web/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => 'advanced-frontend=u87d7c0m273q7r2r8nqnb9pfnu; _csrf-frontend=7dba4fbea325021444c340e0d902b48a771905c72cd795828628d18b880b9ddca%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%229YPkaPSndoYPUtcE5DKfN-c4Uhln6x5u%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Smart Projects\\IsoBuster;C:\\Program Files\\MySQL\\MySQL Utilities 1.6\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\wamp64\\bin\\php\\php7.1.9;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;C:\\wamp64\\bin\\php\\php7.2.10;\"C:\\WINDOWS\\system32;C:\\wamp64\\bin\\php\\php5.6.31;C:\\composer;C:\\Program Files (x86)\\Git\\cmd\";C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.35 (Win64) PHP/7.2.10 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.35 (Win64) PHP/7.2.10'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp64/www/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '53629'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'REQUEST_URI' => '/advanced/frontend/web/index.php?r=site%2Flogin'
+    'SCRIPT_NAME' => '/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1546029109.258
+    'REQUEST_TIME' => 1546029109
+]
+2018-12-29 10:24:13 [::1][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: model in C:\wamp64\www\advanced\frontend\views\layouts\main.php:61
+Stack trace:
+#0 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\View.php(254): yii\web\View->renderPhpFile()
+#1 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Controller.php(399): yii\web\View->renderFile()
+#2 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Controller.php(385): frontend\controllers\SiteController->renderContent()
+#3 C:\wamp64\www\advanced\frontend\controllers\SiteController.php(75): frontend\controllers\SiteController->render()
+#4 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\InlineAction.php(57): frontend\controllers\SiteController->actionIndex()
+#5 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#6 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#7 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Module.php(528): frontend\controllers\SiteController->runAction()
+#8 C:\wamp64\www\advanced\vendor\yiisoft\yii2\web\Application.php(103): yii\web\Application->runAction()
+#9 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#10 C:\wamp64\www\advanced\frontend\web\index.php(17): yii\web\Application->run()
+#11 {main}
+2018-12-29 10:24:13 [::1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/advanced/frontend/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Smart Projects\\IsoBuster;C:\\Program Files\\MySQL\\MySQL Utilities 1.6\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;C:\\wamp64\\bin\\php\\php7.2.10;\"C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp64\\bin\\php\\php5.6.31;C:\\composer;C:\\Program Files (x86)\\Git\\cmd\";C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.35 (Win64) PHP/7.2.10 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.35 (Win64) PHP/7.2.10'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp64/www/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '50365'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/advanced/frontend/web/'
+    'SCRIPT_NAME' => '/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1546079053.491
+    'REQUEST_TIME' => 1546079053
+]
+2018-12-29 10:24:13 [::1][-][-][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: model in C:\wamp64\www\advanced\frontend\views\layouts\main.php:61
+Stack trace:
+#0 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\View.php(254): yii\web\View->renderPhpFile()
+#1 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Controller.php(399): yii\web\View->renderFile()
+#2 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Controller.php(385): frontend\controllers\SiteController->renderContent()
+#3 C:\wamp64\www\advanced\frontend\controllers\SiteController.php(75): frontend\controllers\SiteController->render()
+#4 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\InlineAction.php(57): frontend\controllers\SiteController->actionIndex()
+#5 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#6 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#7 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Module.php(528): frontend\controllers\SiteController->runAction()
+#8 C:\wamp64\www\advanced\vendor\yiisoft\yii2\web\Application.php(103): yii\web\Application->runAction()
+#9 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#10 C:\wamp64\www\advanced\frontend\web\index.php(17): yii\web\Application->run()
+#11 {main}
+2018-12-29 10:24:12 [::1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/advanced/frontend/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Smart Projects\\IsoBuster;C:\\Program Files\\MySQL\\MySQL Utilities 1.6\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;C:\\wamp64\\bin\\php\\php7.2.10;\"C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp64\\bin\\php\\php5.6.31;C:\\composer;C:\\Program Files (x86)\\Git\\cmd\";C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.35 (Win64) PHP/7.2.10 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.35 (Win64) PHP/7.2.10'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp64/www/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '50362'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/advanced/frontend/web/'
+    'SCRIPT_NAME' => '/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1546079052.108
+    'REQUEST_TIME' => 1546079052
+]
+2018-12-29 12:43:19 [::1][-][uhklu6lphbr2onnnbn3n1je04d][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: model in C:\wamp64\www\advanced\frontend\views\site\index.php:60
+Stack trace:
+#0 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\View.php(254): yii\web\View->renderPhpFile()
+#1 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\View.php(156): yii\web\View->renderFile()
+#2 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Controller.php(384): yii\web\View->render()
+#3 C:\wamp64\www\advanced\frontend\controllers\SiteController.php(75): frontend\controllers\SiteController->render()
+#4 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\InlineAction.php(57): frontend\controllers\SiteController->actionIndex()
+#5 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#6 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#7 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Module.php(528): frontend\controllers\SiteController->runAction()
+#8 C:\wamp64\www\advanced\vendor\yiisoft\yii2\web\Application.php(103): yii\web\Application->runAction()
+#9 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#10 C:\wamp64\www\advanced\frontend\web\index.php(17): yii\web\Application->run()
+#11 {main}
+2018-12-29 12:43:19 [::1][-][uhklu6lphbr2onnnbn3n1je04d][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'advanced-frontend' => 'uhklu6lphbr2onnnbn3n1je04d'
+    '_csrf-frontend' => '3702edcca0f319ca996aa2cf4482eaed8fc263d11b3f52bb9d2d4b98066761c2a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"9OMGKfmgLPLvCsOX9qmt9BPkOXjrrERD\";}'
 ]
 
 $_SESSION = [
@@ -36,43 +220,117 @@ $_SESSION = [
 ]
 
 $_SERVER = [
-    'HTTP_HOST' => 'dnevnik.dev'
+    'HTTP_HOST' => 'localhost'
     'HTTP_CONNECTION' => 'keep-alive'
     'HTTP_CACHE_CONTROL' => 'max-age=0'
     'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
-    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.0.1594 Safari/537.36'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
     'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
-    'HTTP_DNT' => '1'
-    'HTTP_REFERER' => 'http://dnevnik.dev/index.php'
-    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
-    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,sr;q=0.8,bs;q=0.7,la;q=0.6'
-    'HTTP_COOKIE' => '_csrf-frontend=74581ca8b8329c3f0a41f9cb0e636a4b1be4185824fc129c9aa4d303aa6a427ea%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%226RhofvDCfvCMZpsSzWAicyiXB0bBlUfd%22%3B%7D; advanced-frontend=hd1p7bjk26ac76s8jptn1583ce'
-    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\wamp64\\bin\\php\\php7.2.4;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Microsoft VS Code\\bin;C:\\Program Files\\nodejs\\;C:\\composer;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'HTTP_REFERER' => 'http://localhost/advanced/frontend/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => 'advanced-frontend=uhklu6lphbr2onnnbn3n1je04d; _csrf-frontend=3702edcca0f319ca996aa2cf4482eaed8fc263d11b3f52bb9d2d4b98066761c2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%229OMGKfmgLPLvCsOX9qmt9BPkOXjrrERD%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Smart Projects\\IsoBuster;C:\\Program Files\\MySQL\\MySQL Utilities 1.6\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;C:\\wamp64\\bin\\php\\php7.2.10;\"C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp64\\bin\\php\\php5.6.31;C:\\composer;C:\\Program Files (x86)\\Git\\cmd\";C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
     'SystemRoot' => 'C:\\WINDOWS'
     'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
     'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
     'WINDIR' => 'C:\\WINDOWS'
-    'SERVER_SIGNATURE' => '<address>Apache/2.4.33 (Win64) PHP/7.2.4 Server at dnevnik.dev Port 80</address>
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.35 (Win64) PHP/7.2.10 Server at localhost Port 80</address>
 '
-    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Win64) PHP/7.2.4'
-    'SERVER_NAME' => 'dnevnik.dev'
-    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.35 (Win64) PHP/7.2.10'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
     'SERVER_PORT' => '80'
-    'REMOTE_ADDR' => '127.0.0.1'
-    'DOCUMENT_ROOT' => 'C:/wamp64/www/dnevnik/frontend/web'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp64/www'
     'REQUEST_SCHEME' => 'http'
     'CONTEXT_PREFIX' => ''
-    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www/dnevnik/frontend/web'
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www'
     'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
-    'SCRIPT_FILENAME' => 'C:/wamp64/www/dnevnik/frontend/web/index.php'
-    'REMOTE_PORT' => '55591'
+    'SCRIPT_FILENAME' => 'C:/wamp64/www/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '51209'
     'GATEWAY_INTERFACE' => 'CGI/1.1'
     'SERVER_PROTOCOL' => 'HTTP/1.1'
     'REQUEST_METHOD' => 'GET'
-    'QUERY_STRING' => 'r=site%2Fsignup'
-    'REQUEST_URI' => '/index.php?r=site%2Fsignup'
-    'SCRIPT_NAME' => '/index.php'
-    'PHP_SELF' => '/index.php'
-    'REQUEST_TIME_FLOAT' => 1545682790.534
-    'REQUEST_TIME' => 1545682790
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/advanced/frontend/web/'
+    'SCRIPT_NAME' => '/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1546087399.834
+    'REQUEST_TIME' => 1546087399
+]
+2018-12-29 16:34:09 [::1][-][uhklu6lphbr2onnnbn3n1je04d][error][yii\base\UnknownPropertyException] yii\base\UnknownPropertyException: Getting unknown property: yii\web\Application::EDnevnik in C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Component.php:154
+Stack trace:
+#0 C:\wamp64\www\advanced\vendor\yiisoft\yii2\di\ServiceLocator.php(77): yii\base\Component->__get('EDnevnik')
+#1 C:\wamp64\www\advanced\frontend\views\layouts\main.php(39): yii\di\ServiceLocator->__get('EDnevnik')
+#2 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\View.php(336): require('C:\\wamp64\\www\\a...')
+#3 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\View.php(254): yii\base\View->renderPhpFile('C:\\wamp64\\www\\a...', Array)
+#4 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Controller.php(399): yii\base\View->renderFile('C:\\wamp64\\www\\a...', Array, Object(frontend\controllers\SiteController))
+#5 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Controller.php(385): yii\base\Controller->renderContent('<div class="sit...')
+#6 C:\wamp64\www\advanced\frontend\controllers\SiteController.php(75): yii\base\Controller->render('index')
+#7 [internal function]: frontend\controllers\SiteController->actionIndex()
+#8 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('', Array)
+#11 C:\wamp64\www\advanced\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('', Array)
+#12 C:\wamp64\www\advanced\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 C:\wamp64\www\advanced\frontend\web\index.php(17): yii\base\Application->run()
+#14 {main}
+2018-12-29 16:34:09 [::1][-][uhklu6lphbr2onnnbn3n1je04d][info][application] $_GET = [
+    'email' => 'Ivans@yahoo.com'
+    'pass' => 'sdw w'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'advanced-frontend' => 'uhklu6lphbr2onnnbn3n1je04d'
+    '_csrf-frontend' => '3702edcca0f319ca996aa2cf4482eaed8fc263d11b3f52bb9d2d4b98066761c2a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"9OMGKfmgLPLvCsOX9qmt9BPkOXjrrERD\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/advanced/frontend/web/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => 'advanced-frontend=uhklu6lphbr2onnnbn3n1je04d; _csrf-frontend=3702edcca0f319ca996aa2cf4482eaed8fc263d11b3f52bb9d2d4b98066761c2a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%229OMGKfmgLPLvCsOX9qmt9BPkOXjrrERD%22%3B%7D'
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Smart Projects\\IsoBuster;C:\\Program Files\\MySQL\\MySQL Utilities 1.6\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\nodejs\\;C:\\wamp64\\bin\\php\\php7.2.10;\"C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp64\\bin\\php\\php5.6.31;C:\\composer;C:\\Program Files (x86)\\Git\\cmd\";C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.35 (Win64) PHP/7.2.10 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.35 (Win64) PHP/7.2.10'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp64/www/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '54734'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'email=Ivans%40yahoo.com&pass=sdw+w'
+    'REQUEST_URI' => '/advanced/frontend/web/?email=Ivans%40yahoo.com&pass=sdw+w'
+    'SCRIPT_NAME' => '/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1546101249.819
+    'REQUEST_TIME' => 1546101249
 ]
