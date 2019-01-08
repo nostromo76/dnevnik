@@ -3,6 +3,7 @@
 namespace backend\models;
 
 use Yii;
+use backend\models\LoginDetalji;
 
 /**
  * This is the model class for table "user".
@@ -39,7 +40,7 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['first_name', 'last_name', 'username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at', 'role'], 'required'],
+            [['first_name', 'last_name', 'username', 'auth_key', 'password_hash', 'email', 'role'], 'required'],
             [['status', 'created_at', 'updated_at', 'role'], 'integer'],
             [['first_name', 'last_name'], 'string', 'max' => 50],
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
