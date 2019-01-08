@@ -334,3 +334,228 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1546101249.819
     'REQUEST_TIME' => 1546101249
 ]
+2019-01-08 10:15:03 [127.0.0.1][9][i2ku11hlvj8p72qut8rftj8pdj][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: model in C:\wamp64\www\dnevnik\frontend\views\site\index.php:78
+Stack trace:
+#0 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(254): yii\web\View->renderPhpFile()
+#1 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(156): yii\web\View->renderFile()
+#2 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(384): yii\web\View->render()
+#3 C:\wamp64\www\dnevnik\frontend\controllers\SiteController.php(75): frontend\controllers\SiteController->render()
+#4 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): frontend\controllers\SiteController->actionIndex()
+#5 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#6 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#7 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Module.php(528): frontend\controllers\SiteController->runAction()
+#8 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\web\Application.php(103): yii\web\Application->runAction()
+#9 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#10 C:\wamp64\www\dnevnik\frontend\web\index.php(17): yii\web\Application->run()
+#11 {main}
+2019-01-08 10:15:03 [127.0.0.1][9][i2ku11hlvj8p72qut8rftj8pdj][info][application] $_GET = [
+    'email' => 'ikimj420@gmail.com'
+    'pass' => 'admin123'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'advanced-frontend' => 'i2ku11hlvj8p72qut8rftj8pdj'
+    '_identity-frontend' => '3482bce508f0dd005cc7848c2e2157f253bac07b2444c297ecb1e06e159dde5ea:2:{i:0;s:18:\"_identity-frontend\";i:1;s:46:\"[9,\"r_3J2dys5a4HySSCT1nXlP3p1NqynAAb\",2592000]\";}'
+    '_csrf-frontend' => '46c7b7f09dbdc84a0c4509b746b18a099422d4d0d03059f8ed2e3833aa0df5d1a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"JyJQQfUXtWQVxnANfmGkla2DxGb5jywq\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 9
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'dnevnik.dev'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.0.1594 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://dnevnik.dev/?email=ikimj420%40gmail.com&pass=admin123'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,sr;q=0.8,bs;q=0.7,la;q=0.6'
+    'HTTP_COOKIE' => 'advanced-frontend=i2ku11hlvj8p72qut8rftj8pdj; _identity-frontend=3482bce508f0dd005cc7848c2e2157f253bac07b2444c297ecb1e06e159dde5ea%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B9%2C%22r_3J2dys5a4HySSCT1nXlP3p1NqynAAb%22%2C2592000%5D%22%3B%7D; _csrf-frontend=46c7b7f09dbdc84a0c4509b746b18a099422d4d0d03059f8ed2e3833aa0df5d1a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22JyJQQfUXtWQVxnANfmGkla2DxGb5jywq%22%3B%7D'
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\wamp64\\bin\\php\\php7.2.4;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Microsoft VS Code\\bin;C:\\Program Files\\nodejs\\;C:\\composer;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.33 (Win64) PHP/7.2.4 Server at dnevnik.dev Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Win64) PHP/7.2.4'
+    'SERVER_NAME' => 'dnevnik.dev'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp64/www/dnevnik/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www/dnevnik/frontend/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp64/www/dnevnik/frontend/web/index.php'
+    'REMOTE_PORT' => '57786'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'email=ikimj420%40gmail.com&pass=admin123'
+    'REQUEST_URI' => '/?email=ikimj420%40gmail.com&pass=admin123'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1546942503.205
+    'REQUEST_TIME' => 1546942503
+]
+2019-01-08 10:17:48 [127.0.0.1][9][i2ku11hlvj8p72qut8rftj8pdj][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: model in C:\wamp64\www\dnevnik\frontend\views\site\index.php:82
+Stack trace:
+#0 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(254): yii\web\View->renderPhpFile()
+#1 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(156): yii\web\View->renderFile()
+#2 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(384): yii\web\View->render()
+#3 C:\wamp64\www\dnevnik\frontend\controllers\SiteController.php(75): frontend\controllers\SiteController->render()
+#4 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): frontend\controllers\SiteController->actionIndex()
+#5 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#6 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#7 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Module.php(528): frontend\controllers\SiteController->runAction()
+#8 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\web\Application.php(103): yii\web\Application->runAction()
+#9 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#10 C:\wamp64\www\dnevnik\frontend\web\index.php(17): yii\web\Application->run()
+#11 {main}
+2019-01-08 10:17:48 [127.0.0.1][9][i2ku11hlvj8p72qut8rftj8pdj][info][application] $_GET = [
+    'email' => 'ikimj420@gmail.com'
+    'pass' => 'admin123'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'advanced-frontend' => 'i2ku11hlvj8p72qut8rftj8pdj'
+    '_identity-frontend' => '3482bce508f0dd005cc7848c2e2157f253bac07b2444c297ecb1e06e159dde5ea:2:{i:0;s:18:\"_identity-frontend\";i:1;s:46:\"[9,\"r_3J2dys5a4HySSCT1nXlP3p1NqynAAb\",2592000]\";}'
+    '_csrf-frontend' => '46c7b7f09dbdc84a0c4509b746b18a099422d4d0d03059f8ed2e3833aa0df5d1a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"JyJQQfUXtWQVxnANfmGkla2DxGb5jywq\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 9
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'dnevnik.dev'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.0.1594 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://dnevnik.dev/?email=ikimj420%40gmail.com&pass=admin123'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,sr;q=0.8,bs;q=0.7,la;q=0.6'
+    'HTTP_COOKIE' => 'advanced-frontend=i2ku11hlvj8p72qut8rftj8pdj; _identity-frontend=3482bce508f0dd005cc7848c2e2157f253bac07b2444c297ecb1e06e159dde5ea%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B9%2C%22r_3J2dys5a4HySSCT1nXlP3p1NqynAAb%22%2C2592000%5D%22%3B%7D; _csrf-frontend=46c7b7f09dbdc84a0c4509b746b18a099422d4d0d03059f8ed2e3833aa0df5d1a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22JyJQQfUXtWQVxnANfmGkla2DxGb5jywq%22%3B%7D'
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\wamp64\\bin\\php\\php7.2.4;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Microsoft VS Code\\bin;C:\\Program Files\\nodejs\\;C:\\composer;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.33 (Win64) PHP/7.2.4 Server at dnevnik.dev Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Win64) PHP/7.2.4'
+    'SERVER_NAME' => 'dnevnik.dev'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp64/www/dnevnik/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www/dnevnik/frontend/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp64/www/dnevnik/frontend/web/index.php'
+    'REMOTE_PORT' => '57796'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'email=ikimj420%40gmail.com&pass=admin123'
+    'REQUEST_URI' => '/?email=ikimj420%40gmail.com&pass=admin123'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1546942668.363
+    'REQUEST_TIME' => 1546942668
+]
+2019-01-08 10:19:30 [127.0.0.1][9][i2ku11hlvj8p72qut8rftj8pdj][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: model in C:\wamp64\www\dnevnik\frontend\views\site\index.php:84
+Stack trace:
+#0 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(254): yii\web\View->renderPhpFile()
+#1 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(156): yii\web\View->renderFile()
+#2 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(384): yii\web\View->render()
+#3 C:\wamp64\www\dnevnik\frontend\controllers\SiteController.php(75): frontend\controllers\SiteController->render()
+#4 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): frontend\controllers\SiteController->actionIndex()
+#5 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#6 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#7 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Module.php(528): frontend\controllers\SiteController->runAction()
+#8 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\web\Application.php(103): yii\web\Application->runAction()
+#9 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#10 C:\wamp64\www\dnevnik\frontend\web\index.php(17): yii\web\Application->run()
+#11 {main}
+2019-01-08 10:19:30 [127.0.0.1][9][i2ku11hlvj8p72qut8rftj8pdj][info][application] $_GET = [
+    'email' => 'ikimj420@gmail.com'
+    'pass' => 'admin123'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'advanced-frontend' => 'i2ku11hlvj8p72qut8rftj8pdj'
+    '_identity-frontend' => '3482bce508f0dd005cc7848c2e2157f253bac07b2444c297ecb1e06e159dde5ea:2:{i:0;s:18:\"_identity-frontend\";i:1;s:46:\"[9,\"r_3J2dys5a4HySSCT1nXlP3p1NqynAAb\",2592000]\";}'
+    '_csrf-frontend' => '46c7b7f09dbdc84a0c4509b746b18a099422d4d0d03059f8ed2e3833aa0df5d1a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"JyJQQfUXtWQVxnANfmGkla2DxGb5jywq\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 9
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'dnevnik.dev'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.0.1594 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_DNT' => '1'
+    'HTTP_REFERER' => 'http://dnevnik.dev/?email=ikimj420%40gmail.com&pass=admin123'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9,sr;q=0.8,bs;q=0.7,la;q=0.6'
+    'HTTP_COOKIE' => 'advanced-frontend=i2ku11hlvj8p72qut8rftj8pdj; _identity-frontend=3482bce508f0dd005cc7848c2e2157f253bac07b2444c297ecb1e06e159dde5ea%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A46%3A%22%5B9%2C%22r_3J2dys5a4HySSCT1nXlP3p1NqynAAb%22%2C2592000%5D%22%3B%7D; _csrf-frontend=46c7b7f09dbdc84a0c4509b746b18a099422d4d0d03059f8ed2e3833aa0df5d1a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22JyJQQfUXtWQVxnANfmGkla2DxGb5jywq%22%3B%7D'
+    'PATH' => 'C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\wamp64\\bin\\php\\php7.2.4;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\Microsoft VS Code\\bin;C:\\Program Files\\nodejs\\;C:\\composer;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.33 (Win64) PHP/7.2.4 Server at dnevnik.dev Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Win64) PHP/7.2.4'
+    'SERVER_NAME' => 'dnevnik.dev'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp64/www/dnevnik/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www/dnevnik/frontend/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp64/www/dnevnik/frontend/web/index.php'
+    'REMOTE_PORT' => '57810'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'email=ikimj420%40gmail.com&pass=admin123'
+    'REQUEST_URI' => '/?email=ikimj420%40gmail.com&pass=admin123'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1546942770.749
+    'REQUEST_TIME' => 1546942770
+]
