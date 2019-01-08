@@ -18,11 +18,9 @@ use Yii;
  * @property int $status
  * @property int $created_at
  * @property int $updated_at
- * @property int $rola
+ * @property int $role
  *
- * @property Direktor[] $direktors
  * @property LoginDetalji[] $loginDetaljis
- * @property Roditelj[] $roditeljs
  * @property Ucitelj[] $uciteljs
  */
 class User extends \yii\db\ActiveRecord
@@ -41,9 +39,9 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['first_name', 'last_name', 'username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
-            [['status', 'created_at', 'updated_at', 'rola'], 'integer'],
-            [['first_name', 'last_name'], 'string', 'max' => 100],
+            [['first_name', 'last_name', 'username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at', 'role'], 'required'],
+            [['status', 'created_at', 'updated_at', 'role'], 'integer'],
+            [['first_name', 'last_name'], 'string', 'max' => 50],
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
             [['username'], 'unique'],
@@ -69,16 +67,8 @@ class User extends \yii\db\ActiveRecord
             'status' => 'Status',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
-            'rola' => 'Rola',
+            'role' => 'Role',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getDirektors()
-    {
-        return $this->hasMany(Direktor::className(), ['id_user' => 'id']);
     }
 
     /**
@@ -87,14 +77,6 @@ class User extends \yii\db\ActiveRecord
     public function getLoginDetaljis()
     {
         return $this->hasMany(LoginDetalji::className(), ['user_id' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getRoditeljs()
-    {
-        return $this->hasMany(Roditelj::className(), ['user_id' => 'id']);
     }
 
     /**
