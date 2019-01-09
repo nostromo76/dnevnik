@@ -18,6 +18,10 @@ NavBar::begin([
 $menuItems = [
     ['label' => 'Home', 'url' => ['/site/index']],
     ['label' => 'Users', 'url' => ['/user/index']],
+    ['label' => 'Raspored', 'url' => ['/raspored/index']],
+    ['label' => 'Predmet', 'url' => ['/predmet/index']],
+    ['label' => 'Odeljenje', 'url' => ['/odeljenje/index']],
+    ['label' => 'Ucitelj', 'url' => ['/ucitelj/index']],
 ];
 if (Yii::$app->user->isGuest) {
     $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];

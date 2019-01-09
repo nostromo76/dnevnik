@@ -21,14 +21,14 @@ class UserController extends Controller
     public function behaviors()
     {
         return [
-            "access" => [
+           "access" => [
               'class' => AccessControl::className(),
-              'rules' => [
-                  [
-                      'actions' => ['index','update','create','delete','view'],
-                      'allow' => true,
-                      'roles' => ['@']
-                  ]
+                'rules' => [
+                    [
+                         'actions' => ['index','update','create','delete','view'],
+                         'allow' => true,
+                         'roles' => ['@']
+                     ]
               ]
             ],
             'verbs' => [
