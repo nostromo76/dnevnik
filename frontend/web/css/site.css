@@ -12,6 +12,7 @@ body {
 
 .wrap > .container {
     padding: 70px 15px 20px;
+
 }
 
 .footer {
@@ -23,7 +24,7 @@ body {
 
 .jumbotron {
     text-align: center;
-    background-color: transparent;
+    background-image:url("../images/1.jpg");
 }
 
 .jumbotron .btn {

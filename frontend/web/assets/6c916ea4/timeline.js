@@ -32,7 +32,7 @@
         };
 
         $(document).on('pjax:success', function () {
-            self.init()
+            self.init();
         });
         $(window).on('resize', function () {
             self.affixTop(true);
