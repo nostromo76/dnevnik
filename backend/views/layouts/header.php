@@ -16,12 +16,13 @@ NavBar::begin([
     ],
 ]);
 $menuItems = [
-    ['label' => 'Home', 'url' => ['/site/index']],
-    ['label' => 'Users', 'url' => ['/user/index']],
+    ['label' => 'Pocetna', 'url' => ['/site/index']],
+    ['label' => 'Korisnici', 'url' => ['/user/index']],
     ['label' => 'Raspored', 'url' => ['/raspored/index']],
     ['label' => 'Predmet', 'url' => ['/predmet/index']],
     ['label' => 'Odeljenje', 'url' => ['/odeljenje/index']],
     ['label' => 'Ucitelj', 'url' => ['/ucitelj/index']],
+    ['label' => 'Obavestenja', 'url' => ['/obavestenja/index']],
 ];
 if (Yii::$app->user->isGuest) {
     $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
@@ -29,7 +30,7 @@ if (Yii::$app->user->isGuest) {
     $menuItems[] = '<li>'
         . Html::beginForm(['/site/logout'], 'post')
         . Html::submitButton(
-            'Logout (' . Yii::$app->user->identity->username . ')',
+            'Odjavi se (' . Yii::$app->user->identity->username . ')',
             ['class' => 'btn btn-link logout']
         )
         . Html::endForm()

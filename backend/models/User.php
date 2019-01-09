@@ -59,11 +59,11 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'first_name' => 'First Name',
-            'last_name' => 'Last Name',
-            'username' => 'Username',
+            'first_name' => 'Ime',
+            'last_name' => 'Prezime',
+            'username' => 'Korisničko ime',
             'auth_key' => 'Auth Key',
-            'password_hash' => 'Password',
+            'password_hash' => 'Šifra',
             'password_reset_token' => 'Password Reset Token',
             'email' => 'Email',
             'status' => 'Status',

@@ -20,9 +20,10 @@ use backend\models\Odeljenje;
     <?= $form->field($model, 'br_casa')->dropDownList([ 1 => '1', 2 => '2', 3 => '3', 4 => '4', 5 => '5', 6 => '6', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'id_predmet')->dropDownList(
-        ArrayHelper::map(predmet::find()->all(), 'id_predmet', 'obavezni'),
+        ArrayHelper::map(predmet::find()->all(), 'id_predmet','obavezni'),
         ['prompt'=> 'Select predmet']
     ) ?>
+
     <!-- textInput id_predmet -->
 
     <?= $form->field($model, 'id_odeljenje')->dropDownList(

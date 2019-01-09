@@ -5,42 +5,41 @@ use yii\grid\GridView;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\UserSearch */
+/* @var $searchModel backend\models\ObavestenjaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Korisnici';
+$this->title = 'Obavestenja';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="user-index">
+<div class="obavestenja-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
+
+    <?php Pjax::begin() ?>
+
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Novi Korisnik', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Obavestenja', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php Pjax::begin(); ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
-        'rowOptions'=>function($model){
-            if($model->status==0){
-                return ['class'=>'danger'];
-            }elseif($model->status==10){
-                return ['class'=>'success'];
-            }
-        },
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'first_name',
-            'last_name',
-            'username',
-            'role',
+            'id_obavestenja',
+            'naziv',
+            'opis:ntext',
+            [
+                    'attribute' => 'id_odeljenje',
+                    'value' => 'odeljenje.naziv'
+            ]
+            ,
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-    <?php Pjax::end(); ?>
+
+    <?php Pjax::end() ?>
 </div>
