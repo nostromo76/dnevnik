@@ -8,11 +8,11 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-<<<<<<< HEAD
-$this->title = 'User';
-=======
+//<<<<<<< HEAD
+//$this->title = 'User';
+//=======
 $this->title = 'Korisnici';
->>>>>>> 01e56c25ffafb472ef0e21be74cbab8fe84690ed
+//>>>>>>> 01e56c25ffafb472ef0e21be74cbab8fe84690ed
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
