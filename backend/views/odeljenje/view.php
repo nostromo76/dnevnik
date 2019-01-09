@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model backend\models\Odeljenje */
 
 $this->title = $model->id_odeljenje;
-$this->params['breadcrumbs'][] = ['label' => 'Odeljenjes', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Odeljenje', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="odeljenje-view">

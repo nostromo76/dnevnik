@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\OdeljenjeSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Odeljenjes';
+$this->title = 'Odeljenje';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="odeljenje-index">

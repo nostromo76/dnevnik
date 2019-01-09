@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\RasporedSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Rasporeds';
+$this->title = 'Raspored';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="raspored-index">
