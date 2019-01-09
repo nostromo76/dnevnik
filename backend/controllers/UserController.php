@@ -25,7 +25,7 @@ class UserController extends Controller
               'class' => AccessControl::className(),
               'rules' => [
                   [
-                      'actions' => ['index'],
+                      'actions' => ['index','update','create','delete','view'],
                       'allow' => true,
                       'roles' => ['@']
                   ]
@@ -80,7 +80,6 @@ class UserController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $model->auth_key = Yii::$app->security->generateRandomString();
             $model->password_hash = Yii::$app->security->generatePasswordHash($model->password_hash);
-            //$model->status = 10;
             if($model->save()){
                 return $this->redirect(['view', 'id' => $model->id]);
             }
