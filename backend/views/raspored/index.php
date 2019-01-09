@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'br_casa',
             [
                 'attribute'=>'id_predmet',
-                'value'=>'predmet.obavezni',
+                'value'=> 'predmet.obavezni',
             ],
             //'id_predmet',
             //'predmet.obavezni',
