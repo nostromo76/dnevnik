@@ -4,12 +4,11 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\helpers\Html;
 
-$this->title = 'Admin';
 ?>
 
 <?php
 NavBar::begin([
-    'brandLabel' => $this->title,
+    'brandLabel' => Yii::$app->name,
     'brandUrl' => Yii::$app->homeUrl,
     'options' => [
         'class' => 'navbar-inverse navbar-fixed-top',
@@ -17,13 +16,11 @@ NavBar::begin([
 ]);
 $menuItems = [
     ['label' => 'Home', 'url' => ['/site/index']],
-    ['label' => 'Users', 'url' => ['/user/index']],
-    ['label' => 'Raspored', 'url' => ['/raspored/index']],
-    ['label' => 'Predmet', 'url' => ['/predmet/index']],
-    ['label' => 'Odeljenje', 'url' => ['/odeljenje/index']],
-    ['label' => 'Ucitelj', 'url' => ['/ucitelj/index']],
+    ['label' => 'About', 'url' => ['/site/about']],
+    ['label' => 'Contact', 'url' => ['/site/contact']],
 ];
 if (Yii::$app->user->isGuest) {
+    $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
     $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
 } else {
     $menuItems[] = '<li>'

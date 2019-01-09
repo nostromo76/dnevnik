@@ -14,6 +14,7 @@ use Yii;
  * @property Dnevnik[] $dnevniks
  * @property Obavestenja[] $obavestenjas
  * @property Odeljenje[] $odeljenjes
+ * @property OtvorenaVrata[] $otvorenaVratas
  * @property Poruke[] $porukes
  * @property Odeljenje $odeljenje
  * @property User $user
@@ -75,6 +76,14 @@ class Ucitelj extends \yii\db\ActiveRecord
     public function getOdeljenjes()
     {
         return $this->hasMany(Odeljenje::className(), ['id_ucitelj' => 'id_ucitelj']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOtvorenaVratas()
+    {
+        return $this->hasMany(OtvorenaVrata::className(), ['id_ucitelj' => 'id_ucitelj']);
     }
 
     /**

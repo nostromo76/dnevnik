@@ -4,9 +4,14 @@
 /* @var $content string */
 
 use yii\helpers\Html;
+<<<<<<< HEAD
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
+=======
+use yii\widgets\Breadcrumbs;
+use common\widgets\Alert;
+>>>>>>> cbf23d110377217a1007d47d29ec72714b42bafe
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 
@@ -26,7 +31,9 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
+
 <div class="wrap">
+<<<<<<< HEAD
     <?php
     NavBar::begin([
         'brandLabel' => Yii::$app->name,
@@ -60,6 +67,13 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
+=======
+
+    <!--header-->
+    <?= $this->render('header') ?>
+
+    <!--main-->
+>>>>>>> cbf23d110377217a1007d47d29ec72714b42bafe
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -69,13 +83,9 @@ AppAsset::register($this);
     </div>
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
+    <!--footer-->
+<?= $this->render('footer') ?>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
 
 <?php $this->endBody() ?>
 </body>

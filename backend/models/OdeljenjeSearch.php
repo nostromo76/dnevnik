@@ -18,7 +18,7 @@ class OdeljenjeSearch extends Odeljenje
     public function rules()
     {
         return [
-            [['id_odeljenje', 'id_ucitelj'], 'integer'],
+            [['id_odeljenje'], 'integer'],
             [['naziv'], 'safe'],
         ];
     }
@@ -60,7 +60,6 @@ class OdeljenjeSearch extends Odeljenje
         // grid filtering conditions
         $query->andFilterWhere([
             'id_odeljenje' => $this->id_odeljenje,
-            'id_ucitelj' => $this->id_ucitelj,
         ]);
 
         $query->andFilterWhere(['like', 'naziv', $this->naziv]);

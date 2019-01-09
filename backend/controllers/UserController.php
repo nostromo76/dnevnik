@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use backend\models\User;
 use backend\models\UserSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -20,6 +21,16 @@ class UserController extends Controller
     public function behaviors()
     {
         return [
+           "access" => [
+              'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                         'actions' => ['index','update','create','delete','view'],
+                         'allow' => true,
+                         'roles' => ['@']
+                     ]
+              ]
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -69,7 +80,6 @@ class UserController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $model->auth_key = Yii::$app->security->generateRandomString();
             $model->password_hash = Yii::$app->security->generatePasswordHash($model->password_hash);
-            //$model->status = 10;
             if($model->save()){
                 return $this->redirect(['view', 'id' => $model->id]);
             }
