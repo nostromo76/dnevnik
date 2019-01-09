@@ -3,7 +3,7 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=ednevnik',
+            'dsn' => 'mysql:host=localhost;dbname=dnevnik',
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8',
