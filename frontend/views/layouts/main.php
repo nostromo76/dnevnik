@@ -4,8 +4,8 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-
+use yii\widgets\Breadcrumbs;
+use common\widgets\Alert;
 use frontend\assets\AppAsset;
 
 
@@ -25,20 +25,25 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
+
 <div class="wrap">
+
+    <!--header-->
+    <?= $this->render('header') ?>
+
+    <!--main-->
     <div class="container">
-        <div class="container bimg"></div> <!--slika pozadina-->
-            <?= $content ?>
-        </div> <!--kraj slike-->
+        <?= Breadcrumbs::widget([
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        ]) ?>
+        <?= Alert::widget() ?>
+        <?= $content ?>
+    </div>
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
+    <!--footer-->
+<?= $this->render('footer') ?>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
 
 <?php $this->endBody() ?>
 </body>
