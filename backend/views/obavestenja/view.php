@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Predmet */
+/* @var $model backend\models\Obavestenja */
 
-$this->title = $model->id_predmet;
-$this->params['breadcrumbs'][] = ['label' => 'Predmet', 'url' => ['index']];
+$this->title = $model->id_obavestenja;
+$this->params['breadcrumbs'][] = ['label' => 'Obavestenjas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="predmet-view">
+<div class="obavestenja-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id_predmet], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id_predmet], [
+        <?= Html::a('Update', ['update', 'id' => $model->id_obavestenja], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->id_obavestenja], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -28,9 +28,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id_predmet',
-            'obavezni',
-            'izborni',
+            'id_obavestenja',
+            'naziv',
+            'opis:ntext',
+            'id_odeljenje',
         ],
     ]) ?>
 

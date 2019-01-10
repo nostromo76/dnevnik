@@ -43,7 +43,18 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'user/update/<id:\d+>' => 'user/update',
-                'user/view/<id:\d+>' => 'user/view'
+                'user/view/<id:\d+>' => 'user/view',
+                'raspored/update/<id:\d+>' => 'raspored/update',
+                'raspored/view/<id:\d+>' => 'raspored/view',
+                'predmet/update/<id:\d+>' => 'predmet/update',
+                'predmet/view/<id:\d+>' => 'predmet/view',
+                'odeljenje/update/<id:\d+>' => 'odeljenje/update',
+                'odeljenje/view/<id:\d+>' => 'odeljenje/view',
+                'ucitelj/update/<id:\d+>' => 'ucitelj/update',
+                'ucitelj/view/<id:\d+>' => 'ucitelj/view',
+                'obavestenja/update/<id:\d+>' => 'obavestenja/update',
+                'obavestenja/view/<id:\d+>' => 'obavestenja/view',
+
             ],
         ],
 
