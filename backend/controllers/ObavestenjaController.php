@@ -6,6 +6,7 @@ use Yii;
 use backend\models\Obavestenja;
 use backend\models\ObavestenjaSearch;
 use yii\web\Controller;
+use yii\filters\AccessControl;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -20,6 +21,16 @@ class ObavestenjaController extends Controller
     public function behaviors()
     {
         return [
+            "access"=> [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['index','update','create','delete','view'],
+                        'allow' => true,
+                        'roles' => ['@']
+                    ]
+                ]
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
