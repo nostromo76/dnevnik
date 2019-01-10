@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use backend\models\Odeljenje;
 use backend\models\OdeljenjeSearch;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -20,6 +21,16 @@ class OdeljenjeController extends Controller
     public function behaviors()
     {
         return [
+            "access"=> [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['index','update','create','delete','view'],
+                        'allow' => true,
+                        'roles' => ['@']
+                    ]
+                ]
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
