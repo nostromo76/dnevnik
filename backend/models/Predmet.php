@@ -8,8 +8,8 @@ use Yii;
  * This is the model class for table "predmet".
  *
  * @property int $id_predmet
- * @property string $obavezni
- * @property string $izborni
+ * @property string $naziv
+ * @property string $status
  *
  * @property Ocena[] $ocenas
  * @property Raspored[] $rasporeds
@@ -30,8 +30,9 @@ class Predmet extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['obavezni'], 'required'],
-            [['obavezni', 'izborni'], 'string', 'max' => 45],
+            [['naziv'], 'required'],
+            [['status'], 'string'],
+            [['naziv'], 'string', 'max' => 45],
         ];
     }
 
@@ -42,8 +43,8 @@ class Predmet extends \yii\db\ActiveRecord
     {
         return [
             'id_predmet' => 'Id Predmet',
-            'obavezni' => 'Obavezni',
-            'izborni' => 'Izborni',
+            'naziv' => 'Naziv',
+            'status' => 'Status',
         ];
     }
 
