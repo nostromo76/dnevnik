@@ -5,7 +5,7 @@ return [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=localhost;dbname=ednevnik',
             'username' => 'root',
-            'password' => 'test123',
+            'password' => '',
             'charset' => 'utf8',
         ],
         'mailer' => [
