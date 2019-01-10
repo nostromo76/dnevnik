@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model backend\models\Predmet */
 
 $this->title = $model->id_predmet;
-$this->params['breadcrumbs'][] = ['label' => 'Predmets', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Predmet', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="predmet-view">

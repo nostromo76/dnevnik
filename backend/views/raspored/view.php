@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model backend\models\Raspored */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Rasporeds', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Raspored', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="raspored-view">

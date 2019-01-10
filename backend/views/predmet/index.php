@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\PredmetSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Predmets';
+$this->title = 'Predmet';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="predmet-index">
