@@ -4,14 +4,11 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-<<<<<<< HEAD
+
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-=======
-use yii\widgets\Breadcrumbs;
-use common\widgets\Alert;
->>>>>>> cbf23d110377217a1007d47d29ec72714b42bafe
+
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 
