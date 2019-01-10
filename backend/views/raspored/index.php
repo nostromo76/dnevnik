@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\RasporedSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Raspored';
+$this->title = 'Rasporeds';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="raspored-index">
@@ -25,21 +25,20 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            //'id',
+
+            'id',
             'dan',
             'br_casa',
             [
-                'attribute'=>'id_predmet',
-                'value'=> 'predmet.obavezni',
+                    'attribute' => 'id_predmet',
+                    'value' => 'predmet.naziv'
             ],
             //'id_predmet',
-            //'predmet.obavezni',
             [
-                'attribute'=>'id_odeljenje',
-                'value'=>'odeljenje.naziv',
+                    'attribute' => 'id_odeljenje',
+                    'value' => 'odeljenje.naziv'
             ],
             //'id_odeljenje',
-            //'predmet.izborni',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

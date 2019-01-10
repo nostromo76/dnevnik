@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model backend\models\Raspored */
 
 $this->title = 'Create Raspored';
-$this->params['breadcrumbs'][] = ['label' => 'Raspored', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Rasporeds', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="raspored-create">
