@@ -5,8 +5,8 @@ namespace backend\controllers;
 use Yii;
 use backend\models\Predmet;
 use backend\models\PredmetSearch;
-use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\filters\AccessControl;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 

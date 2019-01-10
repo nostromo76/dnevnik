@@ -19,7 +19,7 @@ class PredmetSearch extends Predmet
     {
         return [
             [['id_predmet'], 'integer'],
-            [['obavezni', 'izborni'], 'safe'],
+            [['naziv', 'status'], 'safe'],
         ];
     }
 
@@ -62,8 +62,8 @@ class PredmetSearch extends Predmet
             'id_predmet' => $this->id_predmet,
         ]);
 
-        $query->andFilterWhere(['like', 'obavezni', $this->obavezni])
-            ->andFilterWhere(['like', 'izborni', $this->izborni]);
+        $query->andFilterWhere(['like', 'naziv', $this->naziv])
+            ->andFilterWhere(['like', 'status', $this->status]);
 
         return $dataProvider;
     }
