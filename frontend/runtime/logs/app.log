@@ -1097,3 +1097,753 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1547114418.032
     'REQUEST_TIME' => 1547114418
 ]
+2019-01-11 10:31:13 [::1][18][cacvsgblkmpslsu2r185gd3nf6][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined variable: dataProvider' in C:\wamp64\www\dnevnik\frontend\views\raspored\index.php:23
+Stack trace:
+#0 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(254): yii\base\View->renderPhpFile()
+#1 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile()
+#2 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render()
+#3 C:\wamp64\www\dnevnik\frontend\controllers\RasporedController.php(44): yii\base\Controller->render()
+#4 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): frontend\controllers\RasporedController->actionIndex()
+#5 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#6 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#7 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction()
+#8 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction()
+#9 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#10 C:\wamp64\www\dnevnik\frontend\web\index.php(17): yii\base\Application->run()
+#11 {main}
+2019-01-11 10:31:13 [::1][18][cacvsgblkmpslsu2r185gd3nf6][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf-backend' => '7b7e07c5e84baa9f3d52655cee3ea25fb7c85af2ae4b6318daea8e5d5badb36da:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"zVPHmFTcdGN47xyKFbsVpcDH6EFl14IP\";}'
+    'advanced-backend' => 'evl4ine4tqj98ibv8frgu2n725'
+    'advanced-frontend' => 'cacvsgblkmpslsu2r185gd3nf6'
+    '_identity-frontend' => '324212c0f1749483492d3b65b238462094cd49ae4e8e93296c217a59b7016ecba:2:{i:0;s:18:\"_identity-frontend\";i:1;s:47:\"[18,\"DwjSw2a1I_KLx704dssIUzy_2FsbKrmJ\",2592000]\";}'
+    '_csrf-frontend' => 'a291d729f30de8ecc6e0b04905038604efb4a774bd0afbaa26efbe5879ae8ad3a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"qJOrj8a-2gv-82lK1ExS22JmkeidZD0K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 18
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => '_csrf-backend=7b7e07c5e84baa9f3d52655cee3ea25fb7c85af2ae4b6318daea8e5d5badb36da%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22zVPHmFTcdGN47xyKFbsVpcDH6EFl14IP%22%3B%7D; advanced-backend=evl4ine4tqj98ibv8frgu2n725; advanced-frontend=cacvsgblkmpslsu2r185gd3nf6; _identity-frontend=324212c0f1749483492d3b65b238462094cd49ae4e8e93296c217a59b7016ecba%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A47%3A%22%5B18%2C%22DwjSw2a1I_KLx704dssIUzy_2FsbKrmJ%22%2C2592000%5D%22%3B%7D; _csrf-frontend=a291d729f30de8ecc6e0b04905038604efb4a774bd0afbaa26efbe5879ae8ad3a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22qJOrj8a-2gv-82lK1ExS22JmkeidZD0K%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp64\\bin\\apache\\apache2.4.27\\bin;C:\\wamp64\\bin\\mysql\\mysql5.7.19\\bin;C:\\wamp64\\bin\\php\\php7.1.9;C:\\Program Files\\Git\\cmd;C:\\Program Files\\MySQL\\MySQL Utilities 1.6\\;C:\\Program Files\\Java\\jdk1.8.0_151\\bin;;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win64) PHP/5.6.31 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win64) PHP/5.6.31'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp64/www/dnevnik/frontend/web/index.php'
+    'REMOTE_PORT' => '57755'
+    'REDIRECT_URL' => '/dnevnik/frontend/web/raspored'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dnevnik/frontend/web/raspored'
+    'SCRIPT_NAME' => '/dnevnik/frontend/web/index.php'
+    'PHP_SELF' => '/dnevnik/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1547202673.026
+    'REQUEST_TIME' => 1547202673
+]
+2019-01-11 10:33:00 [::1][18][cacvsgblkmpslsu2r185gd3nf6][error][yii\base\UnknownMethodException] exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: frontend\models\Raspored::getCount()' in C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Component.php:300
+Stack trace:
+#0 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\widgets\BaseListView.php(190): yii\base\Component->__call('getCount', Array)
+#1 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\widgets\BaseListView.php(190): frontend\models\Raspored->getCount()
+#2 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\widgets\BaseListView.php(158): yii\widgets\BaseListView->renderSummary()
+#3 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\grid\GridView.php(321): yii\widgets\BaseListView->renderSection('{summary}')
+#4 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\widgets\BaseListView.php(135): yii\grid\GridView->renderSection('{summary}')
+#5 [internal function]: yii\widgets\BaseListView->yii\widgets\{closure}(Array)
+#6 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\widgets\BaseListView.php(138): preg_replace_callback('/{\\w+}/', Object(Closure), '{summary}\n{item...')
+#7 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\grid\GridView.php(296): yii\widgets\BaseListView->run()
+#8 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Widget.php(140): yii\grid\GridView->run()
+#9 C:\wamp64\www\dnevnik\frontend\views\raspored\index.php(36): yii\base\Widget::widget(Array)
+#10 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(336): require('C:\\wamp64\\www\\d...')
+#11 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(254): yii\base\View->renderPhpFile('C:\\wamp64\\www\\d...', Array)
+#12 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile('C:\\wamp64\\www\\d...', Array, Object(frontend\controllers\RasporedController))
+#13 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('index', Array, Object(frontend\controllers\RasporedController))
+#14 C:\wamp64\www\dnevnik\frontend\controllers\RasporedController.php(46): yii\base\Controller->render('index', Array)
+#15 [internal function]: frontend\controllers\RasporedController->actionIndex()
+#16 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#17 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#18 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('', Array)
+#19 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('raspored', Array)
+#20 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#21 C:\wamp64\www\dnevnik\frontend\web\index.php(17): yii\base\Application->run()
+#22 {main}
+2019-01-11 10:33:00 [::1][18][cacvsgblkmpslsu2r185gd3nf6][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf-backend' => '7b7e07c5e84baa9f3d52655cee3ea25fb7c85af2ae4b6318daea8e5d5badb36da:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"zVPHmFTcdGN47xyKFbsVpcDH6EFl14IP\";}'
+    'advanced-backend' => 'evl4ine4tqj98ibv8frgu2n725'
+    'advanced-frontend' => 'cacvsgblkmpslsu2r185gd3nf6'
+    '_identity-frontend' => '324212c0f1749483492d3b65b238462094cd49ae4e8e93296c217a59b7016ecba:2:{i:0;s:18:\"_identity-frontend\";i:1;s:47:\"[18,\"DwjSw2a1I_KLx704dssIUzy_2FsbKrmJ\",2592000]\";}'
+    '_csrf-frontend' => 'a291d729f30de8ecc6e0b04905038604efb4a774bd0afbaa26efbe5879ae8ad3a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"qJOrj8a-2gv-82lK1ExS22JmkeidZD0K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 18
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => '_csrf-backend=7b7e07c5e84baa9f3d52655cee3ea25fb7c85af2ae4b6318daea8e5d5badb36da%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22zVPHmFTcdGN47xyKFbsVpcDH6EFl14IP%22%3B%7D; advanced-backend=evl4ine4tqj98ibv8frgu2n725; advanced-frontend=cacvsgblkmpslsu2r185gd3nf6; _identity-frontend=324212c0f1749483492d3b65b238462094cd49ae4e8e93296c217a59b7016ecba%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A47%3A%22%5B18%2C%22DwjSw2a1I_KLx704dssIUzy_2FsbKrmJ%22%2C2592000%5D%22%3B%7D; _csrf-frontend=a291d729f30de8ecc6e0b04905038604efb4a774bd0afbaa26efbe5879ae8ad3a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22qJOrj8a-2gv-82lK1ExS22JmkeidZD0K%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp64\\bin\\apache\\apache2.4.27\\bin;C:\\wamp64\\bin\\mysql\\mysql5.7.19\\bin;C:\\wamp64\\bin\\php\\php7.1.9;C:\\Program Files\\Git\\cmd;C:\\Program Files\\MySQL\\MySQL Utilities 1.6\\;C:\\Program Files\\Java\\jdk1.8.0_151\\bin;;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win64) PHP/5.6.31 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win64) PHP/5.6.31'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp64/www/dnevnik/frontend/web/index.php'
+    'REMOTE_PORT' => '57758'
+    'REDIRECT_URL' => '/dnevnik/frontend/web/raspored'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dnevnik/frontend/web/raspored'
+    'SCRIPT_NAME' => '/dnevnik/frontend/web/index.php'
+    'PHP_SELF' => '/dnevnik/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1547202780.719
+    'REQUEST_TIME' => 1547202780
+]
+2019-01-11 10:39:17 [::1][18][cacvsgblkmpslsu2r185gd3nf6][error][yii\base\ErrorException:2] exception 'yii\base\ErrorException' with message 'Invalid argument supplied for foreach()' in C:\wamp64\www\dnevnik\frontend\views\raspored\index.php:45
+Stack trace:
+#0 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(254): yii\base\View->renderPhpFile()
+#1 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile()
+#2 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render()
+#3 C:\wamp64\www\dnevnik\frontend\controllers\RasporedController.php(46): yii\base\Controller->render()
+#4 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): frontend\controllers\RasporedController->actionIndex()
+#5 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#6 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#7 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction()
+#8 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction()
+#9 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#10 C:\wamp64\www\dnevnik\frontend\web\index.php(17): yii\base\Application->run()
+#11 {main}
+2019-01-11 10:39:16 [::1][18][cacvsgblkmpslsu2r185gd3nf6][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf-backend' => '7b7e07c5e84baa9f3d52655cee3ea25fb7c85af2ae4b6318daea8e5d5badb36da:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"zVPHmFTcdGN47xyKFbsVpcDH6EFl14IP\";}'
+    'advanced-backend' => 'evl4ine4tqj98ibv8frgu2n725'
+    'advanced-frontend' => 'cacvsgblkmpslsu2r185gd3nf6'
+    '_identity-frontend' => '324212c0f1749483492d3b65b238462094cd49ae4e8e93296c217a59b7016ecba:2:{i:0;s:18:\"_identity-frontend\";i:1;s:47:\"[18,\"DwjSw2a1I_KLx704dssIUzy_2FsbKrmJ\",2592000]\";}'
+    '_csrf-frontend' => 'a291d729f30de8ecc6e0b04905038604efb4a774bd0afbaa26efbe5879ae8ad3a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"qJOrj8a-2gv-82lK1ExS22JmkeidZD0K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 18
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => '_csrf-backend=7b7e07c5e84baa9f3d52655cee3ea25fb7c85af2ae4b6318daea8e5d5badb36da%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22zVPHmFTcdGN47xyKFbsVpcDH6EFl14IP%22%3B%7D; advanced-backend=evl4ine4tqj98ibv8frgu2n725; advanced-frontend=cacvsgblkmpslsu2r185gd3nf6; _identity-frontend=324212c0f1749483492d3b65b238462094cd49ae4e8e93296c217a59b7016ecba%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A47%3A%22%5B18%2C%22DwjSw2a1I_KLx704dssIUzy_2FsbKrmJ%22%2C2592000%5D%22%3B%7D; _csrf-frontend=a291d729f30de8ecc6e0b04905038604efb4a774bd0afbaa26efbe5879ae8ad3a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22qJOrj8a-2gv-82lK1ExS22JmkeidZD0K%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp64\\bin\\apache\\apache2.4.27\\bin;C:\\wamp64\\bin\\mysql\\mysql5.7.19\\bin;C:\\wamp64\\bin\\php\\php7.1.9;C:\\Program Files\\Git\\cmd;C:\\Program Files\\MySQL\\MySQL Utilities 1.6\\;C:\\Program Files\\Java\\jdk1.8.0_151\\bin;;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win64) PHP/5.6.31 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win64) PHP/5.6.31'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp64/www/dnevnik/frontend/web/index.php'
+    'REMOTE_PORT' => '57795'
+    'REDIRECT_URL' => '/dnevnik/frontend/web/raspored'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dnevnik/frontend/web/raspored'
+    'SCRIPT_NAME' => '/dnevnik/frontend/web/index.php'
+    'PHP_SELF' => '/dnevnik/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1547203156.881
+    'REQUEST_TIME' => 1547203156
+]
+2019-01-11 10:43:08 [::1][18][cacvsgblkmpslsu2r185gd3nf6][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined variable: model' in C:\wamp64\www\dnevnik\frontend\views\raspored\index.php:23
+Stack trace:
+#0 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(254): yii\base\View->renderPhpFile()
+#1 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile()
+#2 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render()
+#3 C:\wamp64\www\dnevnik\frontend\controllers\RasporedController.php(44): yii\base\Controller->render()
+#4 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): frontend\controllers\RasporedController->actionIndex()
+#5 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#6 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#7 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction()
+#8 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction()
+#9 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#10 C:\wamp64\www\dnevnik\frontend\web\index.php(17): yii\base\Application->run()
+#11 {main}
+2019-01-11 10:43:08 [::1][18][cacvsgblkmpslsu2r185gd3nf6][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf-backend' => '7b7e07c5e84baa9f3d52655cee3ea25fb7c85af2ae4b6318daea8e5d5badb36da:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"zVPHmFTcdGN47xyKFbsVpcDH6EFl14IP\";}'
+    'advanced-backend' => 'evl4ine4tqj98ibv8frgu2n725'
+    'advanced-frontend' => 'cacvsgblkmpslsu2r185gd3nf6'
+    '_identity-frontend' => '324212c0f1749483492d3b65b238462094cd49ae4e8e93296c217a59b7016ecba:2:{i:0;s:18:\"_identity-frontend\";i:1;s:47:\"[18,\"DwjSw2a1I_KLx704dssIUzy_2FsbKrmJ\",2592000]\";}'
+    '_csrf-frontend' => 'a291d729f30de8ecc6e0b04905038604efb4a774bd0afbaa26efbe5879ae8ad3a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"qJOrj8a-2gv-82lK1ExS22JmkeidZD0K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 18
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => '_csrf-backend=7b7e07c5e84baa9f3d52655cee3ea25fb7c85af2ae4b6318daea8e5d5badb36da%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22zVPHmFTcdGN47xyKFbsVpcDH6EFl14IP%22%3B%7D; advanced-backend=evl4ine4tqj98ibv8frgu2n725; advanced-frontend=cacvsgblkmpslsu2r185gd3nf6; _identity-frontend=324212c0f1749483492d3b65b238462094cd49ae4e8e93296c217a59b7016ecba%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A47%3A%22%5B18%2C%22DwjSw2a1I_KLx704dssIUzy_2FsbKrmJ%22%2C2592000%5D%22%3B%7D; _csrf-frontend=a291d729f30de8ecc6e0b04905038604efb4a774bd0afbaa26efbe5879ae8ad3a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22qJOrj8a-2gv-82lK1ExS22JmkeidZD0K%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp64\\bin\\apache\\apache2.4.27\\bin;C:\\wamp64\\bin\\mysql\\mysql5.7.19\\bin;C:\\wamp64\\bin\\php\\php7.1.9;C:\\Program Files\\Git\\cmd;C:\\Program Files\\MySQL\\MySQL Utilities 1.6\\;C:\\Program Files\\Java\\jdk1.8.0_151\\bin;;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win64) PHP/5.6.31 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win64) PHP/5.6.31'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp64/www/dnevnik/frontend/web/index.php'
+    'REMOTE_PORT' => '57823'
+    'REDIRECT_URL' => '/dnevnik/frontend/web/raspored'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dnevnik/frontend/web/raspored'
+    'SCRIPT_NAME' => '/dnevnik/frontend/web/index.php'
+    'PHP_SELF' => '/dnevnik/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1547203388.269
+    'REQUEST_TIME' => 1547203388
+]
+2019-01-11 10:46:31 [::1][18][cacvsgblkmpslsu2r185gd3nf6][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined variable: model' in C:\wamp64\www\dnevnik\frontend\views\raspored\index.php:40
+Stack trace:
+#0 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(254): yii\base\View->renderPhpFile()
+#1 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile()
+#2 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render()
+#3 C:\wamp64\www\dnevnik\frontend\controllers\RasporedController.php(46): yii\base\Controller->render()
+#4 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): frontend\controllers\RasporedController->actionIndex()
+#5 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#6 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#7 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction()
+#8 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction()
+#9 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#10 C:\wamp64\www\dnevnik\frontend\web\index.php(17): yii\base\Application->run()
+#11 {main}
+2019-01-11 10:46:31 [::1][18][cacvsgblkmpslsu2r185gd3nf6][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf-backend' => '7b7e07c5e84baa9f3d52655cee3ea25fb7c85af2ae4b6318daea8e5d5badb36da:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"zVPHmFTcdGN47xyKFbsVpcDH6EFl14IP\";}'
+    'advanced-backend' => 'evl4ine4tqj98ibv8frgu2n725'
+    'advanced-frontend' => 'cacvsgblkmpslsu2r185gd3nf6'
+    '_identity-frontend' => '324212c0f1749483492d3b65b238462094cd49ae4e8e93296c217a59b7016ecba:2:{i:0;s:18:\"_identity-frontend\";i:1;s:47:\"[18,\"DwjSw2a1I_KLx704dssIUzy_2FsbKrmJ\",2592000]\";}'
+    '_csrf-frontend' => 'a291d729f30de8ecc6e0b04905038604efb4a774bd0afbaa26efbe5879ae8ad3a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"qJOrj8a-2gv-82lK1ExS22JmkeidZD0K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 18
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => '_csrf-backend=7b7e07c5e84baa9f3d52655cee3ea25fb7c85af2ae4b6318daea8e5d5badb36da%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22zVPHmFTcdGN47xyKFbsVpcDH6EFl14IP%22%3B%7D; advanced-backend=evl4ine4tqj98ibv8frgu2n725; advanced-frontend=cacvsgblkmpslsu2r185gd3nf6; _identity-frontend=324212c0f1749483492d3b65b238462094cd49ae4e8e93296c217a59b7016ecba%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A47%3A%22%5B18%2C%22DwjSw2a1I_KLx704dssIUzy_2FsbKrmJ%22%2C2592000%5D%22%3B%7D; _csrf-frontend=a291d729f30de8ecc6e0b04905038604efb4a774bd0afbaa26efbe5879ae8ad3a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22qJOrj8a-2gv-82lK1ExS22JmkeidZD0K%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp64\\bin\\apache\\apache2.4.27\\bin;C:\\wamp64\\bin\\mysql\\mysql5.7.19\\bin;C:\\wamp64\\bin\\php\\php7.1.9;C:\\Program Files\\Git\\cmd;C:\\Program Files\\MySQL\\MySQL Utilities 1.6\\;C:\\Program Files\\Java\\jdk1.8.0_151\\bin;;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win64) PHP/5.6.31 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win64) PHP/5.6.31'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp64/www/dnevnik/frontend/web/index.php'
+    'REMOTE_PORT' => '57843'
+    'REDIRECT_URL' => '/dnevnik/frontend/web/raspored'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dnevnik/frontend/web/raspored'
+    'SCRIPT_NAME' => '/dnevnik/frontend/web/index.php'
+    'PHP_SELF' => '/dnevnik/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1547203591.021
+    'REQUEST_TIME' => 1547203591
+]
+2019-01-11 10:47:57 [::1][18][cacvsgblkmpslsu2r185gd3nf6][error][yii\base\ErrorException:4096] exception 'yii\base\ErrorException' with message 'Object of class frontend\models\Predmet could not be converted to string' in C:\wamp64\www\dnevnik\frontend\views\raspored\index.php:41
+Stack trace:
+#0 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(254): yii\base\View->renderPhpFile()
+#1 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile()
+#2 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render()
+#3 C:\wamp64\www\dnevnik\frontend\controllers\RasporedController.php(46): yii\base\Controller->render()
+#4 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): frontend\controllers\RasporedController->actionIndex()
+#5 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#6 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#7 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction()
+#8 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction()
+#9 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#10 C:\wamp64\www\dnevnik\frontend\web\index.php(17): yii\base\Application->run()
+#11 {main}
+2019-01-11 10:47:57 [::1][18][cacvsgblkmpslsu2r185gd3nf6][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf-backend' => '7b7e07c5e84baa9f3d52655cee3ea25fb7c85af2ae4b6318daea8e5d5badb36da:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"zVPHmFTcdGN47xyKFbsVpcDH6EFl14IP\";}'
+    'advanced-backend' => 'evl4ine4tqj98ibv8frgu2n725'
+    'advanced-frontend' => 'cacvsgblkmpslsu2r185gd3nf6'
+    '_identity-frontend' => '324212c0f1749483492d3b65b238462094cd49ae4e8e93296c217a59b7016ecba:2:{i:0;s:18:\"_identity-frontend\";i:1;s:47:\"[18,\"DwjSw2a1I_KLx704dssIUzy_2FsbKrmJ\",2592000]\";}'
+    '_csrf-frontend' => 'a291d729f30de8ecc6e0b04905038604efb4a774bd0afbaa26efbe5879ae8ad3a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"qJOrj8a-2gv-82lK1ExS22JmkeidZD0K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 18
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => '_csrf-backend=7b7e07c5e84baa9f3d52655cee3ea25fb7c85af2ae4b6318daea8e5d5badb36da%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22zVPHmFTcdGN47xyKFbsVpcDH6EFl14IP%22%3B%7D; advanced-backend=evl4ine4tqj98ibv8frgu2n725; advanced-frontend=cacvsgblkmpslsu2r185gd3nf6; _identity-frontend=324212c0f1749483492d3b65b238462094cd49ae4e8e93296c217a59b7016ecba%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A47%3A%22%5B18%2C%22DwjSw2a1I_KLx704dssIUzy_2FsbKrmJ%22%2C2592000%5D%22%3B%7D; _csrf-frontend=a291d729f30de8ecc6e0b04905038604efb4a774bd0afbaa26efbe5879ae8ad3a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22qJOrj8a-2gv-82lK1ExS22JmkeidZD0K%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp64\\bin\\apache\\apache2.4.27\\bin;C:\\wamp64\\bin\\mysql\\mysql5.7.19\\bin;C:\\wamp64\\bin\\php\\php7.1.9;C:\\Program Files\\Git\\cmd;C:\\Program Files\\MySQL\\MySQL Utilities 1.6\\;C:\\Program Files\\Java\\jdk1.8.0_151\\bin;;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win64) PHP/5.6.31 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win64) PHP/5.6.31'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp64/www/dnevnik/frontend/web/index.php'
+    'REMOTE_PORT' => '57856'
+    'REDIRECT_URL' => '/dnevnik/frontend/web/raspored'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dnevnik/frontend/web/raspored'
+    'SCRIPT_NAME' => '/dnevnik/frontend/web/index.php'
+    'PHP_SELF' => '/dnevnik/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1547203677.546
+    'REQUEST_TIME' => 1547203677
+]
+2019-01-11 10:48:47 [::1][18][cacvsgblkmpslsu2r185gd3nf6][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Trying to get property of non-object' in C:\wamp64\www\dnevnik\frontend\views\raspored\index.php:41
+Stack trace:
+#0 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(254): yii\base\View->renderPhpFile()
+#1 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile()
+#2 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render()
+#3 C:\wamp64\www\dnevnik\frontend\controllers\RasporedController.php(46): yii\base\Controller->render()
+#4 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): frontend\controllers\RasporedController->actionIndex()
+#5 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#6 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#7 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction()
+#8 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction()
+#9 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#10 C:\wamp64\www\dnevnik\frontend\web\index.php(17): yii\base\Application->run()
+#11 {main}
+2019-01-11 10:48:47 [::1][18][cacvsgblkmpslsu2r185gd3nf6][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf-backend' => '7b7e07c5e84baa9f3d52655cee3ea25fb7c85af2ae4b6318daea8e5d5badb36da:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"zVPHmFTcdGN47xyKFbsVpcDH6EFl14IP\";}'
+    'advanced-backend' => 'evl4ine4tqj98ibv8frgu2n725'
+    'advanced-frontend' => 'cacvsgblkmpslsu2r185gd3nf6'
+    '_identity-frontend' => '324212c0f1749483492d3b65b238462094cd49ae4e8e93296c217a59b7016ecba:2:{i:0;s:18:\"_identity-frontend\";i:1;s:47:\"[18,\"DwjSw2a1I_KLx704dssIUzy_2FsbKrmJ\",2592000]\";}'
+    '_csrf-frontend' => 'a291d729f30de8ecc6e0b04905038604efb4a774bd0afbaa26efbe5879ae8ad3a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"qJOrj8a-2gv-82lK1ExS22JmkeidZD0K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 18
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => '_csrf-backend=7b7e07c5e84baa9f3d52655cee3ea25fb7c85af2ae4b6318daea8e5d5badb36da%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22zVPHmFTcdGN47xyKFbsVpcDH6EFl14IP%22%3B%7D; advanced-backend=evl4ine4tqj98ibv8frgu2n725; advanced-frontend=cacvsgblkmpslsu2r185gd3nf6; _identity-frontend=324212c0f1749483492d3b65b238462094cd49ae4e8e93296c217a59b7016ecba%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A47%3A%22%5B18%2C%22DwjSw2a1I_KLx704dssIUzy_2FsbKrmJ%22%2C2592000%5D%22%3B%7D; _csrf-frontend=a291d729f30de8ecc6e0b04905038604efb4a774bd0afbaa26efbe5879ae8ad3a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22qJOrj8a-2gv-82lK1ExS22JmkeidZD0K%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp64\\bin\\apache\\apache2.4.27\\bin;C:\\wamp64\\bin\\mysql\\mysql5.7.19\\bin;C:\\wamp64\\bin\\php\\php7.1.9;C:\\Program Files\\Git\\cmd;C:\\Program Files\\MySQL\\MySQL Utilities 1.6\\;C:\\Program Files\\Java\\jdk1.8.0_151\\bin;;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win64) PHP/5.6.31 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win64) PHP/5.6.31'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp64/www/dnevnik/frontend/web/index.php'
+    'REMOTE_PORT' => '57864'
+    'REDIRECT_URL' => '/dnevnik/frontend/web/raspored'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dnevnik/frontend/web/raspored'
+    'SCRIPT_NAME' => '/dnevnik/frontend/web/index.php'
+    'PHP_SELF' => '/dnevnik/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1547203727.604
+    'REQUEST_TIME' => 1547203727
+]
+2019-01-11 10:50:09 [::1][18][cacvsgblkmpslsu2r185gd3nf6][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Trying to get property of non-object' in C:\wamp64\www\dnevnik\frontend\views\raspored\index.php:41
+Stack trace:
+#0 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(254): yii\base\View->renderPhpFile()
+#1 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile()
+#2 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render()
+#3 C:\wamp64\www\dnevnik\frontend\controllers\RasporedController.php(46): yii\base\Controller->render()
+#4 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): frontend\controllers\RasporedController->actionIndex()
+#5 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#6 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#7 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction()
+#8 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction()
+#9 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#10 C:\wamp64\www\dnevnik\frontend\web\index.php(17): yii\base\Application->run()
+#11 {main}
+2019-01-11 10:50:09 [::1][18][cacvsgblkmpslsu2r185gd3nf6][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf-backend' => '7b7e07c5e84baa9f3d52655cee3ea25fb7c85af2ae4b6318daea8e5d5badb36da:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"zVPHmFTcdGN47xyKFbsVpcDH6EFl14IP\";}'
+    'advanced-backend' => 'evl4ine4tqj98ibv8frgu2n725'
+    'advanced-frontend' => 'cacvsgblkmpslsu2r185gd3nf6'
+    '_identity-frontend' => '324212c0f1749483492d3b65b238462094cd49ae4e8e93296c217a59b7016ecba:2:{i:0;s:18:\"_identity-frontend\";i:1;s:47:\"[18,\"DwjSw2a1I_KLx704dssIUzy_2FsbKrmJ\",2592000]\";}'
+    '_csrf-frontend' => 'a291d729f30de8ecc6e0b04905038604efb4a774bd0afbaa26efbe5879ae8ad3a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"qJOrj8a-2gv-82lK1ExS22JmkeidZD0K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 18
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => '_csrf-backend=7b7e07c5e84baa9f3d52655cee3ea25fb7c85af2ae4b6318daea8e5d5badb36da%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22zVPHmFTcdGN47xyKFbsVpcDH6EFl14IP%22%3B%7D; advanced-backend=evl4ine4tqj98ibv8frgu2n725; advanced-frontend=cacvsgblkmpslsu2r185gd3nf6; _identity-frontend=324212c0f1749483492d3b65b238462094cd49ae4e8e93296c217a59b7016ecba%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A47%3A%22%5B18%2C%22DwjSw2a1I_KLx704dssIUzy_2FsbKrmJ%22%2C2592000%5D%22%3B%7D; _csrf-frontend=a291d729f30de8ecc6e0b04905038604efb4a774bd0afbaa26efbe5879ae8ad3a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22qJOrj8a-2gv-82lK1ExS22JmkeidZD0K%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp64\\bin\\apache\\apache2.4.27\\bin;C:\\wamp64\\bin\\mysql\\mysql5.7.19\\bin;C:\\wamp64\\bin\\php\\php7.1.9;C:\\Program Files\\Git\\cmd;C:\\Program Files\\MySQL\\MySQL Utilities 1.6\\;C:\\Program Files\\Java\\jdk1.8.0_151\\bin;;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win64) PHP/5.6.31 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win64) PHP/5.6.31'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp64/www/dnevnik/frontend/web/index.php'
+    'REMOTE_PORT' => '57870'
+    'REDIRECT_URL' => '/dnevnik/frontend/web/raspored'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dnevnik/frontend/web/raspored'
+    'SCRIPT_NAME' => '/dnevnik/frontend/web/index.php'
+    'PHP_SELF' => '/dnevnik/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1547203809.642
+    'REQUEST_TIME' => 1547203809
+]
+2019-01-11 10:52:42 [::1][18][cacvsgblkmpslsu2r185gd3nf6][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected ''<hr>;' (T_ENCAPSED_AND_WHITESPACE)' in C:\wamp64\www\dnevnik\frontend\views\raspored\index.php:42
+Stack trace:
+#0 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile()
+#1 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render()
+#2 C:\wamp64\www\dnevnik\frontend\controllers\RasporedController.php(46): yii\base\Controller->render()
+#3 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): frontend\controllers\RasporedController->actionIndex()
+#4 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#5 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#6 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction()
+#7 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction()
+#8 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#9 C:\wamp64\www\dnevnik\frontend\web\index.php(17): yii\base\Application->run()
+#10 {main}
+2019-01-11 10:52:42 [::1][18][cacvsgblkmpslsu2r185gd3nf6][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf-backend' => '7b7e07c5e84baa9f3d52655cee3ea25fb7c85af2ae4b6318daea8e5d5badb36da:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"zVPHmFTcdGN47xyKFbsVpcDH6EFl14IP\";}'
+    'advanced-backend' => 'evl4ine4tqj98ibv8frgu2n725'
+    'advanced-frontend' => 'cacvsgblkmpslsu2r185gd3nf6'
+    '_identity-frontend' => '324212c0f1749483492d3b65b238462094cd49ae4e8e93296c217a59b7016ecba:2:{i:0;s:18:\"_identity-frontend\";i:1;s:47:\"[18,\"DwjSw2a1I_KLx704dssIUzy_2FsbKrmJ\",2592000]\";}'
+    '_csrf-frontend' => 'a291d729f30de8ecc6e0b04905038604efb4a774bd0afbaa26efbe5879ae8ad3a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"qJOrj8a-2gv-82lK1ExS22JmkeidZD0K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 18
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => '_csrf-backend=7b7e07c5e84baa9f3d52655cee3ea25fb7c85af2ae4b6318daea8e5d5badb36da%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22zVPHmFTcdGN47xyKFbsVpcDH6EFl14IP%22%3B%7D; advanced-backend=evl4ine4tqj98ibv8frgu2n725; advanced-frontend=cacvsgblkmpslsu2r185gd3nf6; _identity-frontend=324212c0f1749483492d3b65b238462094cd49ae4e8e93296c217a59b7016ecba%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A47%3A%22%5B18%2C%22DwjSw2a1I_KLx704dssIUzy_2FsbKrmJ%22%2C2592000%5D%22%3B%7D; _csrf-frontend=a291d729f30de8ecc6e0b04905038604efb4a774bd0afbaa26efbe5879ae8ad3a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22qJOrj8a-2gv-82lK1ExS22JmkeidZD0K%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp64\\bin\\apache\\apache2.4.27\\bin;C:\\wamp64\\bin\\mysql\\mysql5.7.19\\bin;C:\\wamp64\\bin\\php\\php7.1.9;C:\\Program Files\\Git\\cmd;C:\\Program Files\\MySQL\\MySQL Utilities 1.6\\;C:\\Program Files\\Java\\jdk1.8.0_151\\bin;;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win64) PHP/5.6.31 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win64) PHP/5.6.31'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp64/www/dnevnik/frontend/web/index.php'
+    'REMOTE_PORT' => '57897'
+    'REDIRECT_URL' => '/dnevnik/frontend/web/raspored'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dnevnik/frontend/web/raspored'
+    'SCRIPT_NAME' => '/dnevnik/frontend/web/index.php'
+    'PHP_SELF' => '/dnevnik/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1547203962.47
+    'REQUEST_TIME' => 1547203962
+]
+2019-01-11 11:00:57 [::1][18][cacvsgblkmpslsu2r185gd3nf6][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Trying to get property of non-object' in C:\wamp64\www\dnevnik\frontend\views\raspored\index.php:50
+Stack trace:
+#0 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(254): yii\base\View->renderPhpFile()
+#1 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile()
+#2 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render()
+#3 C:\wamp64\www\dnevnik\frontend\controllers\RasporedController.php(46): yii\base\Controller->render()
+#4 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): frontend\controllers\RasporedController->actionIndex()
+#5 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#6 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#7 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction()
+#8 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction()
+#9 C:\wamp64\www\dnevnik\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#10 C:\wamp64\www\dnevnik\frontend\web\index.php(17): yii\base\Application->run()
+#11 {main}
+2019-01-11 11:00:57 [::1][18][cacvsgblkmpslsu2r185gd3nf6][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf-backend' => '7b7e07c5e84baa9f3d52655cee3ea25fb7c85af2ae4b6318daea8e5d5badb36da:2:{i:0;s:13:\"_csrf-backend\";i:1;s:32:\"zVPHmFTcdGN47xyKFbsVpcDH6EFl14IP\";}'
+    'advanced-backend' => 'evl4ine4tqj98ibv8frgu2n725'
+    'advanced-frontend' => 'cacvsgblkmpslsu2r185gd3nf6'
+    '_identity-frontend' => '324212c0f1749483492d3b65b238462094cd49ae4e8e93296c217a59b7016ecba:2:{i:0;s:18:\"_identity-frontend\";i:1;s:47:\"[18,\"DwjSw2a1I_KLx704dssIUzy_2FsbKrmJ\",2592000]\";}'
+    '_csrf-frontend' => 'a291d729f30de8ecc6e0b04905038604efb4a774bd0afbaa26efbe5879ae8ad3a:2:{i:0;s:14:\"_csrf-frontend\";i:1;s:32:\"qJOrj8a-2gv-82lK1ExS22JmkeidZD0K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 18
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => '_csrf-backend=7b7e07c5e84baa9f3d52655cee3ea25fb7c85af2ae4b6318daea8e5d5badb36da%3A2%3A%7Bi%3A0%3Bs%3A13%3A%22_csrf-backend%22%3Bi%3A1%3Bs%3A32%3A%22zVPHmFTcdGN47xyKFbsVpcDH6EFl14IP%22%3B%7D; advanced-backend=evl4ine4tqj98ibv8frgu2n725; advanced-frontend=cacvsgblkmpslsu2r185gd3nf6; _identity-frontend=324212c0f1749483492d3b65b238462094cd49ae4e8e93296c217a59b7016ecba%3A2%3A%7Bi%3A0%3Bs%3A18%3A%22_identity-frontend%22%3Bi%3A1%3Bs%3A47%3A%22%5B18%2C%22DwjSw2a1I_KLx704dssIUzy_2FsbKrmJ%22%2C2592000%5D%22%3B%7D; _csrf-frontend=a291d729f30de8ecc6e0b04905038604efb4a774bd0afbaa26efbe5879ae8ad3a%3A2%3A%7Bi%3A0%3Bs%3A14%3A%22_csrf-frontend%22%3Bi%3A1%3Bs%3A32%3A%22qJOrj8a-2gv-82lK1ExS22JmkeidZD0K%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp64\\bin\\apache\\apache2.4.27\\bin;C:\\wamp64\\bin\\mysql\\mysql5.7.19\\bin;C:\\wamp64\\bin\\php\\php7.1.9;C:\\Program Files\\Git\\cmd;C:\\Program Files\\MySQL\\MySQL Utilities 1.6\\;C:\\Program Files\\Java\\jdk1.8.0_151\\bin;;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win64) PHP/5.6.31 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win64) PHP/5.6.31'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp64/www/dnevnik/frontend/web/index.php'
+    'REMOTE_PORT' => '57946'
+    'REDIRECT_URL' => '/dnevnik/frontend/web/raspored'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dnevnik/frontend/web/raspored'
+    'SCRIPT_NAME' => '/dnevnik/frontend/web/index.php'
+    'PHP_SELF' => '/dnevnik/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1547204457.698
+    'REQUEST_TIME' => 1547204457
+]
