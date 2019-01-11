@@ -100,4 +100,8 @@ class Roditelj extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Ucenik::className(), ['id_roditelj' => 'id_roditelj']);
     }
+    public function getUsername(){
+
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
 }
