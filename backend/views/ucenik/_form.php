@@ -29,7 +29,7 @@ use backend\models\Roditelj;
     <!-- id_odeljenje textInput -->
 
     <?= $form->field($model, 'id_roditelj')->dropDownList(
-        ArrayHelper::map(roditelj::find()->all(), 'id_roditelj', 'user_id'),
+        ArrayHelper::map(roditelj::find()->all(), 'id_roditelj', 'user.username'),
         ['prompt'=> 'Select Roditelj']
     ) ?>
     <!-- id_roditelj textInput -->

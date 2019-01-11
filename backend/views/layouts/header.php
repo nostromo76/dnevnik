@@ -21,6 +21,8 @@ $menuItems = [
     ['label' => 'Raspored', 'url' => ['/raspored/index']],
     ['label' => 'Predmet', 'url' => ['/predmet/index']],
     ['label' => 'Odeljenje', 'url' => ['/odeljenje/index']],
+    ['label' => 'Ucenik', 'url' => ['/ucenik/index']],
+    ['label' => 'Roditelj', 'url' => ['/roditelj/index']],
     ['label' => 'Ucitelj', 'url' => ['/ucitelj/index']],
     ['label' => 'Obavestenja', 'url' => ['/obavestenja/index']],
 ];

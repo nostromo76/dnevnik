@@ -8,7 +8,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\UcenikSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Uceniks';
+$this->title = 'Ucenik';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ucenik-index">
@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'id_odeljenje',
             [
                 'attribute'=>'id_roditelj',
-                'value'=>'roditelj.user_id',
+                'value'=>'roditelj.user.username',
             ],
             //'id_roditelj',
 

@@ -99,4 +99,5 @@ class Ucenik extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Odeljenje::className(), ['id_odeljenje' => 'id_odeljenje']);
     }
+
 }
