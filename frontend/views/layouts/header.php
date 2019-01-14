@@ -16,7 +16,9 @@ NavBar::begin([
 ]);
 $menuItems = [
     ['label' => 'Početna', 'url' => ['/site/index']],
-    ['label' => 'Raspored', 'url' => ['/raspored']]
+    ['label' => 'Raspored', 'url' => ['/raspored']],
+    ['label' => 'Obavestenja', 'url' => ['/roditelj/obavestenja']],
+    ['label' => 'Ocena', 'url' => ['/roditelj/ocena']]
 ];
 if (Yii::$app->user->isGuest) {
     $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
