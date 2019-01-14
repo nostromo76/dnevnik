@@ -20,5 +20,4 @@ $this->title = 'Obavestenja';
     <h3><a href="<?=Url::to(['view', 'id'=>$obavestenje->id_obavestenja])?>"><?= $obavestenje->naziv ?></a></h3>
     <?= Html::tag('p', $obavestenje->opis, ['class'=> 'post-subtitle']) ?>
         <?php } ?>
-
 </div>
