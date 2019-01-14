@@ -18,7 +18,6 @@ $this->title = 'Obavestenja';
     <?= Html::tag('div', '', ['class'=> 'jumbotron']) ?>
         <?php foreach($model as $obavestenje){?>
     <h3><a href="<?=Url::to(['view', 'id'=>$obavestenje->id_obavestenja])?>"><?= $obavestenje->naziv ?></a></h3>
-    <?= Html::tag('h2', $obavestenje->naziv ) ?>
     <?= Html::tag('p', $obavestenje->opis, ['class'=> 'post-subtitle']) ?>
         <?php } ?>
 

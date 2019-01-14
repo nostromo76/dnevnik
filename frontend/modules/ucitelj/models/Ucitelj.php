@@ -2,6 +2,7 @@
 
 namespace frontend\modules\ucitelj\models;
 
+use frontend\modules\ucitelj\models\User;
 use Yii;
 
 /**
@@ -91,4 +92,5 @@ class Ucitelj extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
+
 }
