@@ -54,7 +54,8 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'site/index/<id:\d+>' => 'site/index'
+                'site/index/<id:\d+>' => 'site/index',
+                'ucitelj/ucitelj/view/<id:\d+>' => 'ucitelj/ucitelj/view',
             ],
         ],
 

@@ -17,9 +17,7 @@ NavBar::begin([
 $menuItems = [
     ['label' => 'Početna', 'url' => ['/site/index']],
     ['label' => 'Raspored', 'url' => ['/ucitelj/raspored']],
-    ['label' => 'Otvorena Vrata U', 'url' => ['/ucitelj/otvorene-vrata-insert']],
     ['label' => 'Obavestenja', 'url' => ['/roditelj/obavestenja']],
-    ['label' => 'Otvorena Vrata R', 'url' => ['/roditelj/otvorena-vrata']],
     ['label' => 'Ocena', 'url' => ['/roditelj/ocena']]
 ];
 if (Yii::$app->user->isGuest) {
