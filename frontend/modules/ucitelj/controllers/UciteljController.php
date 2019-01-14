@@ -2,6 +2,8 @@
 
 namespace frontend\modules\ucitelj\controllers;
 
+use frontend\modules\ucitelj\models\Odeljenje;
+use frontend\modules\ucitelj\models\Ucenik;
 use Yii;
 use frontend\modules\ucitelj\models\Ocena;
 use frontend\modules\ucitelj\models\Ucitelj;
@@ -36,8 +38,8 @@ class UciteljController extends Controller
     public function actionIndex()
     {
 
-
-        return $this->render('index');
+        $ucenik = Ucenik::find()->all();
+        return $this->render('index', ['ucenik' => $ucenik]);
     }
 
     /**
@@ -46,10 +48,21 @@ class UciteljController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
+    public function actionView($id,$ime)
     {
+        $ocene = Ocena::find()
+                        ->select('*')
+                        ->join('JOIN',
+                            'predmet',
+                                  'ocena.id_predmet = predmet.id_predmet')
+                        ->join('JOIN',
+                            'ucenik',
+                            'ocena.id_ucenik = ucenik.id_ucenik')
+                        ->where(['ucenik.id_ucenik' => $id])
+                        ->all();
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'ocene' => $ocene,
+            'ime' => $ime
         ]);
     }
 

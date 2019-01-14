@@ -2,36 +2,33 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\modules\ucitelj\models\Ucitelj */
 
-$this->title = $model->id_ucitelj;
-$this->params['breadcrumbs'][] = ['label' => 'Uciteljs', 'url' => ['index']];
+//$this->title = $model->id_ucitelj;
+$this->params['breadcrumbs'][] = ['label' => 'Nazad', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ucitelj-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id_ucitelj], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id_ucitelj], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id_ucitelj',
-            'user_id',
-            'id_odeljenje',
-        ],
-    ]) ?>
+    <h2>Ucenik <?= $ime ?></h2>
+   <table class="table table-striped table-bordered">
+       <tr>
+           <th>Trenutna ocena</th>
+           <th>Zakljucena ocena</th>
+           <th>Predmet</th>
+       </tr>
+           <?php foreach ($ocene as $ocena) { ?>
+                <tr>
+                    <th><a href="<?=Url::to(['/ucitelj/ocena/update', 'id' => $ocena->id_ocena])?>"><?= $ocena->vrednost_ocena ?></a></th>
+                <th><?= $ocena->zakljucena_ocena ?></th>
+                <th><?= $ocena->predmet['naziv'] ?></th>
+                </tr>
+           <?php } ?>
+   </table>
 
 </div>

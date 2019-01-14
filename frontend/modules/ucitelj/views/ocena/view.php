@@ -6,8 +6,8 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model frontend\modules\ucitelj\models\Ocena */
 
-$this->title = $model->id_ocena;
-$this->params['breadcrumbs'][] = ['label' => 'Ocenas', 'url' => ['index']];
+//$this->title = $model->id_ocena;
+$this->params['breadcrumbs'][] = ['label' => 'Nazad', 'url' => ['ucitelj/view', 'id' => $model->id_ucenik,'ime' => $model->ucenik->username]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ocena-view">

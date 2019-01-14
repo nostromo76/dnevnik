@@ -87,7 +87,7 @@ class OcenaController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_ocena]);
+            return $this->redirect(['ucitelj/view', 'id' => $model->id_ucenik,'ime' => $model->ucenik->username]);
         }
 
         return $this->render('update', [

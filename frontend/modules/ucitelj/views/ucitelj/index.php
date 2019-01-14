@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\modules\ucitelj\models\UciteljSearch */
@@ -19,17 +20,20 @@ $this->title = 'Ucitelj';
         <?= Html::a('Dodaj Ocene', ['/ucitelj/ocena/create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?/*= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Ime i Prezime</th>
+            <th>Pregled</th>
+        </tr>
 
-            'id_ucitelj',
-            'user_id',
-            'id_odeljenje',
+    <?php
+        foreach ($ucenik as $ucen){ ?>
+            <tr>
+                <th><?= $ucen->username ?></th>
+                <th><a href="<?= Url::to(['/ucitelj/ucitelj/view','id' => $ucen->id_ucenik,'ime'=>$ucen->username]) ?>">Pregled ocena</a></th>
+            </tr>
+        <?php } ?>
+    </table>
 
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); */?>
+
 </div>
