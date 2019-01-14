@@ -38,7 +38,7 @@ class ObavestenjaController extends Controller
         //$model = Obavestenja::find()->all();
         $model = Obavestenja::find()
             ->select('id_obavestenja, naziv, opis, vreme, id_odeljenje')
-            ->where(['id_odeljenje'=>2 ])
+            //->where(['id_odeljenje'=>2 ])
             ->orderBy('vreme DESC')
             ->limit(20)
             ->all();

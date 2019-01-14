@@ -17,6 +17,11 @@ return [
             'class' => 'frontend\modules\roditelj\Module',
 
         ],
+        'ucitelj' => [
+
+            'class' => 'frontend\modules\ucitelj\Module',
+
+        ],
 
     ],
     'controllerNamespace' => 'frontend\controllers',
