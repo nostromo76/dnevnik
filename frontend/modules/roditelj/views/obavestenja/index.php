@@ -14,7 +14,7 @@ $this->title = 'Obavestenja';
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="obavestenja-index">
-
+    <h1 class="text-center"><?=$this->title ?></h1>
     <?= Html::tag('div', '', ['class'=> 'jumbotron']) ?>
         <?php foreach($model as $obavestenje){?>
     <h3><a href="<?=Url::to(['view', 'id'=>$obavestenje->id_obavestenja])?>"><?= $obavestenje->naziv ?></a></h3>
