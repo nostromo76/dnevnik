@@ -15,9 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Raspored', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+
 
     <!-- <?/*= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -45,13 +43,46 @@ $this->params['breadcrumbs'][] = $this->title;
             <th>Petak</th>
         </tr>
         <tr>
-        <?php
-            foreach ($raspored as $item){ ?>
-                <tr>
-                    <td><?= $item->br_casa ?></td>
-                    <td><?= $item->predmet->naziv ?></td>
-                </tr>
-            <?php }  ?>
+            <td>1</td>
+            <?php foreach ($prvi as $prv){
+                echo '<td>'.$prv->predmet->naziv.'</td>';
+            }
+            ?>
+        </tr>
+        <tr>
+            <td>2</td>
+            <?php foreach ($drugi as $dru){
+                echo '<td>'.$dru->predmet->naziv.'</td>';
+            }
+            ?>
+        </tr>
+        <tr>
+            <td>3</td>
+            <?php foreach ($treci as $tre){
+                echo '<td>'.$tre->predmet->naziv.'</td>';
+            }
+            ?>
+        </tr>
+        <tr>
+            <td>4</td>
+            <?php foreach ($cetv as $cet){
+                echo '<td>'.$cet->predmet->naziv.'</td>';
+            }
+            ?>
+        </tr>
+        <tr>
+            <td>5</td>
+            <?php foreach ($peti as $pet){
+                echo '<td>'.$pet->predmet->naziv.'</td>';
+            }
+            ?>
+        </tr>
+        <tr>
+            <td>6</td>
+            <?php foreach ($sesti as $sest){
+                echo '<td>'.$sest->predmet->naziv.'</td>';
+            }
+            ?>
         </tr>
     </table>
 

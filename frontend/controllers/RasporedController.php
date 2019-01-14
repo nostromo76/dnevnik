@@ -35,14 +35,25 @@ class RasporedController extends Controller
      */
     public function actionIndex()
     {
-        $raspored = Raspored::find()->all();
+        $prvi = Raspored::find()->where(['br_casa' => 1])->all();
+        $drugi = Raspored::find()->where(['br_casa' => 2])->all();
+        $treci = Raspored::find()->where(['br_casa' => 3])->all();
+        $cetv = Raspored::find()->where(['br_casa' => 4])->all();
+        $peti = Raspored::find()->where(['br_casa' => 5])->all();
+        $sesti = Raspored::find()->where(['br_casa' => 6])->all();
+                    //
         $searchModel = new RasporedSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
 //            'searchModel' => $searchModel,
 //            'dataProvider' => $dataProvider,
-        'raspored' => $raspored
+            'prvi' => $prvi,
+            'drugi' => $drugi,
+            'treci' => $treci,
+            'cetv' => $cetv,
+            'peti' => $peti,
+            'sesti' => $sesti,
         ]);
     }
 
