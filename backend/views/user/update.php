@@ -25,7 +25,8 @@ $this->params['breadcrumbs'][] = 'Update';
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'role')->textInput() ?>
+    <?= $form->field($model, 'role')->dropDownList
+                ([ '1' => 'A', '2' => 'D', '4' => 'U', '8' => 'R', ], ['prompt' => 'Select']) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
