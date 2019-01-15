@@ -19,7 +19,8 @@ $menuItems = [
     ['label' => 'Raspored', 'url' => ['/ucitelj/raspored']],
     ['label' => 'Obavestenja', 'url' => ['/roditelj/obavestenja']],
     ['label' => 'Otvorena vrata R', 'url' => ['/roditelj/otvorena-vrata']],
-    ['label' => 'Ocena', 'url' => ['/roditelj/ocena']]
+    ['label' => 'Ocena', 'url' => ['/roditelj/ocena']],
+    ['label' => 'Ucitelj', 'url' => ['/ucitelj/ucitelj']]
 ];
 if (Yii::$app->user->isGuest) {
     $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
