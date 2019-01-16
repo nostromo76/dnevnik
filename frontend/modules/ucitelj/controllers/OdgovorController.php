@@ -3,6 +3,7 @@
 namespace frontend\modules\ucitelj\controllers;
 
 use frontend\modules\ucitelj\models\OtvorenaVrata;
+use frontend\modules\ucitelj\models\UciteljO;
 use Yii;
 use frontend\modules\ucitelj\models\Odgovor;
 use frontend\modules\ucitelj\models\OdgovorSearch;
@@ -63,10 +64,10 @@ class OdgovorController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate($rod)
+    public function actionCreate($id,$rod)
     {
         $model = new Odgovor();
-        $ucitelj = OtvorenaVrata::find()->select('id_ucitelj')->where(['id_roditelj' => $rod])->one();
+        $ucitelj = UciteljO::find()->select('id_ucitelj')->where(['id_roditelj' => $rod, 'ovi_id' => $id])->one();
 
         if ($model->load(Yii::$app->request->post())) {
             $model->id_roditelj = $rod;
