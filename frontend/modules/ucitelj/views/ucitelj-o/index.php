@@ -41,8 +41,7 @@ $this->title = 'Ucitelj Zahtevi';
 
 <?= Html::tag('h1', $this->title, ['class'=> 'text-center label-success']) ?>
     <?php foreach($model as $uciteljo){?>
-        <?php var_dump($model) ?>
-        <h3><a href="<?=Url::to(['odgovor/create', 'id'=>$uciteljo->ovi_id ])?>"><?= $uciteljo->roditelj->user->username ?></a></h3>
+        <h3><a href="<?=Url::to(['odgovor/create', 'id'=>$uciteljo->ovi_id , 'rod' => $uciteljo->id_roditelj])?>"><?= $uciteljo->roditelj->user->username ?></a></h3>
 <?php } ?>
 
     <?php Pjax::end(); ?>

@@ -14,7 +14,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?php print_r($model->id_roditelj); ?>
     <?= $this->render('_form', [
         'model' => $model,
 
