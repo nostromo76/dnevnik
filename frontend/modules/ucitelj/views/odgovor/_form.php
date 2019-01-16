@@ -19,10 +19,6 @@ use frontend\modules\ucitelj\models\Ucitelj;
 
     <?= $form->field($model, 'ne')->checkbox([true]) ?>
 
-    <?= $form->field($model, 'id_ucitelj')->dropDownList(
-        ArrayHelper::map(ucitelj::find()->all(), 'id_ucitelj', 'user.username'),
-        ['prompt'=> 'Select Ucitelj']
-    ) ?>
     <!-- id_ucitelj textInput -->
 
     <div class="form-group">
