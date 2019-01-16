@@ -1,19 +1,18 @@
 <?php
 
-namespace backend\controllers;
+namespace frontend\modules\roditelj\controllers;
 
 use Yii;
-use backend\models\Predmet;
-use backend\models\PredmetSearch;
+use frontend\modules\roditelj\models\Odgovor;
+use frontend\modules\roditelj\models\OdgovorSearch;
 use yii\web\Controller;
-use yii\filters\AccessControl;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * PredmetController implements the CRUD actions for Predmet model.
+ * OdgovorController implements the CRUD actions for Odgovor model.
  */
-class PredmetController extends Controller
+class OdgovorController extends Controller
 {
     /**
      * @inheritdoc
@@ -21,16 +20,6 @@ class PredmetController extends Controller
     public function behaviors()
     {
         return [
-            "access"=> [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['index','update','create','delete','view'],
-                        'allow' => true,
-                        'roles' => ['@']
-                    ]
-                ]
-            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -41,22 +30,25 @@ class PredmetController extends Controller
     }
 
     /**
-     * Lists all Predmet models.
+     * Lists all Odgovor models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new PredmetSearch();
+        $model = Odgovor::find()->all();
+
+        $searchModel = new OdgovorSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
+            'model' => $model,
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
-     * Displays a single Predmet model.
+     * Displays a single Odgovor model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -69,16 +61,16 @@ class PredmetController extends Controller
     }
 
     /**
-     * Creates a new Predmet model.
+     * Creates a new Odgovor model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Predmet();
+        $model = new Odgovor();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_predmet]);
+            return $this->redirect(['view', 'id' => $model->odgovor_id]);
         }
 
         return $this->render('create', [
@@ -87,7 +79,7 @@ class PredmetController extends Controller
     }
 
     /**
-     * Updates an existing Predmet model.
+     * Updates an existing Odgovor model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -98,7 +90,7 @@ class PredmetController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_predmet]);
+            return $this->redirect(['view', 'id' => $model->odgovor_id]);
         }
 
         return $this->render('update', [
@@ -107,7 +99,7 @@ class PredmetController extends Controller
     }
 
     /**
-     * Deletes an existing Predmet model.
+     * Deletes an existing Odgovor model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -121,15 +113,15 @@ class PredmetController extends Controller
     }
 
     /**
-     * Finds the Predmet model based on its primary key value.
+     * Finds the Odgovor model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Predmet the loaded model
+     * @return Odgovor the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Predmet::findOne($id)) !== null) {
+        if (($model = Odgovor::findOne($id)) !== null) {
             return $model;
         }
 

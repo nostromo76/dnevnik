@@ -1,16 +1,16 @@
 <?php
 
-namespace backend\models;
+namespace frontend\modules\roditelj\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Ucenik;
+use frontend\modules\roditelj\models\Odgovor;
 
 /**
- * UcenikSearch represents the model behind the search form of `backend\models\Ucenik`.
+ * OdgovorSearch represents the model behind the search form of `frontend\modules\roditelj\models\Odgovor`.
  */
-class UcenikSearch extends Ucenik
+class OdgovorSearch extends Odgovor
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class UcenikSearch extends Ucenik
     public function rules()
     {
         return [
-            [['id_ucenik', 'id_odeljenje', 'id_roditelj'], 'integer'],
-            [['ime', 'prezime', 'username'], 'safe'],
+            [['odgovor_id', 'id_roditelj', 'id_ucitelj'], 'integer'],
+            [['da', 'ne', 'vreme'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class UcenikSearch extends Ucenik
      */
     public function search($params)
     {
-        $query = Ucenik::find();
+        $query = Odgovor::find();
 
         // add conditions that should always apply here
 
@@ -59,14 +59,14 @@ class UcenikSearch extends Ucenik
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id_ucenik' => $this->id_ucenik,
-            'id_odeljenje' => $this->id_odeljenje,
+            'odgovor_id' => $this->odgovor_id,
             'id_roditelj' => $this->id_roditelj,
+            'id_ucitelj' => $this->id_ucitelj,
+            'vreme' => $this->vreme,
         ]);
 
-        $query->andFilterWhere(['like', 'ime', $this->ime])
-            ->andFilterWhere(['like', 'prezime', $this->prezime])
-            ->andFilterWhere(['like', 'username', $this->username]);
+        $query->andFilterWhere(['like', 'da', $this->da])
+            ->andFilterWhere(['like', 'ne', $this->ne]);
 
         return $dataProvider;
     }
