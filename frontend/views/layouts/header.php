@@ -17,6 +17,7 @@ NavBar::begin([
 $menuItems = [
     ['label' => 'Početna', 'url' => ['/site/index']],
     ['label' => 'Raspored', 'url' => ['/ucitelj/raspored']],
+    ['label' => 'Otvorena vrata U', 'url' => ['/ucitelj/ucitelj-o']],
     ['label' => 'Obavestenja', 'url' => ['/roditelj/obavestenja']],
     ['label' => 'Otvorena vrata R', 'url' => ['/roditelj/otvorena-vrata']],
     ['label' => 'Ocena', 'url' => ['/roditelj/ocena']],
