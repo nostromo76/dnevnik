@@ -22,6 +22,11 @@ return [
             'class' => 'frontend\modules\ucitelj\Module',
 
         ],
+        'poruke' => [
+
+            'class' => 'frontend\modules\poruke\Module',
+
+        ],
 
     ],
     'controllerNamespace' => 'frontend\controllers',
