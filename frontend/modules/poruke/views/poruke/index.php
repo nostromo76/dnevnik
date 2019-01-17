@@ -2,39 +2,45 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use frontend\modules\poruke\models\Ucitelj;
+use frontend\modules\poruke\models\User;
 
 /* @var $this yii\web\View */
-/* @var $searchModel frontend\modules\roditelj\models\OcenaSearch */
+/* @var $searchModel frontend\modules\poruke\models\PorukeSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Poruke';
+$this->title = 'Porukes';
+$this->params['breadcrumbs'][] = $this->title;
 
-//$this->params['breadcrumbs'][] = $this->title;
+
 ?>
-<h1><?= Html::encode($this->title) ?></h1>
+<div class="poruke-index">
 
-<div class="table-responsive">
-    <div id="user_details"></div>
+    <h1><?= Html::encode($this->title) ?></h1>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+
+    <p>
+        <?= Html::a('Create Poruke', ['create', 'id' => Yii::$app->user->id], ['class' => 'btn btn-success']) ?>
+    </p>
+
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'id_poruke',
+            'poruka:ntext',
+            'vreme',
+            [
+                'attribute' => 'roditelj_id',
+                'value' => 'roditelj.user.fullName'
+            ],
+            [
+                'attribute' => 'ucitelj_id',
+                'value' => 'ucitelj.user.fullName'
+            ],
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
 </div>
-
-<?php
-$script = <<<JS
-    $(document).ready(function(){
-
-         fetch_user();
-        
-         function fetch_user()
-         {
-          $.ajax({
-           url:"fetch",
-           type:"POST",
-           success:function(data){
-            $('#user_details').html(data);
-           }
-          })
-         }
-         
-        }); 
-JS;
-$this->registerJs($script);
-?>
