@@ -36,3 +36,6 @@ phpunit.phar
 
 # frontend/runtime/debug/index.data  is not needed
 /frontend/runtime/
+/frontend/runtime/cache/*
+/frontend/runtime/debug/*
+/frontend/runtime/logs/*
