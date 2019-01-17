@@ -35,4 +35,4 @@ phpunit.phar
 /.vagrant
 
 # frontend/runtime/debug/index.data  is not needed
-frontend/runtime/debug/index.data
+/frontend/runtime/debug/index.data
