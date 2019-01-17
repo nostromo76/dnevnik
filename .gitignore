@@ -34,7 +34,7 @@ phpunit.phar
 # vagrant runtime
 /.vagrant
 
-# frontend/runtime/debug/index.data  is not needed
+# frontend/runtime/  is not needed
 /frontend/runtime/
 /frontend/runtime/cache/*
 /frontend/runtime/debug/*
