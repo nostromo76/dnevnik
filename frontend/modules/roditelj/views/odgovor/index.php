@@ -15,9 +15,11 @@ $this->title = 'Odgovor';
     <?php foreach($model as $odgovor){?>
 
         <?php  if( $odgovor->da==1){
-            echo 'Korisnik'.' <strong>'.$odgovor->roditelj->user->username. '</strong> Cetvrtak 15.00h '. ' Zakazano'.'<br>';
+            //echo 'Korisnik'.' <strong>'.$odgovor->roditelj->user->username. '</strong> Cetvrtak 15.00h '. ' Zakazano'.'<br>';
+            echo Html::tag('h1', 'Korisnik'.' <strong>'.$odgovor->roditelj->user->username. '</strong> Cetvrtak 15.00h '. ' Zakazano');
         }elseif($odgovor->ne==1){
-            echo 'Korisnik'.' '.$odgovor->roditelj->user->username. ' Nije zakazano'.'<br>';
+            //echo 'Korisnik'.' '.$odgovor->roditelj->user->username. ' Nije zakazano'.'<br>';
+            echo Html::tag('h1', 'Korisnik'.' '.$odgovor->roditelj->user->username. ' Nije zakazano');
         }else{
             echo " ";
         } ?>

@@ -13,7 +13,6 @@ use frontend\modules\Roditelj\models\OtvorenaVrata;
 ?>
 
 <div class="otvorena-vrata-form">
-    <span>Stikliraj</span>
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'otvorena_vrata')->checkbox([true]) ?>

@@ -7,8 +7,8 @@ use yii\helpers\Html;
 /* @var $model frontend\modules\roditelj\models\OtvorenaVrata */
 
 $this->title = 'Zakazi Otvorena Vrata';
-$this->params['breadcrumbs'][] = ['label' => 'Otvorena Vratas', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+//$this->params['breadcrumbs'][] = ['label' => 'Otvorena Vratas', 'url' => ['index']];
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="otvorena-vrata-create">
 

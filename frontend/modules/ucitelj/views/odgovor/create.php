@@ -7,8 +7,8 @@ use yii\helpers\Html;
 /* @var $model frontend\modules\ucitelj\models\Odgovor */
 
 $this->title = 'Create Odgovor';
-$this->params['breadcrumbs'][] = ['label' => 'Odgovors', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+//$this->params['breadcrumbs'][] = ['label' => 'Odgovors', 'url' => ['index']];
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="odgovor-create">
 
