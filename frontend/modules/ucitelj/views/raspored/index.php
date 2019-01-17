@@ -7,31 +7,12 @@ use yii\grid\GridView;
 /* @var $searchModel frontend\models\RasporedSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Rasporeds';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Raspored';
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="raspored-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-
-
-    <!-- <?/*= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'dan',
-            'br_casa',
-            'id_predmet',
-            'id_odeljenje',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); */?> -->
 
     <table class="table table-striped table-bordered">
         <tr>

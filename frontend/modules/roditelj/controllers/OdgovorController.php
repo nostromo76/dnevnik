@@ -1,12 +1,10 @@
 <?php
 
-namespace frontend\modules\ucitelj\controllers;
+namespace frontend\modules\roditelj\controllers;
 
-use frontend\modules\ucitelj\models\OtvorenaVrata;
-use frontend\modules\ucitelj\models\UciteljO;
 use Yii;
-use frontend\modules\ucitelj\models\Odgovor;
-use frontend\modules\ucitelj\models\OdgovorSearch;
+use frontend\modules\roditelj\models\Odgovor;
+use frontend\modules\roditelj\models\OdgovorSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -37,10 +35,13 @@ class OdgovorController extends Controller
      */
     public function actionIndex()
     {
+        $model = Odgovor::find()->all();
+
         $searchModel = new OdgovorSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
+            'model' => $model,
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -64,18 +65,14 @@ class OdgovorController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate($id,$rod)
+    public function actionCreate()
     {
         $model = new Odgovor();
-        $ucitelj = UciteljO::find()->select('id_ucitelj')->where(['id_roditelj' => $rod, 'ovi_id' => $id])->one();
 
-        if ($model->load(Yii::$app->request->post())) {
-            $model->id_roditelj = $rod;
-            $model->id_ucitelj = $ucitelj->id_ucitelj;
-            if ($model->save()){
-                return $this->redirect(['view', 'id' => $model->odgovor_id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->odgovor_id]);
         }
+
         return $this->render('create', [
             'model' => $model,
         ]);

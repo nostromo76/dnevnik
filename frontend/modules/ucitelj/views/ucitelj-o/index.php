@@ -14,35 +14,11 @@ $this->title = 'Ucitelj Zahtevi';
 ?>
 <div class="ucitelj-o-index">
 
-
     <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-<!--
-    --><?/*= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            //['class' => 'yii\grid\SerialColumn'],
-
-            'ovi_id',
-            'id_roditelj',
-            'roditelj.user.username',
-            [
-                'attribute'=>'id_roditelj',
-                'value'=>'roditelj.user.username',
-            ],
-            'akcija',
-            'vreme',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); */?>
 
 <?= Html::tag('h1', $this->title, ['class'=> 'text-center label-success']) ?>
     <?php foreach($model as $uciteljo){?>
-        <?php var_dump($model) ?>
-        <h3><a href="<?=Url::to(['odgovor/create', 'id'=>$uciteljo->ovi_id ])?>"><?= $uciteljo->roditelj->user->username ?></a></h3>
+        <h3><a href="<?=Url::to(['odgovor/create', 'id'=>$uciteljo->ovi_id , 'rod' => $uciteljo->id_roditelj])?>"><?= $uciteljo->roditelj->user->username ?></a></h3>
 <?php } ?>
 
     <?php Pjax::end(); ?>
