@@ -28,7 +28,7 @@ use Yii;
 class User extends \yii\db\ActiveRecord
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function tableName()
     {
@@ -36,7 +36,7 @@ class User extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
@@ -54,7 +54,7 @@ class User extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function attributeLabels()
     {
@@ -104,5 +104,9 @@ class User extends \yii\db\ActiveRecord
     public function getUciteljs()
     {
         return $this->hasMany(Ucitelj::className(), ['user_id' => 'id']);
+    }
+
+    public function getFullName() {
+        return trim($this->first_name . ' ' . $this->last_name);
     }
 }
