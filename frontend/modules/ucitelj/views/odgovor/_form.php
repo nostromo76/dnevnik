@@ -19,8 +19,6 @@ use frontend\modules\ucitelj\models\Ucitelj;
 
     <?= $form->field($model, 'ne')->checkbox([true]) ?>
 
-    <!-- id_ucitelj textInput -->
-
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
