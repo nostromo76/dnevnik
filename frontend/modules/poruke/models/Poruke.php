@@ -12,6 +12,8 @@ use Yii;
  * @property string $vreme
  * @property int $roditelj_id
  * @property int $ucitelj_id
+ * @property int $od_korisnika
+ * @property int $ka_korisniku
  *
  * @property Roditelj $roditelj
  * @property Ucitelj $ucitelj
@@ -19,7 +21,7 @@ use Yii;
 class Poruke extends \yii\db\ActiveRecord
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public static function tableName()
     {
@@ -27,22 +29,22 @@ class Poruke extends \yii\db\ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['poruka', 'roditelj_id', 'ucitelj_id'], 'required'],
+            [['poruka', 'roditelj_id', 'ucitelj_id', 'od_korisnika', 'ka_korisniku'], 'required'],
             [['poruka'], 'string'],
             [['vreme'], 'safe'],
-            [['roditelj_id', 'ucitelj_id'], 'integer'],
+            [['roditelj_id', 'ucitelj_id', 'od_korisnika', 'ka_korisniku'], 'integer'],
             [['roditelj_id'], 'exist', 'skipOnError' => true, 'targetClass' => Roditelj::className(), 'targetAttribute' => ['roditelj_id' => 'id_roditelj']],
             [['ucitelj_id'], 'exist', 'skipOnError' => true, 'targetClass' => Ucitelj::className(), 'targetAttribute' => ['ucitelj_id' => 'id_ucitelj']],
         ];
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function attributeLabels()
     {
@@ -50,8 +52,10 @@ class Poruke extends \yii\db\ActiveRecord
             'id_poruke' => 'Id Poruke',
             'poruka' => 'Poruka',
             'vreme' => 'Vreme',
-            'roditelj_id' => 'Roditelj',
-            'ucitelj_id' => 'Ucitelj',
+            'roditelj_id' => 'Roditelj ID',
+            'ucitelj_id' => 'Ucitelj ID',
+            'od_korisnika' => 'Od Korisnika',
+            'ka_korisniku' => 'Ka Korisniku',
         ];
     }
 
@@ -69,9 +73,5 @@ class Poruke extends \yii\db\ActiveRecord
     public function getUcitelj()
     {
         return $this->hasOne(Ucitelj::className(), ['id_ucitelj' => 'ucitelj_id']);
-    }
-
-    public function getFullName() {
-        return trim($this->first_name . ' ' . $this->last_name);
     }
 }
