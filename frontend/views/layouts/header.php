@@ -8,8 +8,8 @@ use yii\helpers\Html;
 
 <?php
 NavBar::begin([
-    'brandLabel' => Yii::$app->name,
-    'brandUrl' => Yii::$app->homeUrl,
+    //'brandLabel' => Yii::$app->name,
+    //'brandUrl' => Yii::$app->homeUrl,
     'options' => [
         'class' => 'navbar-inverse navbar-fixed-top',
     ],
@@ -22,7 +22,8 @@ $menuItems = [
     ['label' => 'Otvorena vrata R', 'url' => ['/roditelj/otvorena-vrata']],
     ['label' => 'Otvorena vrata R O', 'url' => ['/roditelj/odgovor']],
     ['label' => 'Ocena', 'url' => ['/roditelj/ocena']],
-    ['label' => 'Ucitelj', 'url' => ['/ucitelj/ucitelj']]
+    ['label' => 'Ucitelj', 'url' => ['/ucitelj/ucitelj']],
+    ['label' => 'Poruke', 'url' => ['/poruke/poruke']]
 ];
 if (Yii::$app->user->isGuest) {
     $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
