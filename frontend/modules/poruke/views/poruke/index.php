@@ -11,7 +11,7 @@ use yii\helpers\Url;
 /* @var $searchModel frontend\modules\poruke\models\PorukeSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Porukes';
+$this->title = 'Poruke';
 $this->params['breadcrumbs'][] = $this->title;
 
 
@@ -22,17 +22,31 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create New Poruke', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Nova Poruka', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php
     if(Yii::$app->user->identity->role == 4){ ?>
+        <?php if(empty($svePorukeUcitelj)){
+            echo '<p>Trenutno nemate poruke</p>';
+        } else { ?>
+            <p>Poruke od</p>
+            <hr>
         <?php foreach ($svePorukeUcitelj as $poruka){ ?>
-             <a href="<?= Url::to(['view', 'id' => $poruka->roditelj_id]) ?>"><?= $poruka->roditelj->user->fullname ?> </a><br>
+            <a href="<?= Url::to(['view', 'id' => $poruka->roditelj_id]) ?>"><?= $poruka->roditelj->user->fullname ?> </a>
+            <hr>
+            <?php } ?>
         <?php } ?>
     <?php } else if(Yii::$app->user->identity->role == 8){?>
-        <?php foreach ($svePorukeRoditelj as $porukaR){ ?>
-            <a href="<?= Url::to(['view', 'id' => $porukaR->ucitelj_id]) ?>"><?= $porukaR->ucitelj->user->fullname ?> </a><br>
+        <?php if(empty($svePorukeRoditelj)){
+            echo '<p>Trenutno nemate poruke</p>';
+        } else { ?>
+        <p>Poruke od</p>
+        <hr>
+            <?php foreach ($svePorukeRoditelj as $porukaR){ ?>
+                <a href="<?= Url::to(['view', 'id' => $porukaR->ucitelj_id]) ?>"><?= $porukaR->ucitelj->user->fullname ?> </a>
+                <hr>
+            <?php } ?>
         <?php } ?>
     <?php } ?>
 </div>
