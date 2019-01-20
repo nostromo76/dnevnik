@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use frontend\modules\poruke\models\Ucitelj;
 use frontend\modules\poruke\models\User;
+use frontend\modules\poruke\models\Poruke;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\modules\poruke\models\PorukeSearch */
@@ -20,27 +22,17 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Poruke', ['create', 'id' => Yii::$app->user->id], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create New Poruke', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id_poruke',
-            'poruka:ntext',
-            'vreme',
-            [
-                'attribute' => 'roditelj_id',
-                'value' => 'roditelj.user.fullName'
-            ],
-            [
-                'attribute' => 'ucitelj_id',
-                'value' => 'ucitelj.user.fullName'
-            ],
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+    <?php
+    if(Yii::$app->user->identity->role == 4){ ?>
+        <?php foreach ($svePorukeUcitelj as $poruka){ ?>
+             <a href="<?= Url::to(['view', 'id' => $poruka->roditelj_id]) ?>"><?= $poruka->roditelj->user->fullname ?> </a><br>
+        <?php } ?>
+    <?php } else if(Yii::$app->user->identity->role == 8){?>
+        <?php foreach ($svePorukeRoditelj as $porukaR){ ?>
+            <a href="<?= Url::to(['view', 'id' => $porukaR->ucitelj_id]) ?>"><?= $porukaR->ucitelj->user->fullname ?> </a><br>
+        <?php } ?>
+    <?php } ?>
 </div>

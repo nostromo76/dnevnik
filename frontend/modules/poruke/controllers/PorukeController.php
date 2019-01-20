@@ -37,13 +37,24 @@ class PorukeController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new PorukeSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $ucitelj_id = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
+        $roditelj_id = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        if(Yii::$app->user->identity->role == 4){
+
+            $svePorukeUcitelj = Poruke::findBySql('SELECT DISTINCT `roditelj_id` FROM `poruke` WHERE `ucitelj_id` = '.$ucitelj_id->id_ucitelj.';')->all();
+
+            return $this->render('index', [
+                'svePorukeUcitelj' => $svePorukeUcitelj,
+            ]);
+        } else if(Yii::$app->user->identity->role == 8){
+
+            $svePorukeRoditelj = Poruke::findBySql('SELECT DISTINCT `ucitelj_id` FROM `poruke` WHERE `roditelj_id` = '.$roditelj_id->id_roditelj.';')->all();
+
+            return $this->render('index', [
+                'svePorukeRoditelj' => $svePorukeRoditelj
+            ]);
+        }
     }
 
     /**
@@ -54,8 +65,15 @@ class PorukeController extends Controller
      */
     public function actionView($id)
     {
+        $ucitelj_id = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
+        $roditelj_id = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
+        $porukeUcitelj = Poruke::find()->where(['roditelj_id' => $id, 'ucitelj_id' => $ucitelj_id])->all();
+        $porukeRoditelj = Poruke::find()->where(['ucitelj_id' => $id, 'roditelj_id' => $roditelj_id])->all();
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'poruke' => $porukeUcitelj,
+            'porukeRoditelj' => $porukeRoditelj,
+            'ucitelj_id' => $ucitelj_id,
+            'roditelj_id' => $roditelj_id
         ]);
     }
 
@@ -64,7 +82,7 @@ class PorukeController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate($id)
+    public function actionCreate()
     {
         $ucitelj_id = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
         $roditelj_id = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
@@ -73,8 +91,12 @@ class PorukeController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             if(Yii::$app->user->identity->role == 4){
                 $model->ucitelj_id = $ucitelj_id->id_ucitelj;
+                $model->od_korisnika = $ucitelj_id->id_ucitelj;
+                $model->ka_korisniku = $model->roditelj_id;
             } else if(Yii::$app->user->identity->role == 8) {
                 $model->roditelj_id = $roditelj_id->id_roditelj;
+                $model->od_korisnika = $roditelj_id->id_roditelj;
+                $model->ka_korisniku = $model->ucitelj_id;
             }
             if($model->save()){
                 return $this->redirect(['view', 'id' => $model->id_poruke]);
