@@ -88,4 +88,8 @@ class User extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Ucitelj::className(), ['user_id' => 'id']);
     }
+
+    public function getFullname(){
+        return $this->first_name . ' ' . $this->last_name;
+    }
 }

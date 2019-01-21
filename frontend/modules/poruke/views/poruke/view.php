@@ -1,21 +1,22 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\DetailView;
-use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\modules\poruke\models\Poruke */
 
-/*$this->title = $model->id_poruke;*/
 $this->params['breadcrumbs'][] = ['label' => 'Nazad', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="poruke-view">
 
+    <?php
+        $rola = Yii::$app->user->identity->role;
+    ?>
+
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php if(Yii::$app->user->identity->role == 4){ ?>
+    <?php if($rola == 4){ ?>
     <?php foreach ($porukeUcitelj as $poruka): ?>
     <?php if($poruka->od_korisnika == $ucitelj_id->id_ucitelj){ ?>
             <div class="containerChat">
@@ -33,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
     <?php } ?>
     <?php endforeach; ?>
-    <?php } else if(Yii::$app->user->identity->role == 8){ ?>
+    <?php } else if($rola == 8){ ?>
         <?php foreach ($porukeRoditelj as $poruka): ?>
             <?php if($poruka->od_korisnika == $roditelj_id->id_roditelj){ ?>
                 <div class="containerChat">
@@ -53,9 +54,9 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php endforeach; ?>
     <?php } ?>
     <?php
-        if(Yii::$app->user->identity->role == 4){
+        if($rola == 4){
         echo Html::a('Odgovori', ['odgovor','id'=>$poruka->roditelj_id],['class'=>'btn btn-success','id' => 'scroll']);
-    } else if(Yii::$app->user->identity->role == 8){
+    } else if($rola == 8){
         echo Html::a('Odgovori', ['odgovor','id'=>$poruka->ucitelj_id],['class'=>'btn btn-success','id' => 'scroll']);
     }
         echo Html::button('Na vrh',['class' => 'btn btn-primary pull-right']);
