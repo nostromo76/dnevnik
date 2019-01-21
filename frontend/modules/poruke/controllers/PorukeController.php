@@ -5,7 +5,6 @@ namespace frontend\modules\poruke\controllers;
 use frontend\modules\poruke\models\Roditelj;
 use Yii;
 use frontend\modules\poruke\models\Poruke;
-use frontend\modules\poruke\models\PorukeSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -70,7 +69,7 @@ class PorukeController extends Controller
         $porukeUcitelj = Poruke::find()->where(['roditelj_id' => $id, 'ucitelj_id' => $ucitelj_id])->all();
         $porukeRoditelj = Poruke::find()->where(['ucitelj_id' => $id, 'roditelj_id' => $roditelj_id])->all();
         return $this->render('view', [
-            'poruke' => $porukeUcitelj,
+            'porukeUcitelj' => $porukeUcitelj,
             'porukeRoditelj' => $porukeRoditelj,
             'ucitelj_id' => $ucitelj_id,
             'roditelj_id' => $roditelj_id
@@ -93,14 +92,18 @@ class PorukeController extends Controller
                 $model->ucitelj_id = $ucitelj_id->id_ucitelj;
                 $model->od_korisnika = $ucitelj_id->id_ucitelj;
                 $model->ka_korisniku = $model->roditelj_id;
+                if($model->save()){
+                    return $this->redirect(['view', 'id' => $model->roditelj_id]);
+                }
             } else if(Yii::$app->user->identity->role == 8) {
                 $model->roditelj_id = $roditelj_id->id_roditelj;
                 $model->od_korisnika = $roditelj_id->id_roditelj;
                 $model->ka_korisniku = $model->ucitelj_id;
+                if($model->save()){
+                    return $this->redirect(['view', 'id' => $model->ucitelj_id]);
+                }
             }
-            if($model->save()){
-                return $this->redirect(['view', 'id' => $model->id_poruke]);
-            }
+
         }
         return $this->render('create', [
             'model' => $model,
@@ -114,15 +117,32 @@ class PorukeController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id)
+    public function actionOdgovor($id)
     {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_poruke]);
+        $model = new Poruke();
+        $ucitelj_id = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
+        $roditelj_id = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
+        if ($model->load(Yii::$app->request->post())) {
+            if(Yii::$app->user->identity->role == 4){
+                $model->roditelj_id = $id;
+                $model->ucitelj_id = $ucitelj_id->id_ucitelj;
+                $model->od_korisnika = $ucitelj_id->id_ucitelj;
+                $model->ka_korisniku = $model->roditelj_id;
+                if($model->save()){
+                    return $this->redirect(['view', 'id'=> $model->roditelj_id]);
+                }
+            } else if(Yii::$app->user->identity->role == 8){
+                $model->ucitelj_id = $id;
+                $model->roditelj_id = $roditelj_id->id_roditelj;
+                $model->od_korisnika = $roditelj_id->id_roditelj;
+                $model->ka_korisniku = $model->ucitelj_id;
+                if($model->save()){
+                    return $this->redirect(['view', 'id'=> $model->ucitelj_id]);
+                }
+            }
         }
 
-        return $this->render('update', [
+        return $this->render('odgovor', [
             'model' => $model,
         ]);
     }

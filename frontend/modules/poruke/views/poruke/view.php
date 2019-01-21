@@ -16,41 +16,61 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php if(Yii::$app->user->identity->role == 4){ ?>
-    <?php foreach ($poruke as $poruka): ?>
+    <?php foreach ($porukeUcitelj as $poruka): ?>
     <?php if($poruka->od_korisnika == $ucitelj_id->id_ucitelj){ ?>
-            <div class="container text-center">
-                <h4 style="color: red;"><?= $poruka->ucitelj->user->fullname ?></h4>
-                <p>Poruka: <?= $poruka->poruka ?></p>
-                <p>Vreme: <?=$poruka->vreme ?></p>
-                <p>Poruku poslao: <?=$poruka->od_korisnika ?></p>
+            <div class="containerChat">
+                <small style="color: #00b300;"><?= $poruka->ucitelj->user->fullname ?></small>
+                <br>
+                <p><?= $poruka->poruka ?></p>
+                <span class="time-right"><?=$poruka->vreme ?></span>
             </div>
     <?php } else if($poruka->ka_korisniku == $ucitelj_id->id_ucitelj){ ?>
-            <div class="container">
-                <h4 style="color: orange;"><?= $poruka->roditelj->user->fullname ?></h4>
-                <p>Poruka: <?= $poruka->poruka ?></p>
-                <p>Vreme: <?=$poruka->vreme ?></p>
-                <p>Poruku poslao: <?=$poruka->od_korisnika ?></p>
-            </div>
+                <div class="containerChat darker">
+                    <small style="color: #4d0000"><?= $poruka->roditelj->user->fullname ?></small>
+                    <br>
+                    <p><?= $poruka->poruka ?></p>
+                    <span class="time-right"><?=$poruka->vreme ?></span>
+                </div>
     <?php } ?>
     <?php endforeach; ?>
     <?php } else if(Yii::$app->user->identity->role == 8){ ?>
         <?php foreach ($porukeRoditelj as $poruka): ?>
             <?php if($poruka->od_korisnika == $roditelj_id->id_roditelj){ ?>
-                <div class="container text-center">
-                    <h4 style="color: red;"><?= $poruka->ucitelj->user->fullname ?></h4>
-                    <p>Poruka: <?= $poruka->poruka ?></p>
-                    <p>Vreme: <?=$poruka->vreme ?></p>
-                    <p>Poruku poslao: <?=$poruka->od_korisnika ?></p>
+                <div class="containerChat">
+                    <small style="color: #00b300;"><?= $poruka->roditelj->user->fullname ?></small>
+                    <br>
+                    <p><?= $poruka->poruka ?></p>
+                    <span class="time-right"><?=$poruka->vreme ?></span>
                 </div>
             <?php } else if($poruka->ka_korisniku == $roditelj_id->id_roditelj){ ?>
-                <div class="container">
-                    <h4 style="color: orange;"><?= $poruka->roditelj->user->fullname ?></h4>
-                    <p>Poruka: <?= $poruka->poruka ?></p>
-                    <p>Vreme: <?=$poruka->vreme ?></p>
-                    <p>Poruku poslao: <?=$poruka->od_korisnika ?></p>
+                <div class="containerChat darker">
+                    <small style="color: #4d0000"><?= $poruka->ucitelj->user->fullname ?></small>
+                    <br>
+                    <p><?= $poruka->poruka ?></p>
+                    <span class="time-right"><?=$poruka->vreme ?></span>
                 </div>
             <?php } ?>
         <?php endforeach; ?>
     <?php } ?>
-    <a href="<?=Url::to(['create'])?>">Odgovori</a>
+    <?php
+        if(Yii::$app->user->identity->role == 4){
+        echo Html::a('Odgovori', ['odgovor','id'=>$poruka->roditelj_id],['class'=>'btn btn-success','id' => 'scroll']);
+    } else if(Yii::$app->user->identity->role == 8){
+        echo Html::a('Odgovori', ['odgovor','id'=>$poruka->ucitelj_id],['class'=>'btn btn-success','id' => 'scroll']);
+    }
+        echo Html::button('Na vrh',['class' => 'btn btn-primary pull-right']);
+    ?>
 </div>
+
+<?php
+$script = <<<JS
+    $(document).ready(function () {
+    // Handler for .ready() called.
+    $('html, body').animate({
+        scrollTop: $('#scroll').offset().top
+    }, 1500);
+});
+JS;
+$this->registerJs($script);
+?>
+
