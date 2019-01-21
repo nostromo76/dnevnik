@@ -3,6 +3,7 @@
 namespace frontend\modules\poruke\controllers;
 
 use frontend\modules\poruke\models\Roditelj;
+use frontend\modules\ucitelj\models\Ucenik;
 use Yii;
 use frontend\modules\poruke\models\Poruke;
 use yii\web\Controller;
@@ -85,6 +86,12 @@ class PorukeController extends Controller
     {
         $ucitelj_id = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
         $roditelj_id = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
+        $query= Yii::$app->db->createCommand('SELECT `ucenik`.`id_odeljenje`, `odeljenje`.`ucitelj_id` FROM `roditelj`
+            JOIN `ucenik` ON `roditelj`.`id_ucenik`=`ucenik`.`id_ucenik`
+            JOIN `odeljenje` ON `ucenik`.`id_odeljenje`=`odeljenje`.`id_odeljenje`
+            WHERE `ucenik`.`id_roditelj` = '.$roditelj_id->id_roditelj.'.');
+        $ucenik_odeljenje = $query->queryAll();
+
         $model = new Poruke();
 
         if ($model->load(Yii::$app->request->post())) {
@@ -97,6 +104,7 @@ class PorukeController extends Controller
                 }
             } else if(Yii::$app->user->identity->role == 8) {
                 $model->roditelj_id = $roditelj_id->id_roditelj;
+                $model->ucitelj_id = $ucenik_odeljenje[0]['ucitelj_id'];
                 $model->od_korisnika = $roditelj_id->id_roditelj;
                 $model->ka_korisniku = $model->ucitelj_id;
                 if($model->save()){
@@ -107,6 +115,7 @@ class PorukeController extends Controller
         }
         return $this->render('create', [
             'model' => $model,
+            'ucenik_odeljenje' => $ucenik_odeljenje
         ]);
     }
 

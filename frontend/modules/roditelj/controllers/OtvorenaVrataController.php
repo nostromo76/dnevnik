@@ -4,10 +4,10 @@ namespace frontend\modules\roditelj\controllers;
 
 use Yii;
 use frontend\modules\roditelj\models\OtvorenaVrata;
-use frontend\modules\roditelj\models\OtvorenaVrataSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use frontend\modules\roditelj\models\Roditelj;
 
 /**
  * OtvorenaVrataController implements the CRUD actions for OtvorenaVrata model.
@@ -64,10 +64,20 @@ class OtvorenaVrataController extends Controller
      */
     public function actionIndex()
     {
+        $roditelj_id = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
+        $query= Yii::$app->db->createCommand('SELECT `ucenik`.`id_odeljenje`, `odeljenje`.`ucitelj_id` FROM `roditelj`
+            JOIN `ucenik` ON `roditelj`.`id_ucenik`=`ucenik`.`id_ucenik`
+            JOIN `odeljenje` ON `ucenik`.`id_odeljenje`=`odeljenje`.`id_odeljenje`
+            WHERE `ucenik`.`id_roditelj` = '.$roditelj_id->id_roditelj.'.');
+        $ucenik_odeljenje = $query->queryAll();
         $model = new OtvorenaVrata();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_otvorena_vrata]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->id_ucitelj = $ucenik_odeljenje[0]['ucitelj_id'];
+            $model->id_roditelj = $roditelj_id->id_roditelj;
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->id_otvorena_vrata]);
+            }
         }
 
         return $this->render('create', [
