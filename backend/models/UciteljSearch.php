@@ -18,7 +18,7 @@ class UciteljSearch extends Ucitelj
     public function rules()
     {
         return [
-            [['id_ucitelj', 'user_id', 'id_odeljenje'], 'integer'],
+            [['id_ucitelj', 'user_id'], 'integer'],
         ];
     }
 
@@ -60,7 +60,6 @@ class UciteljSearch extends Ucitelj
         $query->andFilterWhere([
             'id_ucitelj' => $this->id_ucitelj,
             'user_id' => $this->user_id,
-            'id_odeljenje' => $this->id_odeljenje,
         ]);
 
         return $dataProvider;

@@ -16,16 +16,10 @@ use backend\models\Odeljenje;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'user_id')->dropDownList(
-        ArrayHelper::map(user::find()->all(), 'id', 'username'),
+        ArrayHelper::map(user::find()->all(), 'id', 'fullname'),
         ['prompt'=> 'Select User']
     ) ?>
     <!-- user_id textInput -->
-
-    <?= $form->field($model, 'id_odeljenje')->dropDownList(
-        ArrayHelper::map(odeljenje::find()->all(), 'id_odeljenje', 'naziv'),
-        ['prompt'=> 'Select Odeljenje']
-    ) ?>
-    <!-- id_odeljenje textInput -->
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
