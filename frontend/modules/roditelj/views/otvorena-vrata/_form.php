@@ -17,18 +17,6 @@ use frontend\modules\Roditelj\models\OtvorenaVrata;
 
     <?= $form->field($model, 'otvorena_vrata')->checkbox([true]) ?>
 
-    <?= $form->field($model, 'id_ucitelj')->dropDownList(
-        ArrayHelper::map(ucitelj::find()->all(), 'id_ucitelj', 'user.username'),
-        ['prompt'=> 'Select Ucitelj']
-    ) ?>
-    <!-- id_ucitelj textInput -->
-
-    <?= $form->field($model, 'id_roditelj')->dropDownList(
-        ArrayHelper::map(roditelj::find()->all(), 'id_roditelj', 'user.username'),
-        ['prompt'=> 'Select Roditelj']
-    ) ?>
-    <!-- id_roditelj textInput -->
-
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

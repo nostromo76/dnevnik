@@ -24,7 +24,7 @@ use frontend\modules\poruke\models\Ucitelj;
         if(Yii::$app->user->identity->role == 4){
            echo  $form->field($model, 'roditelj_id')->dropDownList(ArrayHelper::map(Roditelj::find()->all(),'id_roditelj','user.username'));
         } else if(Yii::$app->user->identity->role == 8){
-            echo $form->field($model, 'ucitelj_id')->dropDownList(ArrayHelper::map(Ucitelj::find()->all(),'id_ucitelj','user.username'));
+            //echo $form->field($model, 'ucitelj_id')->dropDownList(ArrayHelper::map(Ucitelj::find()->all(),'id_ucitelj','user.username'));
         } else {
             echo '';
         }
