@@ -1,16 +1,16 @@
 <?php
 
-namespace backend\models;
+namespace frontend\modules\direktor\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Ucitelj;
+use frontend\modules\direktor\models\Ocena;
 
 /**
- * UciteljSearch represents the model behind the search form of `backend\models\Ucitelj`.
+ * OcenaSearch represents the model behind the search form of `frontend\modules\direktor\models\Ocena`.
  */
-class UciteljSearch extends Ucitelj
+class OcenaSearch extends Ocena
 {
     /**
      * @inheritdoc
@@ -18,7 +18,7 @@ class UciteljSearch extends Ucitelj
     public function rules()
     {
         return [
-            [['id_ucitelj', 'user_id'], 'integer'],
+            [['id_ocena', 'vrednost_ocena', 'zakljucena_ocena', 'id_ucenik', 'id_predmet'], 'integer'],
         ];
     }
 
@@ -40,7 +40,7 @@ class UciteljSearch extends Ucitelj
      */
     public function search($params)
     {
-        $query = Ucitelj::find();
+        $query = Ocena::find();
 
         // add conditions that should always apply here
 
@@ -58,8 +58,11 @@ class UciteljSearch extends Ucitelj
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id_ucitelj' => $this->id_ucitelj,
-            'user_id' => $this->user_id,
+            'id_ocena' => $this->id_ocena,
+            'vrednost_ocena' => $this->vrednost_ocena,
+            'zakljucena_ocena' => $this->zakljucena_ocena,
+            'id_ucenik' => $this->id_ucenik,
+            'id_predmet' => $this->id_predmet,
         ]);
 
         return $dataProvider;

@@ -9,20 +9,19 @@ use Yii;
  *
  * @property int $id_ucitelj
  * @property int $user_id
- * @property int $id_odeljenje
  *
  * @property Dnevnik[] $dnevniks
- * @property Obavestenja[] $obavestenjas
  * @property Odeljenje[] $odeljenjes
+ * @property Odgovor[] $odgovors
  * @property OtvorenaVrata[] $otvorenaVratas
+ * @property OtvoreneVrataInsert[] $otvoreneVrataInserts
  * @property Poruke[] $porukes
- * @property Odeljenje $odeljenje
  * @property User $user
  */
 class Ucitelj extends \yii\db\ActiveRecord
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function tableName()
     {
@@ -30,27 +29,25 @@ class Ucitelj extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function rules()
     {
         return [
             [['user_id'], 'required'],
-            [['user_id', 'id_odeljenje'], 'integer'],
-            [['id_odeljenje'], 'exist', 'skipOnError' => true, 'targetClass' => Odeljenje::className(), 'targetAttribute' => ['id_odeljenje' => 'id_odeljenje']],
+            [['user_id'], 'integer'],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function attributeLabels()
     {
         return [
             'id_ucitelj' => 'Id Ucitelj',
             'user_id' => 'User ID',
-            'id_odeljenje' => 'Id Odeljenje',
         ];
     }
 
@@ -65,17 +62,17 @@ class Ucitelj extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getObavestenjas()
+    public function getOdeljenjes()
     {
-        return $this->hasMany(Obavestenja::className(), ['id_ucitelj' => 'id_ucitelj']);
+        return $this->hasMany(Odeljenje::className(), ['ucitelj_id' => 'id_ucitelj']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getOdeljenjes()
+    public function getOdgovors()
     {
-        return $this->hasMany(Odeljenje::className(), ['id_ucitelj' => 'id_ucitelj']);
+        return $this->hasMany(Odgovor::className(), ['id_ucitelj' => 'id_ucitelj']);
     }
 
     /**
@@ -89,17 +86,17 @@ class Ucitelj extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getPorukes()
+    public function getOtvoreneVrataInserts()
     {
-        return $this->hasMany(Poruke::className(), ['id_ucitelj' => 'id_ucitelj']);
+        return $this->hasMany(OtvoreneVrataInsert::className(), ['id_ucitelj' => 'id_ucitelj']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getOdeljenje()
+    public function getPorukes()
     {
-        return $this->hasOne(Odeljenje::className(), ['id_odeljenje' => 'id_odeljenje']);
+        return $this->hasMany(Poruke::className(), ['ucitelj_id' => 'id_ucitelj']);
     }
 
     /**

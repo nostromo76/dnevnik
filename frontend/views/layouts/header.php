@@ -16,13 +16,14 @@ NavBar::begin([
 ]);
 $menuItems = [
     ['label' => 'Početna', 'url' => ['/site/index']],
+    ['label' => 'Direktor', 'url' => ['/direktor/ocena']],
     ['label' => 'Raspored', 'url' => ['/ucitelj/raspored']],
-    ['label' => 'Otvorena vrata U', 'url' => ['/ucitelj/ucitelj-o']],
-    ['label' => 'Obavestenja', 'url' => ['/roditelj/obavestenja']],
-    ['label' => 'Otvorena vrata R', 'url' => ['/roditelj/otvorena-vrata']],
-    ['label' => 'Otvorena vrata R O', 'url' => ['/roditelj/odgovor']],
-    ['label' => 'Ocena', 'url' => ['/roditelj/ocena']],
+    ['label' => 'Otvorena U', 'url' => ['/ucitelj/ucitelj-o']],
     ['label' => 'Ucitelj', 'url' => ['/ucitelj/ucitelj']],
+    ['label' => 'Obavestenja', 'url' => ['/roditelj/obavestenja']],
+    ['label' => 'Otvorena R', 'url' => ['/roditelj/otvorena-vrata']],
+    ['label' => 'Otvorena R O', 'url' => ['/roditelj/odgovor']],
+    ['label' => 'Ocena', 'url' => ['/roditelj/ocena']],
     ['label' => 'Poruke', 'url' => ['/poruke/poruke']]
 ];
 if (Yii::$app->user->isGuest) {
