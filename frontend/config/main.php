@@ -27,6 +27,11 @@ return [
             'class' => 'frontend\modules\poruke\Module',
 
         ],
+        'direktor' => [
+
+            'class' => 'frontend\modules\direktor\module',
+
+        ],
 
     ],
     'controllerNamespace' => 'frontend\controllers',
