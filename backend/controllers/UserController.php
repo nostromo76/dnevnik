@@ -81,6 +81,26 @@ class UserController extends Controller
             $model->auth_key = Yii::$app->security->generateRandomString();
             $model->password_hash = Yii::$app->security->generatePasswordHash($model->password_hash);
             if($model->save()){
+                $auth = Yii::$app->authManager;
+                $rola = $model->role;
+                switch ($rola) {
+                    case 1:
+                        $adminRole = $auth->getRole('admin');
+                        $auth->assign($adminRole, $model->id);
+                        break;
+                    case 2:
+                        $direktorRole = $auth->getRole('direktor');
+                        $auth->assign($direktorRole, $model->id);
+                        break;
+                    case 4:
+                        $uciteljRole = $auth->getRole('ucitelj');
+                        $auth->assign($uciteljRole, $model->id);
+                        break;
+                    case 8:
+                        $roditeljRole = $auth->getRole('roditelj');
+                        $auth->assign($roditeljRole, $model->id);
+                        break;
+                }
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         }
