@@ -10,8 +10,8 @@ $this->title = 'Prosek';
 ?>
 <div class="ocena-index">
     <?php
-
     foreach($model as $ocene){
+        //var_dump($ocene);
         echo $ocene['Prosek'];
     };
     foreach($predmet as $pre){};

@@ -2,9 +2,8 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
-use yii\widgets\ListView;
-use yii\widgets\Pjax;
 use frontend\modules\roditelj\models\Obavestenja;
+use frontend\components\SmallBody;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\modules\roditelj\models\ObavestenjaSearch */
@@ -17,6 +16,6 @@ $this->title = 'Obavestenja';
     <?= Html::tag('h1', $this->title, ['class'=> 'text-center label-success']) ?>
         <?php foreach($model as $obavestenje){?>
     <h3><a href="<?=Url::to(['view', 'id'=>$obavestenje->id_obavestenja])?>"><?= $obavestenje->naziv ?></a></h3>
-    <?= Html::tag('p', $obavestenje->opis, ['class'=> 'post-subtitle']) ?>
+    <?= SmallBody::widget(['body'=>$obavestenje->opis]) ?>
         <?php } ?>
 </div>

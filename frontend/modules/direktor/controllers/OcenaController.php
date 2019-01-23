@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 use frontend\modules\direktor\models\Predmet;
+use frontend\modules\direktor\models\Odeljenje;
 
 /**
  * OcenaController implements the CRUD actions for Ocena model.
@@ -74,16 +75,18 @@ class OcenaController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionDirektor()
     {
-        $model = new Ocena();
+        $searchModel = new OcenaSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $predmet = Predmet::find()->select('id_predmet,naziv')->all();
+        $odeljenje = Odeljenje::find()->select('id_odeljenje,naziv')->all();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_ocena]);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
+        return $this->render('dindex', [
+            'predmet' => $predmet,
+            'odeljenje' => $odeljenje,
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -94,19 +97,26 @@ class OcenaController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id)
+    public function actionDirekto($id, $idp)
     {
-        $model = $this->findModel($id);
+        $predmet = Predmet::find()->select('id_predmet,naziv')->where(['id_predmet' => $id])->all();
+        $id_predmet = $id;
+        $odeljenje = Odeljenje::find()->select('id_odeljenje,naziv')->where(['id_odeljenje' => $idp])->all();
+        $id_odeljenje = $idp;
+        $q = Yii::$app->db->createCommand("SELECT AVG(`ocena`.`zakljucena_ocena`) AS Prosek FROM `ocena`
+                                                    JOIN `ucenik` ON `ocena`.`id_ucenik`=`ucenik`.`id_ucenik`
+                                                    JOIN `odeljenje` ON `ucenik`.`id_odeljenje`=`odeljenje`.`id_odeljenje`
+                                                    WHERE `ocena`.`id_predmet`= $id_predmet AND `odeljenje`.`id_odeljenje`= $id_odeljenje");
+        $model= $q->queryAll();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_ocena]);
-        }
 
-        return $this->render('update', [
+        return $this->render('dview', [
             'model' => $model,
+            'predmet' => $predmet,
+            'odeljenje' => $odeljenje,
         ]);
     }
-
+    
     /**
      * Deletes an existing Ocena model.
      * If deletion is successful, the browser will be redirected to the 'index' page.

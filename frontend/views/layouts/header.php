@@ -15,12 +15,12 @@ NavBar::begin([
     ],
 ]);
 $menuItems = [
-    ['label' => 'Početna', 'url' => ['/site/index']],
-    ['label' => 'Direktor', 'url' => ['/direktor/ocena']],
+    ['label' => 'Dir', 'url' => ['/direktor/ocena']],
+    ['label' => 'Dir O', 'url' => ['/direktor/ocena/direktor']],
     ['label' => 'Raspored', 'url' => ['/ucitelj/raspored']],
     ['label' => 'Otvorena U', 'url' => ['/ucitelj/ucitelj-o']],
     ['label' => 'Ucitelj', 'url' => ['/ucitelj/ucitelj']],
-    ['label' => 'Obavestenja', 'url' => ['/roditelj/obavestenja']],
+    ['label' => 'Obav', 'url' => ['/roditelj/obavestenja']],
     ['label' => 'Otvorena R', 'url' => ['/roditelj/otvorena-vrata']],
     ['label' => 'Otvorena R O', 'url' => ['/roditelj/odgovor']],
     ['label' => 'Ocena', 'url' => ['/roditelj/ocena']],
