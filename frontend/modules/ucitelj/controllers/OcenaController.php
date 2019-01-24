@@ -4,7 +4,7 @@ namespace frontend\modules\ucitelj\controllers;
 
 use Yii;
 use frontend\modules\ucitelj\models\Ocena;
-use frontend\modules\ucitelj\models\OcenaSearch;
+use yii\web\ForbiddenHttpException;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -29,33 +29,6 @@ class OcenaController extends Controller
         ];
     }
 
-    /**
-     * Lists all Ocena models.
-     * @return mixed
-     */
-    public function actionIndex()
-    {
-        $searchModel = new OcenaSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
-    }
-
-    /**
-     * Displays a single Ocena model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
 
     /**
      * Creates a new Ocena model.
@@ -64,15 +37,21 @@ class OcenaController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Ocena();
+        if(Yii::$app->user->can('ucitelj')){
+            $model = new Ocena();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_ocena]);
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id_ocena]);
+            }
+
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+        } else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
         }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
     }
 
     /**
@@ -84,15 +63,21 @@ class OcenaController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        if(Yii::$app->user->can('ucitelj')){
+            $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['ucitelj/view', 'id' => $model->id_ucenik,'ime' => $model->ucenik->username]);
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['ucitelj/view', 'id' => $model->id_ucenik,'ime' => $model->ucenik->username]);
+            }
+
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+        } else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
         }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
     }
 
     /**
@@ -102,12 +87,7 @@ class OcenaController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
-    }
 
     /**
      * Finds the Ocena model based on its primary key value.

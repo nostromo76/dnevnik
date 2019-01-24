@@ -6,6 +6,7 @@ use frontend\modules\poruke\models\Roditelj;
 use Yii;
 use frontend\modules\poruke\models\Poruke;
 use yii\web\Controller;
+use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use frontend\modules\poruke\models\Ucitelj;
@@ -35,24 +36,31 @@ class PorukeController extends Controller
      */
     public function actionIndex()
     {
-        $rola = Yii::$app->user->identity->role;
-        $ucitelj_id = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
-        $roditelj_id = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
 
-        if($rola == 4){
+        if(Yii::$app->user->can('ucitelj') || Yii::$app->user->can('roditelj')){
+            $rola = Yii::$app->user->identity->role;
+            $ucitelj_id = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
+            $roditelj_id = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
 
-            $svePorukeUcitelj = Poruke::findBySql('SELECT DISTINCT `roditelj_id` FROM `poruke` WHERE `ucitelj_id` = '.$ucitelj_id->id_ucitelj.';')->all();
+            if($rola == 4){
 
-            return $this->render('index', [
-                'svePorukeUcitelj' => $svePorukeUcitelj,
-            ]);
-        } else if($rola == 8){
+                $svePorukeUcitelj = Poruke::findBySql('SELECT DISTINCT `roditelj_id` FROM `poruke` WHERE `ucitelj_id` = '.$ucitelj_id->id_ucitelj.';')->all();
 
-            $svePorukeRoditelj = Poruke::findBySql('SELECT DISTINCT `ucitelj_id` FROM `poruke` WHERE `roditelj_id` = '.$roditelj_id->id_roditelj.';')->all();
+                return $this->render('index', [
+                    'svePorukeUcitelj' => $svePorukeUcitelj,
+                ]);
+            } else if($rola == 8){
 
-            return $this->render('index', [
-                'svePorukeRoditelj' => $svePorukeRoditelj
-            ]);
+                $svePorukeRoditelj = Poruke::findBySql('SELECT DISTINCT `ucitelj_id` FROM `poruke` WHERE `roditelj_id` = '.$roditelj_id->id_roditelj.';')->all();
+
+                return $this->render('index', [
+                    'svePorukeRoditelj' => $svePorukeRoditelj
+                ]);
+            }
+        } else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
         }
     }
 
@@ -64,16 +72,22 @@ class PorukeController extends Controller
      */
     public function actionView($id)
     {
-        $ucitelj_id = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
-        $roditelj_id = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
-        $porukeUcitelj = Poruke::find()->where(['roditelj_id' => $id, 'ucitelj_id' => $ucitelj_id])->all();
-        $porukeRoditelj = Poruke::find()->where(['ucitelj_id' => $id, 'roditelj_id' => $roditelj_id])->all();
-        return $this->render('view', [
-            'porukeUcitelj' => $porukeUcitelj,
-            'porukeRoditelj' => $porukeRoditelj,
-            'ucitelj_id' => $ucitelj_id,
-            'roditelj_id' => $roditelj_id
-        ]);
+        if(Yii::$app->user->can('ucitelj') || Yii::$app->user->can('roditelj')){
+            $ucitelj_id = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
+            $roditelj_id = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
+            $porukeUcitelj = Poruke::find()->where(['roditelj_id' => $id, 'ucitelj_id' => $ucitelj_id])->all();
+            $porukeRoditelj = Poruke::find()->where(['ucitelj_id' => $id, 'roditelj_id' => $roditelj_id])->all();
+            return $this->render('view', [
+                'porukeUcitelj' => $porukeUcitelj,
+                'porukeRoditelj' => $porukeRoditelj,
+                'ucitelj_id' => $ucitelj_id,
+                'roditelj_id' => $roditelj_id
+            ]);
+        } else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
+        }
     }
 
     /**
@@ -83,48 +97,52 @@ class PorukeController extends Controller
      */
     public function actionCreate()
     {
-        $rola = Yii::$app->user->identity->role;
-        $ucitelj_id = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
-        $roditelj_id = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
-        if($rola == 8){
-            $query= Yii::$app->db->createCommand('SELECT `ucenik`.`id_odeljenje`, `odeljenje`.`ucitelj_id` FROM `roditelj`
-                JOIN `ucenik` ON `roditelj`.`id_ucenik`=`ucenik`.`id_ucenik`
-                JOIN `odeljenje` ON `ucenik`.`id_odeljenje`=`odeljenje`.`id_odeljenje`
-                WHERE `ucenik`.`id_roditelj` = '.$roditelj_id->id_roditelj.'.');
-            $ucenik_odeljenje = $query->queryAll();
-        }
-        $model = new Poruke();
+        if(Yii::$app->user->can('ucitelj') || Yii::$app->user->can('roditelj')){
+            $rola = Yii::$app->user->identity->role;
+            $ucitelj_id = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
+            $roditelj_id = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
+            if($rola == 8){
+                $query= Yii::$app->db->createCommand('SELECT `ucenik`.`id_odeljenje`, `odeljenje`.`ucitelj_id` FROM `roditelj`
+                    JOIN `ucenik` ON `roditelj`.`id_ucenik`=`ucenik`.`id_ucenik`
+                    JOIN `odeljenje` ON `ucenik`.`id_odeljenje`=`odeljenje`.`id_odeljenje`
+                    WHERE `ucenik`.`id_roditelj` = '.$roditelj_id->id_roditelj.'.');
+                $ucenik_odeljenje = $query->queryAll();
+            }
+            $model = new Poruke();
 
-        if ($model->load(Yii::$app->request->post())) {
-            if($rola == 4){
-                $model->ucitelj_id = $ucitelj_id->id_ucitelj;
-                $model->od_korisnika = $ucitelj_id->id_ucitelj;
-                $model->ka_korisniku = $model->roditelj_id;
-                if($model->save()){
-                    return $this->redirect(['view', 'id' => $model->roditelj_id]);
-                }
-            } else if($rola == 8) {
-                $model->roditelj_id = $roditelj_id->id_roditelj;
-                $model->ucitelj_id = $ucenik_odeljenje[0]['ucitelj_id'];
-                $model->od_korisnika = $roditelj_id->id_roditelj;
-                $model->ka_korisniku = $model->ucitelj_id;
-                if($model->save()){
-                    return $this->redirect(['view', 'id' => $model->ucitelj_id]);
+            if ($model->load(Yii::$app->request->post())) {
+                if($rola == 4){
+                    $model->ucitelj_id = $ucitelj_id->id_ucitelj;
+                    $model->od_korisnika = $ucitelj_id->id_ucitelj;
+                    $model->ka_korisniku = $model->roditelj_id;
+                    if($model->save()){
+                        return $this->redirect(['view', 'id' => $model->roditelj_id]);
+                    }
+                } else if($rola == 8) {
+                    $model->roditelj_id = $roditelj_id->id_roditelj;
+                    $model->ucitelj_id = $ucenik_odeljenje[0]['ucitelj_id'];
+                    $model->od_korisnika = $roditelj_id->id_roditelj;
+                    $model->ka_korisniku = $model->ucitelj_id;
+                    if($model->save()){
+                        return $this->redirect(['view', 'id' => $model->ucitelj_id]);
+                    }
                 }
             }
-
+            if($rola == 8){
+                return $this->render('create', [
+                    'model' => $model,
+                    'ucenik_odeljenje' => $ucenik_odeljenje
+                ]);
+            } else if($rola == 4){
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
+            }
+        } else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
         }
-        if($rola == 8){
-            return $this->render('create', [
-                'model' => $model,
-                'ucenik_odeljenje' => $ucenik_odeljenje
-            ]);
-        } else if($rola == 4){
-            return $this->render('create', [
-                'model' => $model,
-            ]);
-        }
-
     }
 
     /**
@@ -136,33 +154,38 @@ class PorukeController extends Controller
      */
     public function actionOdgovor($id)
     {
-        $rola = Yii::$app->user->identity->role;
-        $model = new Poruke();
-        $ucitelj_id = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
-        $roditelj_id = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
-        if ($model->load(Yii::$app->request->post())) {
-            if($rola == 4){
-                $model->roditelj_id = $id;
-                $model->ucitelj_id = $ucitelj_id->id_ucitelj;
-                $model->od_korisnika = $ucitelj_id->id_ucitelj;
-                $model->ka_korisniku = $model->roditelj_id;
-                if($model->save()){
-                    return $this->redirect(['view', 'id'=> $model->roditelj_id]);
-                }
-            } else if($rola == 8){
-                $model->ucitelj_id = $id;
-                $model->roditelj_id = $roditelj_id->id_roditelj;
-                $model->od_korisnika = $roditelj_id->id_roditelj;
-                $model->ka_korisniku = $model->ucitelj_id;
-                if($model->save()){
-                    return $this->redirect(['view', 'id'=> $model->ucitelj_id]);
+        if(Yii::$app->user->can('ucitelj') || Yii::$app->user->can('roditelj')){
+            $rola = Yii::$app->user->identity->role;
+            $model = new Poruke();
+            $ucitelj_id = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
+            $roditelj_id = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
+            if ($model->load(Yii::$app->request->post())) {
+                if($rola == 4){
+                    $model->roditelj_id = $id;
+                    $model->ucitelj_id = $ucitelj_id->id_ucitelj;
+                    $model->od_korisnika = $ucitelj_id->id_ucitelj;
+                    $model->ka_korisniku = $model->roditelj_id;
+                    if($model->save()){
+                        return $this->redirect(['view', 'id'=> $model->roditelj_id]);
+                    }
+                } else if($rola == 8){
+                    $model->ucitelj_id = $id;
+                    $model->roditelj_id = $roditelj_id->id_roditelj;
+                    $model->od_korisnika = $roditelj_id->id_roditelj;
+                    $model->ka_korisniku = $model->ucitelj_id;
+                    if($model->save()){
+                        return $this->redirect(['view', 'id'=> $model->ucitelj_id]);
+                    }
                 }
             }
+            return $this->render('odgovor', [
+                'model' => $model,
+            ]);
+        } else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
         }
-
-        return $this->render('odgovor', [
-            'model' => $model,
-        ]);
     }
 
     /**
@@ -172,12 +195,6 @@ class PorukeController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
 
     /**
      * Finds the Poruke model based on its primary key value.
