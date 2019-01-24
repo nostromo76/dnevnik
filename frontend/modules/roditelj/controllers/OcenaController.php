@@ -2,6 +2,7 @@
 
 namespace frontend\modules\roditelj\controllers;
 
+use frontend\modules\roditelj\models\Roditelj;
 use Yii;
 use frontend\modules\roditelj\models\Ocena;
 use frontend\modules\roditelj\models\OcenaSearch;
@@ -36,7 +37,8 @@ class OcenaController extends Controller
      */
     public function actionIndex()
     {
-        //$model = Ocena::find()->all();
+        $roditelj_id = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
+        $id_roditelj = $roditelj_id->id_roditelj;
         $model = Ocena::find()
             ->select('*')
             ->join( 'JOIN',
@@ -45,12 +47,13 @@ class OcenaController extends Controller
             ->join( 'JOIN',
                     'ucenik',
                     "ocena.id_ucenik=ucenik.id_ucenik")
-            //->where(['id_ucenik'=>2])
+            ->where(['ocena.id_ucenik'=>$id_roditelj])
             ->all();
         $searchModel = new OcenaSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
+            'roditelj_id' => $roditelj_id,
             'model' => $model,
             'dataProvider' => $dataProvider,
         ]);
