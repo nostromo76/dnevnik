@@ -2,7 +2,6 @@
 
 namespace frontend\modules\roditelj\controllers;
 
-use yii\web\ForbiddenHttpException;
 
 use Yii;
 use frontend\modules\roditelj\models\OtvorenaVrata;
@@ -10,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use frontend\modules\roditelj\models\Roditelj;
+use yii\web\ForbiddenHttpException;
 
 /**
  * OtvorenaVrataController implements the CRUD actions for OtvorenaVrata model.

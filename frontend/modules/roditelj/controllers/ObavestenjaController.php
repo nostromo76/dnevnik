@@ -67,8 +67,14 @@ class ObavestenjaController extends Controller
     public function actionView($id)
     {
         if(Yii::$app->user->can('roditelj')) {
+            $obavestenje = Obavestenja::find()
+                ->select('id_obavestenja, naziv, opis, vreme, id_odeljenje')
+                ->where(['id_obavestenja'=>$id ])
+                ->all();
             return $this->render('view', [
                 'model' => $this->findModel($id),
+                'obavestenje' => $obavestenje,
+
             ]);
         } else if(Yii::$app->user->isGuest){
             $this->redirect(['../site/login']);

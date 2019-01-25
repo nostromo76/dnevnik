@@ -2,7 +2,6 @@
 
 namespace frontend\modules\roditelj\controllers;
 
-use yii\web\ForbiddenHttpException;
 
 use Yii;
 use frontend\modules\roditelj\models\Odgovor;
@@ -10,7 +9,7 @@ use frontend\modules\roditelj\models\OdgovorSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\web\ForbiddenHttpException;
 /**
  * OdgovorController implements the CRUD actions for Odgovor model.
  */
