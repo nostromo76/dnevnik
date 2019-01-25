@@ -2,7 +2,7 @@
 
 namespace frontend\modules\ucitelj\controllers;
 
-use frontend\modules\ucitelj\models\Odeljenje;
+use yii\web\ForbiddenHttpException;
 use frontend\modules\ucitelj\models\Ucenik;
 use Yii;
 use frontend\modules\ucitelj\models\Ocena;
@@ -37,9 +37,23 @@ class UciteljController extends Controller
      */
     public function actionIndex()
     {
+        if(Yii::$app->user->can('ucitelj')){
 
-        $ucenik = Ucenik::find()->all();
-        return $this->render('index', ['ucenik' => $ucenik]);
+            $ucitelj = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
+            $ocena = Ocena::find()->select('id_ucenik')->where(['id_ucenik' => $ucitelj ])->one();
+            $idu = $ocena->id_ucenik;
+
+            $ucenik = Ucenik::find()
+                ->select('*')
+                ->where(['ucenik.id_odeljenje'=> $idu ])
+                ->all();
+
+            return $this->render('index', ['ucenik' => $ucenik]);
+        } else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
+        }
     }
 
     /**
@@ -48,76 +62,25 @@ class UciteljController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id,$ime)
+    public function actionView($id, $ime)
     {
-        $ocene = Ocena::find()
-                        ->select('*')
-                        ->join('JOIN',
-                            'predmet',
-                                  'ocena.id_predmet = predmet.id_predmet')
-                        ->join('JOIN',
-                            'ucenik',
-                            'ocena.id_ucenik = ucenik.id_ucenik')
-                        ->where(['ucenik.id_ucenik' => $id])
-                        ->all();
-        return $this->render('view', [
-            'ocene' => $ocene,
-            'ime' => $ime
-        ]);
-    }
-
-    /**
-     * Creates a new Ucitelj model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate()
-    {
-        $model = new Ucitelj();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_ucitelj]);
+        if(Yii::$app->user->can('ucitelj')){
+            $ocene = Ocena::find()
+                            ->select('*')
+                            ->join('JOIN','predmet','ocena.id_predmet = predmet.id_predmet')
+                            ->join('JOIN','ucenik','ocena.id_ucenik = ucenik.id_ucenik')
+                            ->where(['ucenik.id_ucenik' => $id])
+                            ->all();
+            return $this->render('view', [
+                'ocene' => $ocene,
+                'ime' => $ime
+            ]);
+        } else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
         }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
     }
-
-    /**
-     * Updates an existing Ucitelj model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_ucitelj]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Deletes an existing Ucitelj model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
-
     /**
      * Finds the Ucitelj model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

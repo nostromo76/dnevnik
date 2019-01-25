@@ -8,27 +8,42 @@ use yii\helpers\Html;
 
 <?php
 NavBar::begin([
-    //'brandLabel' => Yii::$app->name,
-    //'brandUrl' => Yii::$app->homeUrl,
     'options' => [
         'class' => 'navbar-inverse navbar-fixed-top',
     ],
 ]);
-$menuItems = [
-    ['label' => 'Dir', 'url' => ['/direktor/ocena']],
-    ['label' => 'Dir O', 'url' => ['/direktor/ocena/direktor']],
-    ['label' => 'Raspored', 'url' => ['/ucitelj/raspored']],
-    ['label' => 'Otvorena U', 'url' => ['/ucitelj/ucitelj-o']],
-    ['label' => 'Ucitelj', 'url' => ['/ucitelj/ucitelj']],
-    ['label' => 'Obav', 'url' => ['/roditelj/obavestenja']],
-    ['label' => 'Otvorena R', 'url' => ['/roditelj/otvorena-vrata']],
-    ['label' => 'Otvorena R O', 'url' => ['/roditelj/odgovor']],
-    ['label' => 'Ocena', 'url' => ['/roditelj/ocena']],
-    ['label' => 'Poruke', 'url' => ['/poruke/poruke']]
-];
+
+if(!Yii::$app->user->isGuest){
+$rola = Yii::$app->user->identity->role;
+switch ($rola){
+    case 2:
+        $menuItems = [
+            ['label' => 'Dir', 'url' => ['/direktor/ocena']],
+            ['label' => 'Dir O', 'url' => ['/direktor/ocena/direktor']],
+        ];
+        break;
+    case 4:
+        $menuItems = [
+            ['label' => 'Raspored', 'url' => ['/ucitelj/raspored']],
+            ['label' => 'Otvorena Vrata', 'url' => ['/ucitelj/ucitelj-o']],
+            ['label' => 'Ocene učenika', 'url' => ['/ucitelj/ucitelj']],
+            ['label' => 'Poruke', 'url' => ['/poruke/poruke']]
+        ];
+        break;
+    case 8:
+        $menuItems = [
+            ['label' => 'Obaveštenja', 'url' => ['/roditelj/obavestenja']],
+            ['label' => 'Otvorena vrata', 'url' => ['/roditelj/otvorena-vrata']],
+            ['label' => 'Otvorena vrata obaveštenje', 'url' => ['/roditelj/odgovor']],
+            ['label' => 'Ocene', 'url' => ['/roditelj/ocena']],
+            ['label' => 'Poruke', 'url' => ['/poruke/poruke']]
+        ];
+        break;
+    }
+}
+
 if (Yii::$app->user->isGuest) {
-    $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-    $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+    $menuItems[] = ['label' => 'Prijavi se', 'url' => ['/site/login']];
 } else {
     $menuItems[] = '<li>'
         . Html::beginForm(['/site/logout'], 'post')

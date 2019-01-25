@@ -26,25 +26,56 @@ class NameFilterIterator extends RecursiveFilterIterator
      * @var int
      */
     protected $filterMin;
+
     /**
      * @var int
      */
     protected $filterMax;
 
     /**
-     * @param RecursiveIterator $iterator
-     * @param string            $filter
+     * @throws \Exception
      */
-    public function __construct(RecursiveIterator $iterator, $filter)
+    public function __construct(RecursiveIterator $iterator, string $filter)
     {
         parent::__construct($iterator);
+
         $this->setFilter($filter);
     }
 
+    public function accept(): bool
+    {
+        $test = $this->getInnerIterator()->current();
+
+        if ($test instanceof TestSuite) {
+            return true;
+        }
+
+        $tmp = \PHPUnit\Util\Test::describe($test);
+
+        if ($test instanceof WarningTestCase) {
+            $name = $test->getMessage();
+        } else {
+            if ($tmp[0] !== '') {
+                $name = \implode('::', $tmp);
+            } else {
+                $name = $tmp[1];
+            }
+        }
+
+        $accepted = @\preg_match($this->filter, $name, $matches);
+
+        if ($accepted && isset($this->filterMax)) {
+            $set      = \end($matches);
+            $accepted = $set >= $this->filterMin && $set <= $this->filterMax;
+        }
+
+        return (bool) $accepted;
+    }
+
     /**
-     * @param string $filter
+     * @throws \Exception
      */
-    protected function setFilter($filter)
+    protected function setFilter(string $filter): void
     {
         if (RegularExpression::safeMatch($filter, '') === false) {
             // Handles:
@@ -88,6 +119,7 @@ class NameFilterIterator extends RecursiveFilterIterator
 
         $this->filter = $filter;
     }
+<<<<<<< HEAD
 
     public function accept(): bool
     {
@@ -118,4 +150,6 @@ class NameFilterIterator extends RecursiveFilterIterator
 
         return (bool) $accepted;
     }
+=======
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
 }

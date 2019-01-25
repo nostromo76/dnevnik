@@ -7,7 +7,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace PHPUnit\Runner;
 
 use SebastianBergmann\Version as VersionId;
@@ -18,31 +17,31 @@ use SebastianBergmann\Version as VersionId;
 class Version
 {
     private static $pharVersion;
+
     private static $version;
 
     /**
      * Returns the current version of PHPUnit.
-     *
-     * @return string
      */
-    public static function id()
+    public static function id(): string
     {
         if (self::$pharVersion !== null) {
             return self::$pharVersion;
         }
 
         if (self::$version === null) {
+<<<<<<< HEAD
             $version       = new VersionId('6.5.13', \dirname(\dirname(__DIR__)));
+=======
+            $version       = new VersionId('7.5.2', \dirname(__DIR__, 2));
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
             self::$version = $version->getVersion();
         }
 
         return self::$version;
     }
 
-    /**
-     * @return string
-     */
-    public static function series()
+    public static function series(): string
     {
         if (\strpos(self::id(), '-')) {
             $version = \explode('-', self::id())[0];
@@ -53,18 +52,12 @@ class Version
         return \implode('.', \array_slice(\explode('.', $version), 0, 2));
     }
 
-    /**
-     * @return string
-     */
-    public static function getVersionString()
+    public static function getVersionString(): string
     {
         return 'PHPUnit ' . self::id() . ' by Sebastian Bergmann and contributors.';
     }
 
-    /**
-     * @return string
-     */
-    public static function getReleaseChannel()
+    public static function getReleaseChannel(): string
     {
         if (\strpos(self::$pharVersion, '-') !== false) {
             return '-nightly';

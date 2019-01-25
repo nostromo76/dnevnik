@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:annotation>
+<<<<<<< HEAD
         <xs:documentation source="https://phpunit.de/manual/6.5/en/appendixes.configuration.html">
             This Schema file defines the rules by which the XML configuration file of PHPUnit 6.5 may be structured.
         </xs:documentation>
         <xs:appinfo source="https://phpunit.de/manual/6.5/en/appendixes.configuration.html"/>
+=======
+        <xs:documentation source="https://phpunit.de/documentation.html">
+            This Schema file defines the rules by which the XML configuration file of PHPUnit 7.5 may be structured.
+        </xs:documentation>
+        <xs:appinfo source="https://phpunit.de/documentation.html"/>
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
     </xs:annotation>
     <xs:element name="phpunit" type="phpUnitType">
         <xs:annotation>
@@ -52,6 +59,14 @@
             <xs:element name="group" type="xs:string" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
+<<<<<<< HEAD
+=======
+    <xs:complexType name="extensionsType">
+        <xs:sequence>
+            <xs:element name="extension" type="objectType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
     <xs:complexType name="listenersType">
         <xs:sequence>
             <xs:element name="listener" type="objectType" maxOccurs="unbounded"/>
@@ -102,6 +117,10 @@
             <xs:element name="object" type="objectType" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="file" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="directory" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded"/>
+<<<<<<< HEAD
+=======
+            <xs:element name="boolean" type="xs:boolean" minOccurs="0" maxOccurs="unbounded"/>
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
         </xs:choice>
     </xs:group>
     <xs:simpleType name="columnsType">
@@ -166,6 +185,23 @@
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
+<<<<<<< HEAD
+=======
+    <xs:simpleType name="executionOrderType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="default"/>
+            <xs:enumeration value="defects"/>
+            <xs:enumeration value="duration"/>
+            <xs:enumeration value="depends"/>
+            <xs:enumeration value="depends,defects"/>
+            <xs:enumeration value="random"/>
+            <xs:enumeration value="reverse"/>
+            <xs:enumeration value="depends,random"/>
+            <xs:enumeration value="depends,reverse"/>
+            <xs:enumeration value="depends,duration"/>
+        </xs:restriction>
+    </xs:simpleType>
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
     <xs:complexType name="fileFilterType">
         <xs:simpleContent>
             <xs:extension base="xs:anyURI">
@@ -211,6 +247,11 @@
         <xs:attribute name="backupGlobals" type="xs:boolean" default="false"/>
         <xs:attribute name="backupStaticAttributes" type="xs:boolean" default="false"/>
         <xs:attribute name="bootstrap" type="xs:anyURI"/>
+<<<<<<< HEAD
+=======
+        <xs:attribute name="cacheResult" type="xs:boolean" default="false"/>
+        <xs:attribute name="cacheResultFile" type="xs:anyURI"/>
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
         <xs:attribute name="cacheTokens" type="xs:boolean"/>
         <xs:attribute name="colors" type="xs:boolean" default="false"/>
         <xs:attribute name="columns" type="columnsType" default="80"/>
@@ -218,10 +259,19 @@
         <xs:attribute name="convertErrorsToExceptions" type="xs:boolean" default="true"/>
         <xs:attribute name="convertNoticesToExceptions" type="xs:boolean" default="true"/>
         <xs:attribute name="convertWarningsToExceptions" type="xs:boolean" default="true"/>
+<<<<<<< HEAD
         <xs:attribute name="forceCoversAnnotation" type="xs:boolean" default="false"/>
         <xs:attribute name="printerClass" type="xs:string" default="PHPUnit_TextUI_ResultPrinter"/>
         <xs:attribute name="printerFile" type="xs:anyURI"/>
         <xs:attribute name="processIsolation" type="xs:boolean" default="false"/>
+=======
+        <xs:attribute name="disableCodeCoverageIgnore" type="xs:boolean" default="false"/>
+        <xs:attribute name="forceCoversAnnotation" type="xs:boolean" default="false"/>
+        <xs:attribute name="printerClass" type="xs:string" default="PHPUnit\TextUI\ResultPrinter"/>
+        <xs:attribute name="printerFile" type="xs:anyURI"/>
+        <xs:attribute name="processIsolation" type="xs:boolean" default="false"/>
+        <xs:attribute name="stopOnDefect" type="xs:boolean" default="false"/>
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
         <xs:attribute name="stopOnError" type="xs:boolean" default="false"/>
         <xs:attribute name="stopOnFailure" type="xs:boolean" default="false"/>
         <xs:attribute name="stopOnWarning" type="xs:boolean" default="false"/>
@@ -236,12 +286,20 @@
         <xs:attribute name="beStrictAboutTestsThatDoNotTestAnything" type="xs:boolean" default="true"/>
         <xs:attribute name="beStrictAboutTodoAnnotatedTests" type="xs:boolean" default="false"/>
         <xs:attribute name="beStrictAboutCoversAnnotation" type="xs:boolean" default="false"/>
+<<<<<<< HEAD
+=======
+        <xs:attribute name="defaultTimeLimit" type="xs:integer" default="0"/>
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
         <xs:attribute name="enforceTimeLimit" type="xs:boolean" default="false"/>
         <xs:attribute name="ignoreDeprecatedCodeUnitsFromCodeCoverage" type="xs:boolean" default="false"/>
         <xs:attribute name="timeoutForSmallTests" type="xs:integer" default="1"/>
         <xs:attribute name="timeoutForMediumTests" type="xs:integer" default="10"/>
         <xs:attribute name="timeoutForLargeTests" type="xs:integer" default="60"/>
+<<<<<<< HEAD
         <xs:attribute name="testSuiteLoaderClass" type="xs:string" default="PHPUnit_Runner_StandardTestSuiteLoader"/>
+=======
+        <xs:attribute name="testSuiteLoaderClass" type="xs:string" default="PHPUnit\Runner\StandardTestSuiteLoader"/>
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
         <xs:attribute name="testSuiteLoaderFile" type="xs:anyURI"/>
         <xs:attribute name="defaultTestSuite" type="xs:string" default=""/>
         <xs:attribute name="verbose" type="xs:boolean" default="false"/>
@@ -249,6 +307,11 @@
         <xs:attribute name="reverseDefectList" type="xs:boolean" default="false"/>
         <xs:attribute name="registerMockObjectsFromTestArgumentsRecursively" type="xs:boolean" default="false"/>
         <xs:attribute name="extensionsDirectory" type="xs:string"/>
+<<<<<<< HEAD
+=======
+        <xs:attribute name="executionOrder" type="executionOrderType" default="default"/>
+        <xs:attribute name="resolveDependencies" type="xs:boolean" default="false"/>
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
     </xs:attributeGroup>
     <xs:group name="configGroup">
         <xs:all>
@@ -257,6 +320,10 @@
             <xs:element name="testdoxGroups" type="groupsType" minOccurs="0"/>
             <xs:element name="filter" type="filtersType" minOccurs="0"/>
             <xs:element name="logging" type="loggersType" minOccurs="0"/>
+<<<<<<< HEAD
+=======
+            <xs:element name="extensions" type="extensionsType" minOccurs="0"/>
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
             <xs:element name="listeners" type="listenersType" minOccurs="0"/>
             <xs:element name="php" type="phpType" minOccurs="0"/>
         </xs:all>

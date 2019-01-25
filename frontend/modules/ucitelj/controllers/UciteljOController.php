@@ -2,12 +2,14 @@
 
 namespace frontend\modules\ucitelj\controllers;
 
+use frontend\modules\ucitelj\models\Ucitelj;
 use Yii;
 use frontend\modules\ucitelj\models\UciteljO;
 use frontend\modules\ucitelj\models\UciteljOSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\ForbiddenHttpException;
 
 /**
  * UciteljOController implements the CRUD actions for UciteljO model.
@@ -35,37 +37,32 @@ class UciteljOController extends Controller
      */
     public function actionIndex()
     {
-/*        SELECT *
-        FROM `otvorene_vrata_insert`
-    	JOIN `otvorena_vrata`
-        	ON `otvorene_vrata_insert`.`id_roditelj`=`otvorena_vrata`.`id_roditelj`
-		JOIN `roditelj`
-			ON `otvorena_vrata`.`id_roditelj`=`roditelj`.`id_roditelj`
-		JOIN `user`
-			ON `roditelj`.`user_id`=`user`.`id`;*/
+        if(Yii::$app->user->can('ucitelj')) {
 
-        $model = UciteljO::find()
-            ->select('*')
-            ->from('otvorene_vrata_insert')
-            ->join( 'JOIN',
-                'otvorena_vrata',
-                'otvorena_vrata.id_roditelj=otvorene_vrata_insert.id_roditelj')
-            ->join( 'JOIN',
-                'roditelj',
-                'roditelj.id_roditelj=otvorena_vrata.id_roditelj')
-            ->join( 'JOIN',
-                'user',
-                'user.id=roditelj.user_id')
-            ->all();
+            $ucitelj = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
 
-        $searchModel = new UciteljOSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+            $model = UciteljO::find()
+                ->select('*')
+                ->from('otvorene_vrata_insert')
+                ->join('JOIN','otvorena_vrata','otvorena_vrata.id_roditelj=otvorene_vrata_insert.id_roditelj')
+                ->join('JOIN','roditelj','roditelj.id_roditelj=otvorena_vrata.id_roditelj')
+                ->join('JOIN','user','user.id=roditelj.user_id')
+                ->where(['otvorene_vrata_insert.id_ucitelj' => $ucitelj ])
+                ->all();
 
-        return $this->render('index', [
-            'model' => $model,
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+            $searchModel = new UciteljOSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+            return $this->render('index', [
+                'model' => $model,
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        } else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
+        }
     }
 
     /**
@@ -76,70 +73,18 @@ class UciteljOController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+        if(Yii::$app->user->can('ucitelj')) {
+            return $this->render('view', [
+                'model' => $this->findModel($id),
+            ]);
+        }else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
+        }
+
     }
 
-    /**
-     * Creates a new UciteljO model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-/*    public function actionCreate()
-    {
-        $model = new UciteljO();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }*/
-
-    /**
-     * Updates an existing UciteljO model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-/*    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
-    }*/
-
-    /**
-     * Deletes an existing UciteljO model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-/*    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }*/
-
-    /**
-     * Finds the UciteljO model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return UciteljO the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     protected function findModel($id)
     {
         if (($model = UciteljO::findOne($id)) !== null) {

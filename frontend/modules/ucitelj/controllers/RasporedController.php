@@ -2,10 +2,12 @@
 
 namespace frontend\modules\ucitelj\controllers;
 
+use frontend\modules\ucitelj\models\Ucitelj;
 use Yii;
 use frontend\modules\ucitelj\models\Raspored;
+use frontend\modules\ucitelj\models\Odeljenje;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
+use yii\web\ForbiddenHttpException;
 use yii\filters\VerbFilter;
 
 /**
@@ -34,20 +36,31 @@ class RasporedController extends Controller
      */
     public function actionIndex()
     {
-        $prvi = Raspored::find()->where(['br_casa' => 1])->all();
-        $drugi = Raspored::find()->where(['br_casa' => 2])->all();
-        $treci = Raspored::find()->where(['br_casa' => 3])->all();
-        $cetv = Raspored::find()->where(['br_casa' => 4])->all();
-        $peti = Raspored::find()->where(['br_casa' => 5])->all();
-        $sesti = Raspored::find()->where(['br_casa' => 6])->all();
+        if(Yii::$app->user->can('ucitelj')){
 
-        return $this->render('index', [
-            'prvi' => $prvi,
-            'drugi' => $drugi,
-            'treci' => $treci,
-            'cetv' => $cetv,
-            'peti' => $peti,
-            'sesti' => $sesti,
-        ]);
+            $ucitelj = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
+            $odeljenje_id = Odeljenje::find()->select('id_odeljenje')->where(['ucitelj_id' => $ucitelj ])->one();
+            $ido = $odeljenje_id->id_odeljenje;
+
+            $prvi = Raspored::find()->where(['br_casa' => 1, 'id_odeljenje' => $ido])->all();
+            $drugi = Raspored::find()->where(['br_casa' => 2, 'id_odeljenje' => $ido])->all();
+            $treci = Raspored::find()->where(['br_casa' => 3, 'id_odeljenje' => $ido])->all();
+            $cetv = Raspored::find()->where(['br_casa' => 4, 'id_odeljenje' => $ido])->all();
+            $peti = Raspored::find()->where(['br_casa' => 5, 'id_odeljenje' => $ido])->all();
+            $sesti = Raspored::find()->where(['br_casa' => 6, 'id_odeljenje' => $ido])->all();
+
+            return $this->render('index', [
+                'prvi' => $prvi,
+                'drugi' => $drugi,
+                'treci' => $treci,
+                'cetv' => $cetv,
+                'peti' => $peti,
+                'sesti' => $sesti,
+            ]);
+        } else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
+        }
     }
 }

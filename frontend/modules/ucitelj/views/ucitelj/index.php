@@ -8,7 +8,7 @@ use yii\helpers\Url;
 /* @var $searchModel frontend\modules\ucitelj\models\UciteljSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Ucitelj';
+$this->title = 'Pregled svih učenika';
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ucitelj-index">
@@ -17,7 +17,7 @@ $this->title = 'Ucitelj';
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Dodaj Ocene', ['/ucitelj/ocena/create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Dodaj Nove Ocene', ['/ucitelj/ocena/create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <table class="table table-bordered table-striped">

@@ -7,7 +7,7 @@ use yii\helpers\Html;
 class SmallBody extends Widget
 {
     public $body;
-    public $count = 25;
+    public $count = 15;
 
     public function init()
     {
@@ -17,7 +17,7 @@ class SmallBody extends Widget
             $this->body;
         }else{
             array_splice($mini, $this->count);
-            $this->body = implode(" ", $mini).' ... Nastavi sa citanjem';
+            $this->body = implode(" ", $mini).' ...';
         }
     }
 

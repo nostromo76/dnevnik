@@ -2,13 +2,17 @@
 
 namespace frontend\modules\roditelj\controllers;
 
+
 use Yii;
 use frontend\modules\roditelj\models\Odgovor;
+use frontend\modules\roditelj\models\Roditelj;
+use frontend\modules\roditelj\models\Odeljenje;
+use frontend\modules\roditelj\models\Obavestenja;
 use frontend\modules\roditelj\models\OdgovorSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\web\ForbiddenHttpException;
 /**
  * OdgovorController implements the CRUD actions for Odgovor model.
  */
@@ -35,81 +39,31 @@ class OdgovorController extends Controller
      */
     public function actionIndex()
     {
-        $model = Odgovor::find()->all();
+        if(Yii::$app->user->can('roditelj')){
 
-        $searchModel = new OdgovorSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+            $roditelj = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
+            $odeljenje_id = Odeljenje::find()->select('id_odeljenje')->where(['ucitelj_id' => $roditelj ])->one();
+            $ido = $odeljenje_id->id_odeljenje;
 
-        return $this->render('index', [
-            'model' => $model,
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
-    }
+            $model = Odgovor::find()
+                ->select('*')
+                ->where(['odgovor.id_ucitelj'=> $ido ])
+                ->limit(15)
+                ->all();
 
-    /**
-     * Displays a single Odgovor model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
+            $searchModel = new OdgovorSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-    /**
-     * Creates a new Odgovor model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate()
-    {
-        $model = new Odgovor();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->odgovor_id]);
+            return $this->render('index', [
+                'model' => $model,
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        } else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
         }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Updates an existing Odgovor model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->odgovor_id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Deletes an existing Odgovor model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
     }
 
     /**

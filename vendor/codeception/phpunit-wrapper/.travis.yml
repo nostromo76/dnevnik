@@ -4,7 +4,10 @@ env:
   CODECEPTION_VERSION: 'dev-phpunit-xml-reports-2'
 
 php:
+<<<<<<< HEAD
   - 7.0
+=======
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
   - 7.1
   - 7.2
 
