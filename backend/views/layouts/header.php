@@ -16,7 +16,6 @@ NavBar::begin([
     ],
 ]);
 $menuItems = [
-    ['label' => 'Pocetna', 'url' => ['/site/index']],
     ['label' => 'Korisnici', 'url' => ['/user/index']],
     ['label' => 'Raspored', 'url' => ['/raspored/index']],
     ['label' => 'Predmet', 'url' => ['/predmet/index']],

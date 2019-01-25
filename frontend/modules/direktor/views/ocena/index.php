@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use backend\models\Predmet;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\modules\direktor\models\OcenaSearch */
@@ -13,9 +16,8 @@ $this->title = 'Predmeti na nivou skole';
 <div class="predmeti-index">
 
     <?= Html::tag('h1', $this->title, ['class'=> 'text-center label-success']) ?>
-
     <?php foreach($predmet as $prosek){?>
         <h3><a href="<?=Url::to(['view', 'id' => $prosek->id_predmet])?>"><?= $prosek->naziv ?></a></h3>
     <?php } ?>
-
 </div>
+

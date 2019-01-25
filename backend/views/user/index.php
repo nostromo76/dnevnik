@@ -26,16 +26,21 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'rowOptions'=>function($model){
-            if($model->status==0){
-                return ['class'=>'danger'];
-            }elseif($model->status==10){
+            if($model->role==1){
+                return ['class'=>'info'];
+            }elseif($model->role==2){
+                return ['class'=>'warning'];
+            }elseif($model->role==4){
                 return ['class'=>'success'];
+            }elseif($model->role==8){
+                return ['class'=>'danger'];
+            }else{
             }
         },
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'first_name',
             'last_name',
             'username',

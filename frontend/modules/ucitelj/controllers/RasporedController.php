@@ -2,6 +2,8 @@
 
 namespace frontend\modules\ucitelj\controllers;
 
+use frontend\modules\ucitelj\models\Odeljenje;
+use frontend\modules\ucitelj\models\Ucitelj;
 use Yii;
 use frontend\modules\ucitelj\models\Raspored;
 use yii\web\Controller;
@@ -34,19 +36,23 @@ class RasporedController extends Controller
      */
     public function actionIndex()
     {
-        $prvi = Raspored::find()->where(['br_casa' => 1])->all();
-        $drugi = Raspored::find()->where(['br_casa' => 2])->all();
-        $treci = Raspored::find()->where(['br_casa' => 3])->all();
-        $cetv = Raspored::find()->where(['br_casa' => 4])->all();
-        $peti = Raspored::find()->where(['br_casa' => 5])->all();
-        $sesti = Raspored::find()->where(['br_casa' => 6])->all();
+        $ucitelj_id = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
+        $odeljenje  = Raspored::find()->select('id_odeljenje')->where(['id_odeljenje' => $ucitelj_id ])->one();
+        $ido = $odeljenje->id_odeljenje;
+
+        $prvi  = Raspored::find()->where(['br_casa' => 1, 'id_odeljenje' => $ido])->all();
+        $drugi = Raspored::find()->where(['br_casa' => 2, 'id_odeljenje' => $ido])->all();
+        $treci = Raspored::find()->where(['br_casa' => 3, 'id_odeljenje' => $ido])->all();
+        $cetv  = Raspored::find()->where(['br_casa' => 4, 'id_odeljenje' => $ido])->all();
+        $peti  = Raspored::find()->where(['br_casa' => 5, 'id_odeljenje' => $ido])->all();
+        $sesti = Raspored::find()->where(['br_casa' => 6, 'id_odeljenje' => $ido])->all();
 
         return $this->render('index', [
-            'prvi' => $prvi,
+            'prvi'  => $prvi,
             'drugi' => $drugi,
             'treci' => $treci,
-            'cetv' => $cetv,
-            'peti' => $peti,
+            'cetv'  => $cetv,
+            'peti'  => $peti,
             'sesti' => $sesti,
         ]);
     }

@@ -20,7 +20,7 @@ $menuItems = [
     ['label' => 'Raspored', 'url' => ['/ucitelj/raspored']],
     ['label' => 'Otvorena U', 'url' => ['/ucitelj/ucitelj-o']],
     ['label' => 'Ucitelj', 'url' => ['/ucitelj/ucitelj']],
-    ['label' => 'Obav', 'url' => ['/roditelj/obavestenja']],
+    ['label' => 'Obavestenja', 'url' => ['/roditelj/obavestenja']],
     ['label' => 'Otvorena R', 'url' => ['/roditelj/otvorena-vrata']],
     ['label' => 'Otvorena R O', 'url' => ['/roditelj/odgovor']],
     ['label' => 'Ocena', 'url' => ['/roditelj/ocena']],

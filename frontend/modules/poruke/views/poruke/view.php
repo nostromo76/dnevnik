@@ -18,37 +18,47 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php if($rola == 4){ ?>
     <?php foreach ($porukeUcitelj as $poruka): ?>
+            <?php
+                $formatter = \Yii::$app->formatter;
+                $v = $poruka->vreme;
+                $vreme = $formatter->asDatetime($v, 'medium');
+            ?>
     <?php if($poruka->od_korisnika == $ucitelj_id->id_ucitelj){ ?>
             <div class="containerChat">
                 <small style="color: #00b300;"><?= $poruka->ucitelj->user->fullname ?></small>
                 <br>
                 <p><?= $poruka->poruka ?></p>
-                <span class="time-right"><?=$poruka->vreme ?></span>
+                <span class="time-right"><?=$vreme ?></span>
             </div>
     <?php } else if($poruka->ka_korisniku == $ucitelj_id->id_ucitelj){ ?>
                 <div class="containerChat darker">
                     <small style="color: #4d0000"><?= $poruka->roditelj->user->fullname ?></small>
                     <br>
                     <p><?= $poruka->poruka ?></p>
-                    <span class="time-right"><?=$poruka->vreme ?></span>
+                    <span class="time-right"><?=$vreme ?></span>
                 </div>
     <?php } ?>
     <?php endforeach; ?>
     <?php } else if($rola == 8){ ?>
         <?php foreach ($porukeRoditelj as $poruka): ?>
+            <?php
+                $formatter = \Yii::$app->formatter;
+                $v = $poruka->vreme;
+                $vreme = $formatter->asDatetime($v, 'medium');
+            ?>
             <?php if($poruka->od_korisnika == $roditelj_id->id_roditelj){ ?>
                 <div class="containerChat">
                     <small style="color: #00b300;"><?= $poruka->roditelj->user->fullname ?></small>
                     <br>
                     <p><?= $poruka->poruka ?></p>
-                    <span class="time-right"><?=$poruka->vreme ?></span>
+                    <span class="time-right"><?=$vreme ?></span>
                 </div>
             <?php } else if($poruka->ka_korisniku == $roditelj_id->id_roditelj){ ?>
                 <div class="containerChat darker">
                     <small style="color: #4d0000"><?= $poruka->ucitelj->user->fullname ?></small>
                     <br>
                     <p><?= $poruka->poruka ?></p>
-                    <span class="time-right"><?=$poruka->vreme ?></span>
+                    <span class="time-right"><?=$vreme ?></span>
                 </div>
             <?php } ?>
         <?php endforeach; ?>
