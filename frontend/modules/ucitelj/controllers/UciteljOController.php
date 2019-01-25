@@ -2,6 +2,7 @@
 
 namespace frontend\modules\ucitelj\controllers;
 
+use frontend\modules\ucitelj\models\Ucitelj;
 use Yii;
 use frontend\modules\ucitelj\models\UciteljO;
 use frontend\modules\ucitelj\models\UciteljOSearch;
@@ -37,18 +38,16 @@ class UciteljOController extends Controller
     public function actionIndex()
     {
         if(Yii::$app->user->can('ucitelj')) {
+
+            $ucitelj = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
+
             $model = UciteljO::find()
                 ->select('*')
                 ->from('otvorene_vrata_insert')
-                ->join('JOIN',
-                    'otvorena_vrata',
-                    'otvorena_vrata.id_roditelj=otvorene_vrata_insert.id_roditelj')
-                ->join('JOIN',
-                    'roditelj',
-                    'roditelj.id_roditelj=otvorena_vrata.id_roditelj')
-                ->join('JOIN',
-                    'user',
-                    'user.id=roditelj.user_id')
+                ->join('JOIN','otvorena_vrata','otvorena_vrata.id_roditelj=otvorene_vrata_insert.id_roditelj')
+                ->join('JOIN','roditelj','roditelj.id_roditelj=otvorena_vrata.id_roditelj')
+                ->join('JOIN','user','user.id=roditelj.user_id')
+                ->where(['otvorene_vrata_insert.id_ucitelj' => $ucitelj ])
                 ->all();
 
             $searchModel = new UciteljOSearch();

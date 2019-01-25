@@ -38,7 +38,14 @@ class UciteljController extends Controller
     public function actionIndex()
     {
         if(Yii::$app->user->can('ucitelj')){
-            $ucenik = Ucenik::find()->all();
+            $ucitelj = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
+            $ocena = Ocena::find()->select('id_ucenik')->where(['id_ucenik' => $ucitelj ])->one();
+            $idu = $ocena->id_ucenik;
+
+            $ucenik = Ucenik::find()
+                ->select('*')
+                ->where(['ucenik.id_odeljenje'=> $idu ])
+                ->all();
             return $this->render('index', ['ucenik' => $ucenik]);
         } else if(Yii::$app->user->isGuest){
             $this->redirect(['../site/login']);
@@ -53,17 +60,13 @@ class UciteljController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id,$ime)
+    public function actionView($id, $ime)
     {
         if(Yii::$app->user->can('ucitelj')){
             $ocene = Ocena::find()
                             ->select('*')
-                            ->join('JOIN',
-                                'predmet',
-                                      'ocena.id_predmet = predmet.id_predmet')
-                            ->join('JOIN',
-                                'ucenik',
-                                'ocena.id_ucenik = ucenik.id_ucenik')
+                            ->join('JOIN','predmet','ocena.id_predmet = predmet.id_predmet')
+                            ->join('JOIN','ucenik','ocena.id_ucenik = ucenik.id_ucenik')
                             ->where(['ucenik.id_ucenik' => $id])
                             ->all();
             return $this->render('view', [

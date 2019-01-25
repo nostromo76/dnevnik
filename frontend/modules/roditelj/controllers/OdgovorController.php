@@ -5,6 +5,9 @@ namespace frontend\modules\roditelj\controllers;
 
 use Yii;
 use frontend\modules\roditelj\models\Odgovor;
+use frontend\modules\roditelj\models\Roditelj;
+use frontend\modules\roditelj\models\Odeljenje;
+use frontend\modules\roditelj\models\Obavestenja;
 use frontend\modules\roditelj\models\OdgovorSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -37,7 +40,17 @@ class OdgovorController extends Controller
     public function actionIndex()
     {
         if(Yii::$app->user->can('roditelj')){
-            $model = Odgovor::find()->all();
+
+            $roditelj = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
+            $odeljenje_id = Odeljenje::find()->select('id_odeljenje')->where(['ucitelj_id' => $roditelj ])->one();
+            $ido = $odeljenje_id->id_odeljenje;
+
+            $model = Odgovor::find()
+                ->select('*')
+                ->where(['odgovor.id_ucitelj'=> $ido ])
+                ->limit(15)
+                ->all();
+
 
             $searchModel = new OdgovorSearch();
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
