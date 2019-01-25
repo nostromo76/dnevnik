@@ -47,7 +47,7 @@ class ObavestenjaController extends Controller
                 ->select('id_obavestenja, naziv, opis, vreme, id_odeljenje')
                 ->where(['obavestenja.id_odeljenje'=> $ido ])
                 ->orderBy('vreme DESC')
-                ->limit(15)
+                ->limit(20)
                 ->all();
 
             $searchModel = new ObavestenjaSearch();

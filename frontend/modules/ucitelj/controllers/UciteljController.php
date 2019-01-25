@@ -38,6 +38,7 @@ class UciteljController extends Controller
     public function actionIndex()
     {
         if(Yii::$app->user->can('ucitelj')){
+
             $ucitelj = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
             $ocena = Ocena::find()->select('id_ucenik')->where(['id_ucenik' => $ucitelj ])->one();
             $idu = $ocena->id_ucenik;
@@ -46,6 +47,7 @@ class UciteljController extends Controller
                 ->select('*')
                 ->where(['ucenik.id_odeljenje'=> $idu ])
                 ->all();
+
             return $this->render('index', ['ucenik' => $ucenik]);
         } else if(Yii::$app->user->isGuest){
             $this->redirect(['../site/login']);

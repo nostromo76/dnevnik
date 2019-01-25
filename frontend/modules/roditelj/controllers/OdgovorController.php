@@ -51,7 +51,6 @@ class OdgovorController extends Controller
                 ->limit(15)
                 ->all();
 
-
             $searchModel = new OdgovorSearch();
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 

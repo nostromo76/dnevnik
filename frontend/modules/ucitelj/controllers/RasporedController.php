@@ -37,6 +37,7 @@ class RasporedController extends Controller
     public function actionIndex()
     {
         if(Yii::$app->user->can('ucitelj')){
+
             $ucitelj = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
             $odeljenje_id = Odeljenje::find()->select('id_odeljenje')->where(['ucitelj_id' => $ucitelj ])->one();
             $ido = $odeljenje_id->id_odeljenje;
