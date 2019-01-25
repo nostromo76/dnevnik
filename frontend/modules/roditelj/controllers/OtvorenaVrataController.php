@@ -2,6 +2,8 @@
 
 namespace frontend\modules\roditelj\controllers;
 
+use yii\web\ForbiddenHttpException;
+
 use Yii;
 use frontend\modules\roditelj\models\OtvorenaVrata;
 use yii\web\Controller;
