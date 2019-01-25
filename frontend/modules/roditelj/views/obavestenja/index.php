@@ -9,8 +9,7 @@ use frontend\components\SmallBody;
 /* @var $searchModel frontend\modules\roditelj\models\ObavestenjaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Obavestenja';
-//$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Obaveštenja';
 
 ?>
 <div class="obavestenja-index">

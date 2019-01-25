@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model frontend\modules\ucitelj\models\Ocena */
 
-$this->title = 'Create Ocena';
-$this->params['breadcrumbs'][] = ['label' => 'Ocenas', 'url' => ['index']];
+$this->title = 'Kreiraj Novu Ocenu';
+$this->params['breadcrumbs'][] = ['label' => 'Ocene', 'url' => ['/ucitelj/ucitelj']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ocena-create">

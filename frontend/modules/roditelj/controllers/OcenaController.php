@@ -38,8 +38,8 @@ class OcenaController extends Controller
     public function actionIndex()
     {
         if(Yii::$app->user->can('roditelj')){
-            $roditelj_id = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
-            $id_roditelj = $roditelj_id->id_roditelj;
+            $ucenik_id = Roditelj::find()->select('id_ucenik')->where(['user_id' => Yii::$app->user->id ])->one();
+            $id_roditelj_ucenik = $ucenik_id->id_ucenik;
             $model = Ocena::find()
                 ->select('*')
                 ->join( 'JOIN',
@@ -48,13 +48,12 @@ class OcenaController extends Controller
                 ->join( 'JOIN',
                         'ucenik',
                         "ocena.id_ucenik=ucenik.id_ucenik")
-                ->where(['ocena.id_ucenik'=>$id_roditelj])
+                ->where(['ocena.id_ucenik'=>$id_roditelj_ucenik])
                 ->all();
             $searchModel = new OcenaSearch();
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
             return $this->render('index', [
-                'roditelj_id' => $roditelj_id,
                 'model' => $model,
                 'dataProvider' => $dataProvider,
             ]);

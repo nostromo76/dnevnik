@@ -5,10 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model frontend\modules\ucitelj\models\Ocena */
 
-$this->title = 'Update Ocena: {nameAttribute}';
-$this->params['breadcrumbs'][] = ['label' => 'Ocenas', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id_ocena, 'url' => ['view', 'id' => $model->id_ocena]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = 'Ažuriraj Ocenu ' . $model->vrednost_ocena;
+$this->params['breadcrumbs'][] = ['label' => 'Ocene', 'url' => ['/ucitelj/ucitelj']];
 ?>
 <div class="ocena-update">
 

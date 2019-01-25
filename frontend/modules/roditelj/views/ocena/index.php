@@ -13,7 +13,7 @@ $this->title = 'Ocene';
 ?>
 <div class="ocena-index">
 
-    <h1><?= Html::encode($this->title)?> ucenika</h1>
+    <h1><?= Html::encode($this->title)?> učenika</h1>
     <br>
     <br>
     <table class="table table-striped">
@@ -21,8 +21,8 @@ $this->title = 'Ocene';
             <th>Predmet</th>
             <th>Status</th>
             <th>Trenutna ocena</th>
-            <th>Zakljucena ocena</th>
-            <th>Ucenik</th>
+            <th>Zaključena ocena</th>
+            <th>Učenik</th>
         </tr>
         <?php foreach($model as $ocena){?>
             <tr>
