@@ -10,7 +10,7 @@ use backend\models\Predmet;
 /* @var $searchModel frontend\modules\direktor\models\OcenaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Predmeti na nivou skole';
+$this->title = 'Predmeti na nivou škole';
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="predmeti-index">
