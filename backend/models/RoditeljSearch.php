@@ -18,7 +18,7 @@ class RoditeljSearch extends Roditelj
     public function rules()
     {
         return [
-            [['id_roditelj', 'id_ucenik', 'user_id'], 'integer'],
+            [['id_roditelj', 'id_ucenik', 'user_id', 'ucitelj_id'], 'integer'],
         ];
     }
 
@@ -61,6 +61,7 @@ class RoditeljSearch extends Roditelj
             'id_roditelj' => $this->id_roditelj,
             'id_ucenik' => $this->id_ucenik,
             'user_id' => $this->user_id,
+            'ucitelj_id' => $this->ucitelj_id,
         ]);
 
         return $dataProvider;

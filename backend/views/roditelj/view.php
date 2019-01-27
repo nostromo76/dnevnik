@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model backend\models\Roditelj */
 
 $this->title = $model->id_roditelj;
-$this->params['breadcrumbs'][] = ['label' => 'Roditelj', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Roditeljs', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="roditelj-view">
@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_roditelj',
             'id_ucenik',
             'user_id',
+            'ucitelj_id',
         ],
     ]) ?>
 

@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use backend\models\Ucenik;
 use backend\models\User;
+use backend\models\Ucitelj;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Roditelj */
@@ -14,8 +15,8 @@ use backend\models\User;
 <div class="roditelj-form">
 
     <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'id_ucenik')->dropDownList(
+	
+	<?= $form->field($model, 'id_ucenik')->dropDownList(
         ArrayHelper::map(ucenik::find()->all(), 'id_ucenik', 'username'),
         ['prompt'=> 'Select Ucenik']
     ) ?>
@@ -26,6 +27,12 @@ use backend\models\User;
         ['prompt'=> 'Select User']
     ) ?>
     <!-- user_id textInput -->
+
+    <?= $form->field($model, 'ucitelj_id')->dropDownList(
+        ArrayHelper::map(Ucitelj::find()->all(), 'id_ucitelj', 'user.username'),
+        ['prompt'=> 'Select Ucitelj']
+    ) ?>
+    <!-- ucitelj_id textInput -->
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
