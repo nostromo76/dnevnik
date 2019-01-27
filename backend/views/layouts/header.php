@@ -15,16 +15,19 @@ NavBar::begin([
         'class' => 'navbar-inverse navbar-fixed-top',
     ],
 ]);
-$menuItems = [
-    ['label' => 'Korisnici', 'url' => ['/user/index']],
-    ['label' => 'Raspored', 'url' => ['/raspored/index']],
-    ['label' => 'Predmet', 'url' => ['/predmet/index']],
-    ['label' => 'Odeljenje', 'url' => ['/odeljenje/index']],
-    ['label' => 'Ucenik', 'url' => ['/ucenik/index']],
-    ['label' => 'Roditelj', 'url' => ['/roditelj/index']],
-    ['label' => 'Ucitelj', 'url' => ['/ucitelj/index']],
-    ['label' => 'Obavestenja', 'url' => ['/obavestenja/index']],
-];
+if(!Yii::$app->user->isGuest){
+if(Yii::$app->user->identity->role == 1){
+    $menuItems = [
+        ['label' => 'Korisnici', 'url' => ['/user/index']],
+        ['label' => 'Raspored', 'url' => ['/raspored/index']],
+        ['label' => 'Predmet', 'url' => ['/predmet/index']],
+        ['label' => 'Odeljenje', 'url' => ['/odeljenje/index']],
+        ['label' => 'Ucenik', 'url' => ['/ucenik/index']],
+        ['label' => 'Roditelj', 'url' => ['/roditelj/index']],
+        ['label' => 'Ucitelj', 'url' => ['/ucitelj/index']],
+        ['label' => 'Obavestenja', 'url' => ['/obavestenja/index']],
+    ];
+}}
 if (Yii::$app->user->isGuest) {
     $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
 } else {
