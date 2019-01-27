@@ -39,8 +39,9 @@ class ObavestenjaController extends Controller
     public function actionIndex()
     {
         if(Yii::$app->user->can('roditelj')){
-            $roditelj = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
-            $odeljenje_id = Odeljenje::find()->select('id_odeljenje')->where(['ucitelj_id' => $roditelj ])->one();
+			
+            $ucitelj = Roditelj::find()->select('ucitelj_id')->where(['user_id' => Yii::$app->user->id ])->one();
+            $odeljenje_id = Odeljenje::find()->select('id_odeljenje')->where(['ucitelj_id' => $ucitelj ])->one();
             $ido = $odeljenje_id->id_odeljenje;
 
             $model = Obavestenja::find()
