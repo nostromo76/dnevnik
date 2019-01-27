@@ -7,6 +7,7 @@ use backend\models\User;
 use backend\models\UserSearch;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -46,13 +47,19 @@ class UserController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new UserSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        if(Yii::$app->user->can('admin')){
+            $searchModel = new UserSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+            return $this->render('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        } else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa strani');
+        }
     }
 
     /**
@@ -63,9 +70,15 @@ class UserController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+        if(Yii::$app->user->can('admin')){
+            return $this->render('view', [
+                'model' => $this->findModel($id),
+            ]);
+        } else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa strani');
+        }
     }
 
     /**
@@ -75,6 +88,7 @@ class UserController extends Controller
      */
     public function actionCreate()
     {
+        if(Yii::$app->user->can('admin')){
         $model = new User();
 
         if ($model->load(Yii::$app->request->post())) {
@@ -104,10 +118,14 @@ class UserController extends Controller
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+        } else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa strani');
+        }
     }
 
     /**
@@ -119,15 +137,22 @@ class UserController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        if(Yii::$app->user->can('admin')) {
+            $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save(false)) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load(Yii::$app->request->post()) && $model->save(false)) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
+
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+
+        } else if(Yii::$app->user->isGuest){
+                $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa strani');
         }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
     }
 
     /**
@@ -139,9 +164,16 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        if(Yii::$app->user->can('admin')) {
+            $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+            return $this->redirect(['index']);
+
+        } else if(Yii::$app->user->isGuest){
+                $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa strani');
+        }
     }
 
     /**

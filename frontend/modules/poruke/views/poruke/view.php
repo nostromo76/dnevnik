@@ -69,9 +69,10 @@ $this->params['breadcrumbs'][] = $this->title;
     } else if($rola == 8){
         echo Html::a('Odgovori', ['odgovor','id'=>$poruka->ucitelj_id],['class'=>'btn btn-success','id' => 'scroll']);
     }
-        echo Html::button('Na vrh',['class' => 'btn btn-primary pull-right']);
+        echo Html::button('Na vrh',['class' => 'btn btn-primary pull-right','id' => 'toTop']);
     ?>
 </div>
+
 
 <?php
 $script = <<<JS
@@ -80,6 +81,25 @@ $script = <<<JS
     $('html, body').animate({
         scrollTop: $('#scroll').offset().top
     }, 1500);
+});
+
+$(document).ready(function(){
+
+    //Check to see if the window is top if not then display button
+    $(window).scroll(function(){
+        if ($(this).scrollTop() > 100) {
+            $('#toTop').fadeIn();
+        } else {
+            $('#toTop').fadeOut();
+        }
+    });
+
+    //Click event to scroll to top
+    $('#toTop').click(function(){
+        $('html, body').animate({scrollTop : 0},800);
+        return false;
+    });
+
 });
 JS;
 $this->registerJs($script);

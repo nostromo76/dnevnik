@@ -46,13 +46,19 @@ class OdeljenjeController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new OdeljenjeSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        if(Yii::$app->user->can('admin')){
+            $searchModel = new OdeljenjeSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+            return $this->render('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        } else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa strani');
+        }
     }
 
     /**
@@ -63,9 +69,15 @@ class OdeljenjeController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+        if(Yii::$app->user->can('admin')){
+            return $this->render('view', [
+                'model' => $this->findModel($id),
+            ]);
+        } else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa strani');
+        }
     }
 
     /**
@@ -75,15 +87,21 @@ class OdeljenjeController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Odeljenje();
+        if(Yii::$app->user->can('admin')){
+            $model = new Odeljenje();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_odeljenje]);
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id_odeljenje]);
+            }
+
+            return $this->render('create', [
+                'model' => $model,
+            ]);
+        } else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa strani');
         }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
     }
 
     /**
@@ -95,15 +113,21 @@ class OdeljenjeController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        if(Yii::$app->user->can('admin')){
+            $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_odeljenje]);
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id_odeljenje]);
+            }
+
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+        } else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa strani');
         }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
     }
 
     /**
@@ -115,9 +139,15 @@ class OdeljenjeController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        if(Yii::$app->user->can('admin')){
+            $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+            return $this->redirect(['index']);
+        } else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa strani');
+        }
     }
 
     /**
