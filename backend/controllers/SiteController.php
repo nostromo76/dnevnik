@@ -60,7 +60,13 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        if(Yii::$app->user->can('admin')){
+            return $this->render('index');
+        } else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa strani');
+        }
     }
 
     /**
