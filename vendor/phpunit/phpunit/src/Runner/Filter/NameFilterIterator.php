@@ -119,4 +119,37 @@ class NameFilterIterator extends RecursiveFilterIterator
 
         $this->filter = $filter;
     }
+<<<<<<< HEAD
+
+    public function accept(): bool
+    {
+        $test = $this->getInnerIterator()->current();
+
+        if ($test instanceof TestSuite) {
+            return true;
+        }
+
+        $tmp = \PHPUnit\Util\Test::describe($test, false);
+
+        if ($test instanceof WarningTestCase) {
+            $name = $test->getMessage();
+        } else {
+            if ($tmp[0] !== '') {
+                $name = \implode('::', $tmp);
+            } else {
+                $name = $tmp[1];
+            }
+        }
+
+        $accepted = @\preg_match($this->filter, $name, $matches);
+
+        if ($accepted && isset($this->filterMax)) {
+            $set      = \end($matches);
+            $accepted = $set >= $this->filterMin && $set <= $this->filterMax;
+        }
+
+        return (bool) $accepted;
+    }
+=======
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
 }

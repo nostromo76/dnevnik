@@ -666,6 +666,73 @@ abstract class TestCase extends Assert implements Test, SelfDescribing
      */
     public function run(TestResult $result = null): TestResult
     {
+<<<<<<< HEAD
+        if (!$this->name || !\method_exists($this, $this->name)) {
+            return;
+        }
+
+        $missingRequirements = \PHPUnit\Util\Test::getMissingRequirements(
+            \get_class($this),
+            $this->name
+        );
+
+        if (!empty($missingRequirements)) {
+            $this->markTestSkipped(\implode(PHP_EOL, $missingRequirements));
+        }
+    }
+
+    /**
+     * Returns the status of this test.
+     *
+     * @return int
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    public function markAsRisky()
+    {
+        $this->status = BaseTestRunner::STATUS_RISKY;
+    }
+
+    /**
+     * Returns the status message of this test.
+     *
+     * @return string
+     */
+    public function getStatusMessage()
+    {
+        return $this->statusMessage;
+    }
+
+    /**
+     * Returns whether or not this test has failed.
+     *
+     * @return bool
+     */
+    public function hasFailed()
+    {
+        $status = $this->getStatus();
+
+        return $status == BaseTestRunner::STATUS_FAILURE ||
+            $status == BaseTestRunner::STATUS_ERROR;
+    }
+
+    /**
+     * Runs the test case and collects the results in a TestResult object.
+     * If no TestResult object is passed a new one will be created.
+     *
+     * @param TestResult $result
+     *
+     * @return TestResult
+     *
+     * @throws Exception
+     */
+    public function run(TestResult $result = null)
+    {
+=======
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
         if ($result === null) {
             $result = $this->createResult();
         }
@@ -1450,7 +1517,11 @@ abstract class TestCase extends Assert implements Test, SelfDescribing
     protected function getMockFromWsdl($wsdlFile, $originalClassName = '', $mockClassName = '', array $methods = [], $callOriginalConstructor = true, array $options = []): MockObject
     {
         if ($originalClassName === '') {
+<<<<<<< HEAD
+            $fileName          = \pathinfo(\basename(\parse_url($wsdlFile)['path']), PATHINFO_FILENAME);
+=======
             $fileName          = \pathinfo(\basename(\parse_url($wsdlFile)['path']), \PATHINFO_FILENAME);
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
             $originalClassName = \preg_replace('/[^a-zA-Z0-9_]/', '', $fileName);
         }
 

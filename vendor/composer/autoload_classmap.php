@@ -6,9 +6,19 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+<<<<<<< HEAD
+    'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
+    'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
+    'File_Iterator_Factory' => $vendorDir . '/phpunit/php-file-iterator/src/Factory.php',
     'PHPUnit\\Exception' => $vendorDir . '/phpunit/phpunit/src/Exception.php',
     'PHPUnit\\Framework\\Assert' => $vendorDir . '/phpunit/phpunit/src/Framework/Assert.php',
     'PHPUnit\\Framework\\AssertionFailedError' => $vendorDir . '/phpunit/phpunit/src/Framework/AssertionFailedError.php',
+    'PHPUnit\\Framework\\BaseTestListener' => $vendorDir . '/phpunit/phpunit/src/Framework/BaseTestListener.php',
+=======
+    'PHPUnit\\Exception' => $vendorDir . '/phpunit/phpunit/src/Exception.php',
+    'PHPUnit\\Framework\\Assert' => $vendorDir . '/phpunit/phpunit/src/Framework/Assert.php',
+    'PHPUnit\\Framework\\AssertionFailedError' => $vendorDir . '/phpunit/phpunit/src/Framework/AssertionFailedError.php',
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
     'PHPUnit\\Framework\\CodeCoverageException' => $vendorDir . '/phpunit/phpunit/src/Framework/CodeCoverageException.php',
     'PHPUnit\\Framework\\Constraint\\ArrayHasKey' => $vendorDir . '/phpunit/phpunit/src/Framework/Constraint/ArrayHasKey.php',
     'PHPUnit\\Framework\\Constraint\\ArraySubset' => $vendorDir . '/phpunit/phpunit/src/Framework/Constraint/ArraySubset.php',
@@ -71,6 +81,51 @@ return array(
     'PHPUnit\\Framework\\IncompleteTestError' => $vendorDir . '/phpunit/phpunit/src/Framework/IncompleteTestError.php',
     'PHPUnit\\Framework\\InvalidCoversTargetException' => $vendorDir . '/phpunit/phpunit/src/Framework/InvalidCoversTargetException.php',
     'PHPUnit\\Framework\\MissingCoversAnnotationException' => $vendorDir . '/phpunit/phpunit/src/Framework/MissingCoversAnnotationException.php',
+<<<<<<< HEAD
+    'PHPUnit\\Framework\\MockObject\\BadMethodCallException' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Exception/BadMethodCallException.php',
+    'PHPUnit\\Framework\\MockObject\\Builder\\Identity' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Builder/Identity.php',
+    'PHPUnit\\Framework\\MockObject\\Builder\\InvocationMocker' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Builder/InvocationMocker.php',
+    'PHPUnit\\Framework\\MockObject\\Builder\\Match' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Builder/Match.php',
+    'PHPUnit\\Framework\\MockObject\\Builder\\MethodNameMatch' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Builder/MethodNameMatch.php',
+    'PHPUnit\\Framework\\MockObject\\Builder\\NamespaceMatch' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Builder/NamespaceMatch.php',
+    'PHPUnit\\Framework\\MockObject\\Builder\\ParametersMatch' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Builder/ParametersMatch.php',
+    'PHPUnit\\Framework\\MockObject\\Builder\\Stub' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Builder/Stub.php',
+    'PHPUnit\\Framework\\MockObject\\Exception' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Exception/Exception.php',
+    'PHPUnit\\Framework\\MockObject\\Generator' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Generator.php',
+    'PHPUnit\\Framework\\MockObject\\Invocation' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Invocation/Invocation.php',
+    'PHPUnit\\Framework\\MockObject\\InvocationMocker' => $vendorDir . '/phpunit/phpunit-mock-objects/src/InvocationMocker.php',
+    'PHPUnit\\Framework\\MockObject\\Invocation\\ObjectInvocation' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Invocation/ObjectInvocation.php',
+    'PHPUnit\\Framework\\MockObject\\Invocation\\StaticInvocation' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Invocation/StaticInvocation.php',
+    'PHPUnit\\Framework\\MockObject\\Invokable' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Invokable.php',
+    'PHPUnit\\Framework\\MockObject\\Matcher' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Matcher.php',
+    'PHPUnit\\Framework\\MockObject\\Matcher\\AnyInvokedCount' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Matcher/AnyInvokedCount.php',
+    'PHPUnit\\Framework\\MockObject\\Matcher\\AnyParameters' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Matcher/AnyParameters.php',
+    'PHPUnit\\Framework\\MockObject\\Matcher\\ConsecutiveParameters' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Matcher/ConsecutiveParameters.php',
+    'PHPUnit\\Framework\\MockObject\\Matcher\\Invocation' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Matcher/Invocation.php',
+    'PHPUnit\\Framework\\MockObject\\Matcher\\InvokedAtIndex' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Matcher/InvokedAtIndex.php',
+    'PHPUnit\\Framework\\MockObject\\Matcher\\InvokedAtLeastCount' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Matcher/InvokedAtLeastCount.php',
+    'PHPUnit\\Framework\\MockObject\\Matcher\\InvokedAtLeastOnce' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Matcher/InvokedAtLeastOnce.php',
+    'PHPUnit\\Framework\\MockObject\\Matcher\\InvokedAtMostCount' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Matcher/InvokedAtMostCount.php',
+    'PHPUnit\\Framework\\MockObject\\Matcher\\InvokedCount' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Matcher/InvokedCount.php',
+    'PHPUnit\\Framework\\MockObject\\Matcher\\InvokedRecorder' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Matcher/InvokedRecorder.php',
+    'PHPUnit\\Framework\\MockObject\\Matcher\\MethodName' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Matcher/MethodName.php',
+    'PHPUnit\\Framework\\MockObject\\Matcher\\Parameters' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Matcher/Parameters.php',
+    'PHPUnit\\Framework\\MockObject\\Matcher\\StatelessInvocation' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Matcher/StatelessInvocation.php',
+    'PHPUnit\\Framework\\MockObject\\MockBuilder' => $vendorDir . '/phpunit/phpunit-mock-objects/src/MockBuilder.php',
+    'PHPUnit\\Framework\\MockObject\\MockObject' => $vendorDir . '/phpunit/phpunit-mock-objects/src/ForwardCompatibility/MockObject.php',
+    'PHPUnit\\Framework\\MockObject\\RuntimeException' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Exception/RuntimeException.php',
+    'PHPUnit\\Framework\\MockObject\\Stub' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Stub.php',
+    'PHPUnit\\Framework\\MockObject\\Stub\\ConsecutiveCalls' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Stub/ConsecutiveCalls.php',
+    'PHPUnit\\Framework\\MockObject\\Stub\\Exception' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Stub/Exception.php',
+    'PHPUnit\\Framework\\MockObject\\Stub\\MatcherCollection' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Stub/MatcherCollection.php',
+    'PHPUnit\\Framework\\MockObject\\Stub\\ReturnArgument' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Stub/ReturnArgument.php',
+    'PHPUnit\\Framework\\MockObject\\Stub\\ReturnCallback' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Stub/ReturnCallback.php',
+    'PHPUnit\\Framework\\MockObject\\Stub\\ReturnReference' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Stub/ReturnReference.php',
+    'PHPUnit\\Framework\\MockObject\\Stub\\ReturnSelf' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Stub/ReturnSelf.php',
+    'PHPUnit\\Framework\\MockObject\\Stub\\ReturnStub' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Stub/ReturnStub.php',
+    'PHPUnit\\Framework\\MockObject\\Stub\\ReturnValueMap' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Stub/ReturnValueMap.php',
+    'PHPUnit\\Framework\\MockObject\\Verifiable' => $vendorDir . '/phpunit/phpunit-mock-objects/src/Verifiable.php',
+=======
     'PHPUnit\\Framework\\MockObject\\BadMethodCallException' => $vendorDir . '/phpunit/phpunit/src/Framework/MockObject/Exception/BadMethodCallException.php',
     'PHPUnit\\Framework\\MockObject\\Builder\\Identity' => $vendorDir . '/phpunit/phpunit/src/Framework/MockObject/Builder/Identity.php',
     'PHPUnit\\Framework\\MockObject\\Builder\\InvocationMocker' => $vendorDir . '/phpunit/phpunit/src/Framework/MockObject/Builder/InvocationMocker.php',
@@ -117,6 +172,7 @@ return array(
     'PHPUnit\\Framework\\MockObject\\Stub\\ReturnStub' => $vendorDir . '/phpunit/phpunit/src/Framework/MockObject/Stub/ReturnStub.php',
     'PHPUnit\\Framework\\MockObject\\Stub\\ReturnValueMap' => $vendorDir . '/phpunit/phpunit/src/Framework/MockObject/Stub/ReturnValueMap.php',
     'PHPUnit\\Framework\\MockObject\\Verifiable' => $vendorDir . '/phpunit/phpunit/src/Framework/MockObject/Verifiable.php',
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
     'PHPUnit\\Framework\\OutputError' => $vendorDir . '/phpunit/phpunit/src/Framework/OutputError.php',
     'PHPUnit\\Framework\\RiskyTest' => $vendorDir . '/phpunit/phpunit/src/Framework/RiskyTest.php',
     'PHPUnit\\Framework\\RiskyTestError' => $vendorDir . '/phpunit/phpunit/src/Framework/RiskyTestError.php',
@@ -137,6 +193,9 @@ return array(
     'PHPUnit\\Framework\\UnintentionallyCoveredCodeError' => $vendorDir . '/phpunit/phpunit/src/Framework/UnintentionallyCoveredCodeError.php',
     'PHPUnit\\Framework\\Warning' => $vendorDir . '/phpunit/phpunit/src/Framework/Warning.php',
     'PHPUnit\\Framework\\WarningTestCase' => $vendorDir . '/phpunit/phpunit/src/Framework/WarningTestCase.php',
+<<<<<<< HEAD
+    'PHPUnit\\Runner\\BaseTestRunner' => $vendorDir . '/phpunit/phpunit/src/Runner/BaseTestRunner.php',
+=======
     'PHPUnit\\Runner\\AfterIncompleteTestHook' => $vendorDir . '/phpunit/phpunit/src/Runner/Hook/AfterIncompleteTestHook.php',
     'PHPUnit\\Runner\\AfterLastTestHook' => $vendorDir . '/phpunit/phpunit/src/Runner/Hook/AfterLastTestHook.php',
     'PHPUnit\\Runner\\AfterRiskyTestHook' => $vendorDir . '/phpunit/phpunit/src/Runner/Hook/AfterRiskyTestHook.php',
@@ -149,12 +208,18 @@ return array(
     'PHPUnit\\Runner\\BaseTestRunner' => $vendorDir . '/phpunit/phpunit/src/Runner/BaseTestRunner.php',
     'PHPUnit\\Runner\\BeforeFirstTestHook' => $vendorDir . '/phpunit/phpunit/src/Runner/Hook/BeforeFirstTestHook.php',
     'PHPUnit\\Runner\\BeforeTestHook' => $vendorDir . '/phpunit/phpunit/src/Runner/Hook/BeforeTestHook.php',
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
     'PHPUnit\\Runner\\Exception' => $vendorDir . '/phpunit/phpunit/src/Runner/Exception.php',
     'PHPUnit\\Runner\\Filter\\ExcludeGroupFilterIterator' => $vendorDir . '/phpunit/phpunit/src/Runner/Filter/ExcludeGroupFilterIterator.php',
     'PHPUnit\\Runner\\Filter\\Factory' => $vendorDir . '/phpunit/phpunit/src/Runner/Filter/Factory.php',
     'PHPUnit\\Runner\\Filter\\GroupFilterIterator' => $vendorDir . '/phpunit/phpunit/src/Runner/Filter/GroupFilterIterator.php',
     'PHPUnit\\Runner\\Filter\\IncludeGroupFilterIterator' => $vendorDir . '/phpunit/phpunit/src/Runner/Filter/IncludeGroupFilterIterator.php',
     'PHPUnit\\Runner\\Filter\\NameFilterIterator' => $vendorDir . '/phpunit/phpunit/src/Runner/Filter/NameFilterIterator.php',
+<<<<<<< HEAD
+    'PHPUnit\\Runner\\PhptTestCase' => $vendorDir . '/phpunit/phpunit/src/Runner/PhptTestCase.php',
+    'PHPUnit\\Runner\\StandardTestSuiteLoader' => $vendorDir . '/phpunit/phpunit/src/Runner/StandardTestSuiteLoader.php',
+    'PHPUnit\\Runner\\TestSuiteLoader' => $vendorDir . '/phpunit/phpunit/src/Runner/TestSuiteLoader.php',
+=======
     'PHPUnit\\Runner\\Hook' => $vendorDir . '/phpunit/phpunit/src/Runner/Hook/Hook.php',
     'PHPUnit\\Runner\\NullTestResultCache' => $vendorDir . '/phpunit/phpunit/src/Util/NullTestResultCache.php',
     'PHPUnit\\Runner\\PhptTestCase' => $vendorDir . '/phpunit/phpunit/src/Runner/PhptTestCase.php',
@@ -166,6 +231,7 @@ return array(
     'PHPUnit\\Runner\\TestResultCacheInterface' => $vendorDir . '/phpunit/phpunit/src/Util/TestResultCacheInterface.php',
     'PHPUnit\\Runner\\TestSuiteLoader' => $vendorDir . '/phpunit/phpunit/src/Runner/TestSuiteLoader.php',
     'PHPUnit\\Runner\\TestSuiteSorter' => $vendorDir . '/phpunit/phpunit/src/Runner/TestSuiteSorter.php',
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
     'PHPUnit\\Runner\\Version' => $vendorDir . '/phpunit/phpunit/src/Runner/Version.php',
     'PHPUnit\\TextUI\\Command' => $vendorDir . '/phpunit/phpunit/src/TextUI/Command.php',
     'PHPUnit\\TextUI\\ResultPrinter' => $vendorDir . '/phpunit/phpunit/src/TextUI/ResultPrinter.php',
@@ -174,7 +240,11 @@ return array(
     'PHPUnit\\Util\\Configuration' => $vendorDir . '/phpunit/phpunit/src/Util/Configuration.php',
     'PHPUnit\\Util\\ConfigurationGenerator' => $vendorDir . '/phpunit/phpunit/src/Util/ConfigurationGenerator.php',
     'PHPUnit\\Util\\ErrorHandler' => $vendorDir . '/phpunit/phpunit/src/Util/ErrorHandler.php',
+<<<<<<< HEAD
+    'PHPUnit\\Util\\Fileloader' => $vendorDir . '/phpunit/phpunit/src/Util/Fileloader.php',
+=======
     'PHPUnit\\Util\\FileLoader' => $vendorDir . '/phpunit/phpunit/src/Util/FileLoader.php',
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
     'PHPUnit\\Util\\Filesystem' => $vendorDir . '/phpunit/phpunit/src/Util/Filesystem.php',
     'PHPUnit\\Util\\Filter' => $vendorDir . '/phpunit/phpunit/src/Util/Filter.php',
     'PHPUnit\\Util\\Getopt' => $vendorDir . '/phpunit/phpunit/src/Util/Getopt.php',
@@ -189,19 +259,32 @@ return array(
     'PHPUnit\\Util\\Printer' => $vendorDir . '/phpunit/phpunit/src/Util/Printer.php',
     'PHPUnit\\Util\\RegularExpression' => $vendorDir . '/phpunit/phpunit/src/Util/RegularExpression.php',
     'PHPUnit\\Util\\Test' => $vendorDir . '/phpunit/phpunit/src/Util/Test.php',
+<<<<<<< HEAD
+    'PHPUnit\\Util\\TestDox\\HtmlResultPrinter' => $vendorDir . '/phpunit/phpunit/src/Util/TestDox/HtmlResultPrinter.php',
+    'PHPUnit\\Util\\TestDox\\NamePrettifier' => $vendorDir . '/phpunit/phpunit/src/Util/TestDox/NamePrettifier.php',
+    'PHPUnit\\Util\\TestDox\\ResultPrinter' => $vendorDir . '/phpunit/phpunit/src/Util/TestDox/ResultPrinter.php',
+=======
     'PHPUnit\\Util\\TestDox\\CliTestDoxPrinter' => $vendorDir . '/phpunit/phpunit/src/Util/TestDox/CliTestDoxPrinter.php',
     'PHPUnit\\Util\\TestDox\\HtmlResultPrinter' => $vendorDir . '/phpunit/phpunit/src/Util/TestDox/HtmlResultPrinter.php',
     'PHPUnit\\Util\\TestDox\\NamePrettifier' => $vendorDir . '/phpunit/phpunit/src/Util/TestDox/NamePrettifier.php',
     'PHPUnit\\Util\\TestDox\\ResultPrinter' => $vendorDir . '/phpunit/phpunit/src/Util/TestDox/ResultPrinter.php',
     'PHPUnit\\Util\\TestDox\\TestResult' => $vendorDir . '/phpunit/phpunit/src/Util/TestDox/TestResult.php',
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
     'PHPUnit\\Util\\TestDox\\TextResultPrinter' => $vendorDir . '/phpunit/phpunit/src/Util/TestDox/TextResultPrinter.php',
     'PHPUnit\\Util\\TestDox\\XmlResultPrinter' => $vendorDir . '/phpunit/phpunit/src/Util/TestDox/XmlResultPrinter.php',
     'PHPUnit\\Util\\TextTestListRenderer' => $vendorDir . '/phpunit/phpunit/src/Util/TextTestListRenderer.php',
     'PHPUnit\\Util\\Type' => $vendorDir . '/phpunit/phpunit/src/Util/Type.php',
+<<<<<<< HEAD
+    'PHPUnit\\Util\\Xml' => $vendorDir . '/phpunit/phpunit/src/Util/Xml.php',
+    'PHPUnit\\Util\\XmlTestListRenderer' => $vendorDir . '/phpunit/phpunit/src/Util/XmlTestListRenderer.php',
+    'PHPUnit_Framework_MockObject_MockObject' => $vendorDir . '/phpunit/phpunit-mock-objects/src/MockObject.php',
+    'PHP_Timer' => $vendorDir . '/phpunit/php-timer/src/Timer.php',
+=======
     'PHPUnit\\Util\\XdebugFilterScriptGenerator' => $vendorDir . '/phpunit/phpunit/src/Util/XdebugFilterScriptGenerator.php',
     'PHPUnit\\Util\\Xml' => $vendorDir . '/phpunit/phpunit/src/Util/Xml.php',
     'PHPUnit\\Util\\XmlTestListRenderer' => $vendorDir . '/phpunit/phpunit/src/Util/XmlTestListRenderer.php',
     'PHPUnit_Framework_MockObject_MockObject' => $vendorDir . '/phpunit/phpunit/src/Framework/MockObject/MockObject.php',
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
     'PHP_Token' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_TokenWithScope' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_TokenWithScopeAndVisibility' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
@@ -423,6 +506,22 @@ return array(
     'PharIo\\Manifest\\RequiresElement' => $vendorDir . '/phar-io/manifest/src/xml/RequiresElement.php',
     'PharIo\\Manifest\\Type' => $vendorDir . '/phar-io/manifest/src/values/Type.php',
     'PharIo\\Manifest\\Url' => $vendorDir . '/phar-io/manifest/src/values/Url.php',
+<<<<<<< HEAD
+    'PharIo\\Version\\AbstractVersionConstraint' => $vendorDir . '/phar-io/version/src/AbstractVersionConstraint.php',
+    'PharIo\\Version\\AndVersionConstraintGroup' => $vendorDir . '/phar-io/version/src/AndVersionConstraintGroup.php',
+    'PharIo\\Version\\AnyVersionConstraint' => $vendorDir . '/phar-io/version/src/AnyVersionConstraint.php',
+    'PharIo\\Version\\ExactVersionConstraint' => $vendorDir . '/phar-io/version/src/ExactVersionConstraint.php',
+    'PharIo\\Version\\Exception' => $vendorDir . '/phar-io/version/src/Exception.php',
+    'PharIo\\Version\\GreaterThanOrEqualToVersionConstraint' => $vendorDir . '/phar-io/version/src/GreaterThanOrEqualToVersionConstraint.php',
+    'PharIo\\Version\\InvalidVersionException' => $vendorDir . '/phar-io/version/src/InvalidVersionException.php',
+    'PharIo\\Version\\OrVersionConstraintGroup' => $vendorDir . '/phar-io/version/src/OrVersionConstraintGroup.php',
+    'PharIo\\Version\\PreReleaseSuffix' => $vendorDir . '/phar-io/version/src/PreReleaseSuffix.php',
+    'PharIo\\Version\\SpecificMajorAndMinorVersionConstraint' => $vendorDir . '/phar-io/version/src/SpecificMajorAndMinorVersionConstraint.php',
+    'PharIo\\Version\\SpecificMajorVersionConstraint' => $vendorDir . '/phar-io/version/src/SpecificMajorVersionConstraint.php',
+    'PharIo\\Version\\UnsupportedVersionConstraintException' => $vendorDir . '/phar-io/version/src/UnsupportedVersionConstraintException.php',
+    'PharIo\\Version\\Version' => $vendorDir . '/phar-io/version/src/Version.php',
+    'PharIo\\Version\\VersionConstraint' => $vendorDir . '/phar-io/version/src/VersionConstraint.php',
+=======
     'PharIo\\Version\\AbstractVersionConstraint' => $vendorDir . '/phar-io/version/src/constraints/AbstractVersionConstraint.php',
     'PharIo\\Version\\AndVersionConstraintGroup' => $vendorDir . '/phar-io/version/src/constraints/AndVersionConstraintGroup.php',
     'PharIo\\Version\\AnyVersionConstraint' => $vendorDir . '/phar-io/version/src/constraints/AnyVersionConstraint.php',
@@ -438,6 +537,7 @@ return array(
     'PharIo\\Version\\UnsupportedVersionConstraintException' => $vendorDir . '/phar-io/version/src/exceptions/UnsupportedVersionConstraintException.php',
     'PharIo\\Version\\Version' => $vendorDir . '/phar-io/version/src/Version.php',
     'PharIo\\Version\\VersionConstraint' => $vendorDir . '/phar-io/version/src/constraints/VersionConstraint.php',
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
     'PharIo\\Version\\VersionConstraintParser' => $vendorDir . '/phar-io/version/src/VersionConstraintParser.php',
     'PharIo\\Version\\VersionConstraintValue' => $vendorDir . '/phar-io/version/src/VersionConstraintValue.php',
     'PharIo\\Version\\VersionNumber' => $vendorDir . '/phar-io/version/src/VersionNumber.php',
@@ -509,7 +609,10 @@ return array(
     'SebastianBergmann\\Diff\\Output\\AbstractChunkOutputBuilder' => $vendorDir . '/sebastian/diff/src/Output/AbstractChunkOutputBuilder.php',
     'SebastianBergmann\\Diff\\Output\\DiffOnlyOutputBuilder' => $vendorDir . '/sebastian/diff/src/Output/DiffOnlyOutputBuilder.php',
     'SebastianBergmann\\Diff\\Output\\DiffOutputBuilderInterface' => $vendorDir . '/sebastian/diff/src/Output/DiffOutputBuilderInterface.php',
+<<<<<<< HEAD
+=======
     'SebastianBergmann\\Diff\\Output\\StrictUnifiedDiffOutputBuilder' => $vendorDir . '/sebastian/diff/src/Output/StrictUnifiedDiffOutputBuilder.php',
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
     'SebastianBergmann\\Diff\\Output\\UnifiedDiffOutputBuilder' => $vendorDir . '/sebastian/diff/src/Output/UnifiedDiffOutputBuilder.php',
     'SebastianBergmann\\Diff\\Parser' => $vendorDir . '/sebastian/diff/src/Parser.php',
     'SebastianBergmann\\Diff\\TimeEfficientLongestCommonSubsequenceCalculator' => $vendorDir . '/sebastian/diff/src/TimeEfficientLongestCommonSubsequenceCalculator.php',

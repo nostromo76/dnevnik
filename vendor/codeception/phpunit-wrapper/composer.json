@@ -10,10 +10,18 @@
         }
     ],
     "require": {
+<<<<<<< HEAD
+        "phpunit/phpunit": ">=6.5.13 <7.0",
+        "phpunit/php-code-coverage": ">=4.0.4 <6.0",
+        "sebastian/comparator": ">=1.2.4 <3.0",
+        "sebastian/diff": ">=1.4 <4.0"
+
+=======
         "phpunit/phpunit": ">=7.1 <7.6",
         "phpunit/php-code-coverage": "^6.0",
         "sebastian/comparator": "^3.0",
         "sebastian/diff": "^3.0"
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
     },
     "autoload":{
         "psr-4":{

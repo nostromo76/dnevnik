@@ -19,7 +19,17 @@ use SebastianBergmann\CodeCoverage\RuntimeException;
 final class Clover
 {
     /**
+<<<<<<< HEAD
+     * @param CodeCoverage $coverage
+     * @param string       $target
+     * @param string       $name
+     *
+     * @return string
+     *
+     * @throws \SebastianBergmann\CodeCoverage\RuntimeException
+=======
      * @throws \RuntimeException
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
      */
     public function process(CodeCoverage $coverage, ?string $target = null, ?string $name = null): string
     {

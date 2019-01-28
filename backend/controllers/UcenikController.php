@@ -2,6 +2,8 @@
 
 namespace backend\controllers;
 
+use yii\web\ForbiddenHttpException;
+
 use Yii;
 use backend\models\Ucenik;
 use backend\models\UcenikSearch;

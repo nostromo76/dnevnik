@@ -10,6 +10,10 @@
 namespace PHPUnit\Framework\Constraint;
 
 use PHPUnit\Framework\ExpectationFailedException;
+<<<<<<< HEAD
+use PHPUnit\Util\InvalidArgumentHelper;
+=======
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
 use SebastianBergmann\Comparator\ComparisonFailure;
 use SebastianBergmann\Comparator\Factory as ComparatorFactory;
 
@@ -49,7 +53,20 @@ class IsEqual extends Constraint
      */
     private $ignoreCase;
 
+<<<<<<< HEAD
+    /**
+     * @param mixed $value
+     * @param float $delta
+     * @param int   $maxDepth
+     * @param bool  $canonicalize
+     * @param bool  $ignoreCase
+     *
+     * @throws \PHPUnit\Framework\Exception
+     */
+    public function __construct($value, $delta = 0.0, $maxDepth = 10, $canonicalize = false, $ignoreCase = false)
+=======
     public function __construct($value, float $delta = 0.0, int $maxDepth = 10, bool $canonicalize = false, bool $ignoreCase = false)
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
     {
         parent::__construct();
 

@@ -1,17 +1,6 @@
 <?php
-
-use yii\helpers\Html;
-use yii\helpers\Url;
-use yii\widgets\ActiveForm;
-use yii\helpers\ArrayHelper;
-use backend\models\Predmet;
-
-/* @var $this yii\web\View */
-/* @var $searchModel frontend\modules\direktor\models\OcenaSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-
 $this->title = 'Predmeti na nivou škole';
-//$this->params['breadcrumbs'][] = $this->title;
+//use yii\helpers\Json;
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,6 +32,7 @@ $this->title = 'Predmeti na nivou škole';
         chart.dataSource.url = "../../web/prosek.json";
         chart.dataSource.parser = new am4core.JSONParser();
         chart.dataSource.parser.options.emptyAs = 0;
+
 
         // Create axes
         let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
@@ -82,8 +72,10 @@ $this->title = 'Predmeti na nivou škole';
         })
 
         chart.cursor = new am4charts.XYCursor();
-        chart.cursor.lineX.strokeOpacity = 1;
-        chart.cursor.lineY.strokeOpacity = 1;
+
+        chart.cursor.lineX.strokeOpacity = 0;
+        chart.cursor.lineY.strokeOpacity = 0;
+
     </script>
 
 </div>

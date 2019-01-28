@@ -1,6 +1,8 @@
 <?php
 namespace backend\controllers;
 
+use yii\web\ForbiddenHttpException;
+
 use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;

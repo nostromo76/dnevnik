@@ -1084,6 +1084,18 @@ Usage: phpunit [options] UnitTest [UnitTest.php]
 
 Code Coverage Options:
 
+<<<<<<< HEAD
+  --coverage-clover <file>    Generate code coverage report in Clover XML format.
+  --coverage-crap4j <file>    Generate code coverage report in Crap4J XML format.
+  --coverage-html <dir>       Generate code coverage report in HTML format.
+  --coverage-php <file>       Export PHP_CodeCoverage object to file.
+  --coverage-text=<file>      Generate code coverage report in text format.
+                              Default: Standard output.
+  --coverage-xml <dir>        Generate code coverage report in PHPUnit XML format.
+  --whitelist <dir>           Whitelist <dir> for code coverage analysis.
+  --disable-coverage-ignore   Disable annotations for ignoring code coverage.
+  --no-coverage               Ignore code coverage configuration.
+=======
   --coverage-clover <file>    Generate code coverage report in Clover XML format
   --coverage-crap4j <file>    Generate code coverage report in Crap4J XML format
   --coverage-html <dir>       Generate code coverage report in HTML format
@@ -1095,6 +1107,7 @@ Code Coverage Options:
   --disable-coverage-ignore   Disable annotations for ignoring code coverage
   --no-coverage               Ignore code coverage configuration
   --dump-xdebug-filter <file> Generate script to set Xdebug code coverage filter
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
 
 Logging Options:
 
@@ -1164,6 +1177,16 @@ Test Execution Options:
 
 Configuration Options:
 
+<<<<<<< HEAD
+  --bootstrap <file>          A "bootstrap" PHP file that is run before the tests.
+  -c|--configuration <file>   Read configuration from XML file.
+  --no-configuration          Ignore default configuration file (phpunit.xml).
+  --no-logging                Ignore logging configuration.
+  --no-extensions             Do not load PHPUnit extensions.
+  --include-path <path(s)>    Prepend PHP's include_path with given path(s).
+  -d key[=value]              Sets a php.ini value.
+  --generate-configuration    Generate configuration file with suggested settings.
+=======
   --prepend <file>            A PHP script that is included as early as possible
   --bootstrap <file>          A PHP script that is included before the tests run
   -c|--configuration <file>   Read configuration from XML file
@@ -1174,6 +1197,7 @@ Configuration Options:
   -d key[=value]              Sets a php.ini value
   --generate-configuration    Generate configuration file with suggested settings
   --cache-result-file=<file>  Specify result cache path and filename
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
 
 Miscellaneous Options:
 

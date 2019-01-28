@@ -38,6 +38,7 @@ class OcenaController extends Controller
      * @return mixed
      */
     public function actionIndex()
+
     {
         if(Yii::$app->user->can('direktor')){
             $predmet = Predmet::find()->select('id_predmet,naziv')->all();
@@ -60,6 +61,7 @@ class OcenaController extends Controller
             throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
         }
     }
+}
 
     /**
      * Displays a single Ocena model.

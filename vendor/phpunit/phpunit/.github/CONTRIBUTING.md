@@ -21,7 +21,11 @@ Due to time constraints, we are not always able to respond as quickly as we woul
 
 ## Coding Guidelines
 
+<<<<<<< HEAD
+This project comes with a configuration file and an executable for [php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) (`.php_cs`) that you can use to (re)format your sourcecode for compliance with this project's coding guidelines:
+=======
 This project comes with a configuration file and an executable for [php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) (`.php_cs`) that you can use to (re)format your source code for compliance with this project's coding guidelines:
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
 
 ```bash
 $ ./build/tools/php-cs-fixer fix

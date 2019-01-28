@@ -238,7 +238,7 @@ namespace PHPUnit\Util\Log {
             public function startTestSuite(\PHPUnit\Framework\TestSuite $suite): void
             {
                 $this->currentTestSuiteName = $suite->getName();
-                $this->currentTestName = '';
+                $this->currentTestName      = '';
 
                 $this->addLogEvent(
                     [
@@ -257,9 +257,15 @@ namespace PHPUnit\Util\Log {
             public function endTestSuite(\PHPUnit\Framework\TestSuite $suite): void
             {
                 $this->currentTestSuiteName = '';
+<<<<<<< HEAD
+                $this->currentTestName      = '';
+
+                $this->writeAll($this->logEvents);
+=======
                 $this->currentTestName = '';
 
                 $this->writeArray($this->logEvents);
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
             }
 
             /**
@@ -324,6 +330,20 @@ namespace PHPUnit\Util\Log {
 
             /**
              * @param array $event_data
+<<<<<<< HEAD
+             */
+            protected function addLogEvent($event_data = [])
+            {
+                if (count($event_data)) {
+                    array_push($this->logEvents, $event_data);
+                }
+            }
+
+            /**
+             * @param array $buffer
+             */
+            public function writeAll($buffer)
+=======
              */
             protected function addLogEvent($event_data = []): void
             {
@@ -336,6 +356,7 @@ namespace PHPUnit\Util\Log {
              * @param array $buffer
              */
             public function writeArray($buffer)
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
             {
                 array_walk_recursive(
                     $buffer, function (&$input){

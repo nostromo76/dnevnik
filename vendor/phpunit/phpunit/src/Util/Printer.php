@@ -53,8 +53,13 @@ class Printer
 
                     $this->out = \fsockopen($out[0], $out[1]);
                 } else {
+<<<<<<< HEAD
+                    if (\strpos($out, 'php://') === false && !\is_dir(\dirname($out))) {
+                        $this->createDirectory(\dirname($out));
+=======
                     if (\strpos($out, 'php://') === false && !$this->createDirectory(\dirname($out))) {
                         throw new Exception(\sprintf('Directory "%s" was not created', \dirname($out)));
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
                     }
 
                     $this->out = \fopen($out, 'wt');
@@ -131,6 +136,11 @@ class Printer
     public function setAutoFlush(bool $autoFlush): void
     {
         $this->autoFlush = $autoFlush;
+    }
+
+    private function createDirectory(string $directory): bool
+    {
+        return !(!\is_dir($directory) && !@\mkdir($directory, 0777, true) && !\is_dir($directory));
     }
 
     private function createDirectory(string $directory): bool

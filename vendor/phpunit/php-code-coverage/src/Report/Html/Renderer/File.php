@@ -233,7 +233,12 @@ final class File extends Renderer
                 'numExecutableLines'           => $item['executableLines'],
                 'testedMethodsPercent'         => Util::percent(
                     $numTestedMethods,
+<<<<<<< HEAD
+                    1,
+                    false
+=======
                     1
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
                 ),
                 'testedMethodsPercentAsString' => Util::percent(
                     $numTestedMethods,

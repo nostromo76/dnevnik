@@ -159,11 +159,14 @@ class TestRunner extends BaseTestRunner
 
         $this->handleConfiguration($arguments);
 
+<<<<<<< HEAD
+=======
         if (\is_int($arguments['columns']) && $arguments['columns'] < 16) {
             $arguments['columns']   = 16;
             $tooFewColumnsRequested = true;
         }
 
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
         if (isset($arguments['bootstrap'])) {
             $GLOBALS['__PHPUNIT_BOOTSTRAP'] = $arguments['bootstrap'];
         }

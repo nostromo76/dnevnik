@@ -61,8 +61,13 @@ class TeamCity extends ResultPrinter
             'testFailed',
             [
                 'name'     => $test->getName(),
+<<<<<<< HEAD
+                'message'  => self::getMessage($e),
+                'details'  => self::getDetails($e),
+=======
                 'message'  => self::getMessage($t),
                 'details'  => self::getDetails($t),
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
                 'duration' => self::toMilliseconds($time),
             ]
         );
@@ -132,7 +137,11 @@ class TeamCity extends ResultPrinter
      */
     public function addIncompleteTest(Test $test, \Throwable $t, float $time): void
     {
+<<<<<<< HEAD
+        $this->printIgnoredTest($test->getName(), $e, $time);
+=======
         $this->printIgnoredTest($test->getName(), $t, $time);
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
     }
 
     /**
@@ -156,6 +165,16 @@ class TeamCity extends ResultPrinter
 
         if ($this->startedTestName !== $testName) {
             $this->startTest($test);
+<<<<<<< HEAD
+            $this->printIgnoredTest($testName, $e, $time);
+            $this->endTest($test, $time);
+        } else {
+            $this->printIgnoredTest($testName, $e, $time);
+        }
+    }
+
+    public function printIgnoredTest($testName, \Exception $e, $time)
+=======
             $this->printIgnoredTest($testName, $t, $time);
             $this->endTest($test, $time);
         } else {
@@ -164,13 +183,19 @@ class TeamCity extends ResultPrinter
     }
 
     public function printIgnoredTest($testName, \Throwable $t, float $time): void
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
     {
         $this->printEvent(
             'testIgnored',
             [
                 'name'     => $testName,
+<<<<<<< HEAD
+                'message'  => self::getMessage($e),
+                'details'  => self::getDetails($e),
+=======
                 'message'  => self::getMessage($t),
                 'details'  => self::getDetails($t),
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
                 'duration' => self::toMilliseconds($time),
             ]
         );
@@ -383,8 +408,15 @@ class TeamCity extends ResultPrinter
 
     /**
      * @param float $time microseconds
+<<<<<<< HEAD
+     *
+     * @return int
+     */
+    private static function toMilliseconds($time)
+=======
      */
     private static function toMilliseconds(float $time): int
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
     {
         return \round($time * 1000);
     }

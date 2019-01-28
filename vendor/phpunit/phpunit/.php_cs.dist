@@ -193,6 +193,11 @@ return PhpCsFixer\Config::create()
         ->files()
         ->in(__DIR__ . '/build')
         ->in(__DIR__ . '/src')
+<<<<<<< HEAD
+        ->in(__DIR__ . '/tests/unit')
+        ->name('*.php')
+=======
         ->in(__DIR__ . '/tests')
         ->notName('*.phpt')
+>>>>>>> 4bd4fc608bb0fbe73d3b89caf1e677235b4f9ca4
     );
