@@ -5,7 +5,6 @@ namespace frontend\modules\direktor\controllers;
 use Yii;
 use frontend\modules\direktor\models\Ocena;
 use frontend\modules\direktor\models\OcenaSearch;
-use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -61,7 +60,6 @@ class OcenaController extends Controller
             throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
         }
     }
-}
 
     /**
      * Displays a single Ocena model.
