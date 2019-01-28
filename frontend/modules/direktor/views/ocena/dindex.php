@@ -14,10 +14,10 @@ $this->title = 'Predmeti na nivou odeljenja';
 
     <?= Html::tag('h1', $this->title, ['class'=> 'text-center label-success']) ?>
 
-    <?php foreach($predmet as $prosek){?>
-    <?php foreach($odeljenje as $odlj){?>
-        <h3><a href="<?=Url::to(['direkto', 'id' => $prosek->id_predmet, 'idp' => $odlj->id_odeljenje])?>"><?= $prosek->naziv ?><?= $odlj->naziv ?></a></h3>
-    <?php } ?>
-    <?php } ?>
+    <?php
+        foreach ($odeljenje as $item){ ?>
+            <a href="<?=Url::to(['direkto','id'=>$item->id_odeljenje])?>"><?= $item->naziv ?></a><br>
+        <?php } ?>
+
 
 </div>

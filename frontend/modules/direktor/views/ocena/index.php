@@ -33,6 +33,7 @@ $this->title = 'Predmeti na nivou škole';
         chart.dataSource.parser = new am4core.JSONParser();
         chart.dataSource.parser.options.emptyAs = 0;
 
+
         // Create axes
         let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
         categoryAxis.dataFields.category = "predmet";
@@ -71,8 +72,10 @@ $this->title = 'Predmeti na nivou škole';
         })
 
         chart.cursor = new am4charts.XYCursor();
+
         chart.cursor.lineX.strokeOpacity = 0;
         chart.cursor.lineY.strokeOpacity = 0;
+
     </script>
 
 </div>

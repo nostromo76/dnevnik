@@ -8,11 +8,12 @@
 $this->title = 'Prosek';
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="ocena-index">
-    <?php
-
+<!--<div class="ocena-index">
+    --><?php
+/*    print_r($model);
+    die();
     foreach($model as $ocene){
-        echo $ocene['Prosek'];
+        //echo $ocene['Prosek'];
     };
     foreach($predmet as $pre){};
 
@@ -52,6 +53,7 @@ $this->title = 'Prosek';
         'width' => '100%',
         'language' => 'en',
     ]);
-    ?>
+    */?>
 
-</div>
+<!--</div>-->
+
