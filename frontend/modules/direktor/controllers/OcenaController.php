@@ -38,25 +38,36 @@ class OcenaController extends Controller
      * @return mixed
      */
     public function actionIndex()
-    {
-            if(Yii::$app->user->can('direktor')){
-                $searchModel = new OcenaSearch();
-                $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-                $predmet = Predmet::find()->select('id_predmet,naziv')->all();
+{
+    if(Yii::$app->user->can('direktor')){
+        $searchModel = new OcenaSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-                return $this->render('index', [
-                    'predmet' => $predmet,
-                    'searchModel' => $searchModel,
-                    'dataProvider' => $dataProvider,
-                ]);
-            } else if(Yii::$app->user->isGuest){
-                $this->redirect(['../site/login']);
-            } else {
-                throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
+        $predmet = Predmet::find()->select('id_predmet,naziv')->all();
+        foreach($predmet as $pre){
+            $q = Yii::$app->db->createCommand("SELECT `predmet`.`naziv` AS predmet, AVG(`ocena`.`zakljucena_ocena`) AS prosek FROM `ocena` 
+                                                JOIN `predmet` ON `ocena`.`id_predmet`=`predmet`.`id_predmet`
+                                              WHERE `ocena`.id_predmet = $pre->id_predmet");
+            $model = $q->queryAll();
+            foreach ($model as $item){
+                $model2[] = $item;
             }
+        }
+        $json_data = json_encode($model2);
+        file_put_contents('prosek.json', $json_data);
 
 
+        return $this->render('index',
+            [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+    } else if(Yii::$app->user->isGuest){
+        $this->redirect(['../site/login']);
+    } else {
+        throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
     }
+}
 
     /**
      * Displays a single Ocena model.
