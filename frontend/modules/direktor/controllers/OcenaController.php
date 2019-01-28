@@ -39,23 +39,26 @@ class OcenaController extends Controller
      */
     public function actionIndex()
     {
-            if(Yii::$app->user->can('direktor')){
-                $searchModel = new OcenaSearch();
-                $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-                $predmet = Predmet::find()->select('id_predmet,naziv')->all();
+        if(Yii::$app->user->can('direktor')){
+            $predmet = Predmet::find()->select('id_predmet,naziv')->all();
 
-                return $this->render('index', [
-                    'predmet' => $predmet,
-                    'searchModel' => $searchModel,
-                    'dataProvider' => $dataProvider,
-                ]);
-            } else if(Yii::$app->user->isGuest){
-                $this->redirect(['../site/login']);
-            } else {
-                throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
+            foreach($predmet as $pre){
+                $q = Yii::$app->db->createCommand("SELECT `predmet`.`naziv` AS predmet, AVG(`ocena`.`zakljucena_ocena`) AS prosek FROM `ocena` 
+                                                    JOIN `predmet` ON `ocena`.`id_predmet`=`predmet`.`id_predmet`
+                                                  WHERE `ocena`.id_predmet = $pre->id_predmet");
+                $model = $q->queryAll();
+                foreach ($model as $item){
+                    $model2[] = $item;
+                }
             }
-
-
+            $json_data = json_encode($model2);
+            file_put_contents('prosek.json', $json_data);
+            return $this->render('index');
+        } else if(Yii::$app->user->isGuest){
+            $this->redirect(['../site/login']);
+        } else {
+            throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
+        }
     }
 
     /**
@@ -64,25 +67,6 @@ class OcenaController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
-    {
-        if(Yii::$app->user->can('direktor')){
-        $predmet = Predmet::find()->select('id_predmet,naziv')->where(['id_predmet' => $id])->all();
-        $id_predmet = $id;
-        $q = Yii::$app->db->createCommand("SELECT AVG(`ocena`.`zakljucena_ocena`) AS Prosek 
-                                                  FROM `ocena` WHERE `ocena`.id_predmet = $id_predmet");
-        $model= $q->queryAll();
-
-        return $this->render('view', [
-            'model' => $model,
-            'predmet' => $predmet,
-        ]);
-        } else if(Yii::$app->user->isGuest){
-            $this->redirect(['../site/login']);
-        } else {
-            throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
-        }
-    }
 
     /**
      * Creates a new Ocena model.
@@ -117,24 +101,24 @@ class OcenaController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDirekto($id, $idp)
+    public function actionDirekto($id)
     {
         if(Yii::$app->user->can('direktor')){
-            $predmet = Predmet::find()->select('id_predmet,naziv')->where(['id_predmet' => $id])->all();
-            $id_predmet = $id;
-            $odeljenje = Odeljenje::find()->select('id_odeljenje,naziv')->where(['id_odeljenje' => $idp])->all();
-            $id_odeljenje = $idp;
-            $q = Yii::$app->db->createCommand("SELECT AVG(`ocena`.`zakljucena_ocena`) AS Prosek FROM `ocena`
-                                                    JOIN `ucenik` ON `ocena`.`id_ucenik`=`ucenik`.`id_ucenik`
-                                                    JOIN `odeljenje` ON `ucenik`.`id_odeljenje`=`odeljenje`.`id_odeljenje`
-                                                    WHERE `ocena`.`id_predmet`= $id_predmet AND `odeljenje`.`id_odeljenje`= $id_odeljenje");
-            $model= $q->queryAll();
+            $predmet = Predmet::find()->select('id_predmet,naziv')->all();
 
-            return $this->render('dview', [
-                'model' => $model,
-                'predmet' => $predmet,
-                'odeljenje' => $odeljenje,
-            ]);
+            foreach($predmet as $pre){
+                $q = Yii::$app->db->createCommand("SELECT `predmet`.`naziv` AS predmet, AVG(`ocena`.`zakljucena_ocena`) AS prosek FROM `ocena` 
+                                                    JOIN `predmet` ON `ocena`.`id_predmet`=`predmet`.`id_predmet`
+                                                    JOIN `ucenik` ON `ocena`.`id_ucenik` = `ucenik`.`id_ucenik`
+                                                  WHERE `ocena`.id_predmet = $pre->id_predmet AND `ucenik`.`id_odeljenje` = $id");
+                $model = $q->queryAll();
+                foreach ($model as $item){
+                    $model2[] = $item;
+                }
+            }
+            $json_data = json_encode($model2);
+            file_put_contents('prosekOdejenje.json', $json_data);
+            return $this->render('dview');
         } else if(Yii::$app->user->isGuest){
             $this->redirect(['../site/login']);
         } else {
