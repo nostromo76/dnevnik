@@ -102,11 +102,12 @@ class PorukeController extends Controller
             $ucitelj_id = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
             $roditelj_id = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
             if($rola == 8){
-                $query= Yii::$app->db->createCommand('SELECT `ucenik`.`id_odeljenje`, `odeljenje`.`ucitelj_id` FROM `roditelj`
+                /*$query= Yii::$app->db->createCommand('SELECT `ucenik`.`id_odeljenje`, `odeljenje`.`ucitelj_id` FROM `roditelj`
                     JOIN `ucenik` ON `roditelj`.`id_ucenik`=`ucenik`.`id_ucenik`
                     JOIN `odeljenje` ON `ucenik`.`id_odeljenje`=`odeljenje`.`id_odeljenje`
                     WHERE `ucenik`.`id_roditelj` = '.$roditelj_id->id_roditelj.'.');
-                $ucenik_odeljenje = $query->queryAll();
+                $ucenik_odeljenje = $query->queryAll();*/
+                $roditelj_ucitelj_id = Roditelj::find()->select('ucitelj_id')->where(['id_roditelj' => $roditelj_id->id_roditelj])->one();
             }
             $model = new Poruke();
 
@@ -120,7 +121,7 @@ class PorukeController extends Controller
                     }
                 } else if($rola == 8) {
                     $model->roditelj_id = $roditelj_id->id_roditelj;
-                    $model->ucitelj_id = $ucenik_odeljenje[0]['ucitelj_id'];
+                    $model->ucitelj_id = $roditelj_ucitelj_id->ucitelj_id;
                     $model->od_korisnika = $roditelj_id->id_roditelj;
                     $model->ka_korisniku = $model->ucitelj_id;
                     if($model->save()){
@@ -131,7 +132,6 @@ class PorukeController extends Controller
             if($rola == 8){
                 return $this->render('create', [
                     'model' => $model,
-                    'ucenik_odeljenje' => $ucenik_odeljenje
                 ]);
             } else if($rola == 4){
                 return $this->render('create', [

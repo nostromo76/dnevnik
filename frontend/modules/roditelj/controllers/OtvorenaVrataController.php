@@ -53,18 +53,20 @@ class OtvorenaVrataController extends Controller
     {
         if(Yii::$app->user->can('roditelj')){
             $roditelj_id = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
-            $query= Yii::$app->db->createCommand('SELECT `ucenik`.`id_odeljenje`, `odeljenje`.`ucitelj_id` FROM `roditelj`
+           /* $query= Yii::$app->db->createCommand('SELECT `ucenik`.`id_odeljenje`, `odeljenje`.`ucitelj_id` FROM `roditelj`
                 JOIN `ucenik` ON `roditelj`.`id_ucenik`=`ucenik`.`id_ucenik`
                 JOIN `odeljenje` ON `ucenik`.`id_odeljenje`=`odeljenje`.`id_odeljenje`
                 WHERE `ucenik`.`id_roditelj` = '.$roditelj_id->id_roditelj.'.');
-            $ucenik_odeljenje = $query->queryAll();
+            $ucenik_odeljenje = $query->queryAll();*/
+           $ucitelj_id = Roditelj::find()->select('ucitelj_id')->where(['id_roditelj' => $roditelj_id->id_roditelj])->one();
             $model = new OtvorenaVrata();
 
             if ($model->load(Yii::$app->request->post())) {
-                $model->id_ucitelj = $ucenik_odeljenje[0]['ucitelj_id'];
+                $model->id_ucitelj = $ucitelj_id->ucitelj_id;
                 $model->id_roditelj = $roditelj_id->id_roditelj;
                 if($model->save()){
-                    return $this->redirect(['view', 'id' => $model->id_otvorena_vrata]);
+                    Yii::$app->session->setFlash('success','Uspešno ste poslali zahtev za otvorena vrata!');
+                    return $this->redirect(['index']);
                 }
             }
             return $this->render('create', [
