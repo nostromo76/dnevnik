@@ -47,7 +47,7 @@ $this->title = 'Predmeti na nivou škole';
         categoryAxis.tooltip.label.verticalCenter = "middle";
 
         let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-        valueAxis.title.text = "Prosek predmeta na nivou skole";
+        valueAxis.title.text = "Prosek predmeta na nivou škole";
         valueAxis.title.fontWeight = "bold";
 
         // Create series
