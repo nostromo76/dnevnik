@@ -21,6 +21,8 @@ use backend\models\Odeljenje;
     ) ?>
     <!-- user_id textInput -->
 
+    <?= $form->field($model, 'id_odeljenje')->dropDownList(ArrayHelper::map(Odeljenje::find()->all(),'id_odeljenje','naziv')) ?>
+
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

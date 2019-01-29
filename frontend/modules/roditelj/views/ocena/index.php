@@ -16,6 +16,10 @@ $this->title = 'Ocene';
     <h1><?= Html::encode($this->title)?> učenika</h1>
     <br>
     <br>
+    <?php
+        if(empty($model)){
+            echo '<h4>Trenutno nema ni jedne ocene za Vaše dete!</h4>';
+        } else { ?>
     <table class="table table-striped">
         <tr>
             <th>Predmet</th>
@@ -34,4 +38,6 @@ $this->title = 'Ocene';
             </tr>
         <?php } ?>
     </table>
+
+    <?php } ?>
 </div>

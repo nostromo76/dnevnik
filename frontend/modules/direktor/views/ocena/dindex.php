@@ -15,9 +15,8 @@ $this->title = 'Predmeti na nivou odeljenja';
     <?= Html::tag('h1', $this->title, ['class'=> 'text-center label-success']) ?>
 
     <?php
-        foreach ($odeljenje as $item){ ?>
-            <a href="<?=Url::to(['direkto','id'=>$item->id_odeljenje])?>"><?= $item->naziv ?></a><br>
-        <?php } ?>
-
+       foreach ($odeljenje as $item){ ?>
+            <a href="<?=Url::to(['direkto','id' => $item->id_odeljenje])?>"><?= $item->naziv ?></a><br>
+    <?php } ?>
 
 </div>

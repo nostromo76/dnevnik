@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use frontend\modules\poruke\models\Roditelj;
+use frontend\modules\poruke\models\Ucitelj;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\modules\poruke\models\Poruke */
@@ -22,7 +23,12 @@ use frontend\modules\poruke\models\Roditelj;
     <?= $form->field($model, 'poruka')->textarea(['rows' => 6]) ?>
     <?php
         if($rola == 4){
-           echo  $form->field($model, 'roditelj_id')->dropDownList(ArrayHelper::map(Roditelj::find()->all(),'id_roditelj','user.username'));
+            $ucitelj_id = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
+
+           echo  $form->field($model, 'roditelj_id')
+               ->dropDownList(
+                       ArrayHelper::map(Roditelj::find()->where(['ucitelj_id' => $ucitelj_id->id_ucitelj])->all(),'id_roditelj','user.username'
+                       ));
         } else if($rola == 8){
             //echo $form->field($model, 'ucitelj_id')->dropDownList(ArrayHelper::map(Ucitelj::find()->all(),'id_ucitelj','user.username'));
         } else {

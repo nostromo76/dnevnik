@@ -43,7 +43,6 @@ class PorukeController extends Controller
             $roditelj_id = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
 
             if($rola == 4){
-
                 $svePorukeUcitelj = Poruke::findBySql('SELECT DISTINCT `roditelj_id` FROM `poruke` WHERE `ucitelj_id` = '.$ucitelj_id->id_ucitelj.';')->all();
 
                 return $this->render('index', [
@@ -101,6 +100,7 @@ class PorukeController extends Controller
             $rola = Yii::$app->user->identity->role;
             $ucitelj_id = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
             $roditelj_id = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
+
             if($rola == 8){
                 /*$query= Yii::$app->db->createCommand('SELECT `ucenik`.`id_odeljenje`, `odeljenje`.`ucitelj_id` FROM `roditelj`
                     JOIN `ucenik` ON `roditelj`.`id_ucenik`=`ucenik`.`id_ucenik`
