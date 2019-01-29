@@ -6,7 +6,7 @@
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Prosek';
-//$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = ['label' => 'Nazad', 'url' => ['direktor']];
 ?>
 <!DOCTYPE html>
 <html>
