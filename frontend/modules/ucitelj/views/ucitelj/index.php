@@ -30,6 +30,7 @@ $this->title = 'Pregled svih učenika';
         <tr>
             <th>Ime i Prezime</th>
             <th>Pregled</th>
+            <th>Unesi</th>
         </tr>
 
     <?php
@@ -37,6 +38,7 @@ $this->title = 'Pregled svih učenika';
             <tr>
                 <th><?= $ucen->username ?></th>
                 <th><a href="<?= Url::to(['/ucitelj/ucitelj/view','id' => $ucen->id_ucenik,'ime'=>$ucen->username]) ?>">Pregled ocena</a></th>
+                <th><a href="<?= Url::to(['/ucitelj/ocena/create','id' => $ucen->id_ucenik]) ?>">Unesi</a></th>
             </tr>
         <?php } ?>
     </table>

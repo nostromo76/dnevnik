@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use frontend\modules\ucitelj\models\Ucenik;
 use frontend\modules\ucitelj\models\Predmet;
+use frontend\modules\ucitelj\models\Odeljenje;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\modules\ucitelj\models\Ocena */
@@ -28,6 +29,9 @@ use frontend\modules\ucitelj\models\Predmet;
 
     <?= $form->field($model, 'id_predmet')->dropDownList(ArrayHelper::map(predmet::find()->all(),
         'id_predmet', 'naziv'), ['prompt' => 'Izaberi predmet']) ?>
+
+    <?= $form->field($model, 'id_odeljenje')->dropDownList(ArrayHelper::map(odeljenje::find()->all(),
+        'id_odeljenje', 'naziv'), ['prompt' => 'Izaberi odeljenje']) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Sačuvaj', ['class' => 'btn btn-success']) ?>
