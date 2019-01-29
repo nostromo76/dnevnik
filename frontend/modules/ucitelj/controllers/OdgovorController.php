@@ -45,7 +45,7 @@ class OdgovorController extends Controller
 
             if ($model->load(Yii::$app->request->post())) {
                 $model->id_roditelj = $rod;
-                $model->id_ucitelj = $ucitelj->id_ucitelj
+                $model->id_ucitelj = $ucitelj->id_ucitelj;
 
                 if($model->save()){
                     Yii::$app->session->setFlash('success','Uspešno ste odgovorili na zahtev za otvorena vrata!');
