@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\Ucenik;
 use yii\web\ForbiddenHttpException;
 
 use Yii;
@@ -80,9 +81,17 @@ class RoditeljController extends Controller
     {
         if(Yii::$app->user->can('admin')){
             $model = new Roditelj();
-
-            if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id_roditelj]);
+            if ($model->load(Yii::$app->request->post())) {
+                $query = Yii::$app->db->createCommand(
+                    'SELECT `odeljenje`.`ucitelj_id` FROM `ucenik`
+                        JOIN `odeljenje` ON `ucenik`.`id_odeljenje` = `odeljenje`.`id_odeljenje`
+                        WHERE `ucenik`.`id_ucenik` = '.$model->id_ucenik.'
+                ');
+                $ucenik = $query->queryAll();
+                $model->ucitelj_id = $ucenik[0]['ucitelj_id'];
+                if($model->save()){
+                    return $this->redirect(['view', 'id' => $model->id_roditelj]);
+                }
             }
 
             return $this->render('create', [

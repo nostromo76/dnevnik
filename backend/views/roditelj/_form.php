@@ -28,10 +28,10 @@ use backend\models\Ucitelj;
     ) ?>
     <!-- user_id textInput -->
 
-    <?= $form->field($model, 'ucitelj_id')->dropDownList(
+  <!--  --><?/*= $form->field($model, 'ucitelj_id')->dropDownList(
         ArrayHelper::map(Ucitelj::find()->all(), 'id_ucitelj', 'user.username'),
         ['prompt'=> 'Select Ucitelj']
-    ) ?>
+    ) */?>
     <!-- ucitelj_id textInput -->
 
     <div class="form-group">

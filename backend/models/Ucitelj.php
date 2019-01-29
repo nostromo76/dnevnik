@@ -9,6 +9,7 @@ use Yii;
  *
  * @property int $id_ucitelj
  * @property int $user_id
+ * @property int $id_odeljenje
  *
  * @property Dnevnik[] $dnevniks
  * @property Odeljenje[] $odeljenjes
@@ -34,7 +35,7 @@ class Ucitelj extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id'], 'required'],
+            [['user_id', 'id_odeljenje'], 'required'],
             [['user_id'], 'integer'],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];

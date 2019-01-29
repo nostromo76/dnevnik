@@ -20,6 +20,12 @@ $this->title = 'Pregled svih učenika';
         <?= Html::a('Dodaj Nove Ocene', ['/ucitelj/ocena/create'], ['class' => 'btn btn-success']) ?>
     </p>
 
+    <?php
+        if(empty($ucenik)){
+            echo '<h4>Trenutno nema upisanih ocena</h4>';
+        }
+    ?>
+
     <table class="table table-bordered table-striped">
         <tr>
             <th>Ime i Prezime</th>

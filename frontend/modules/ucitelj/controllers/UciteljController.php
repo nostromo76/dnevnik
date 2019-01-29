@@ -49,7 +49,10 @@ class UciteljController extends Controller
                 ->where(['ucenik.id_odeljenje'=> $idu ])
                 ->all();
 
-            return $this->render('index', ['ucenik' => $ucenik]);
+            return $this->render('index',
+                [
+                    'ucenik' => $ucenik,
+                ]);
         } else if(Yii::$app->user->isGuest){
             $this->redirect(['../site/login']);
         } else {

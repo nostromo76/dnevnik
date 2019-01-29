@@ -20,8 +20,12 @@ use frontend\modules\ucitelj\models\Odeljenje;
 
     <?= $form->field($model, 'zakljucena_ocena')->dropDownList([1=>1,2=>2,3=>3,4=>4,5=>5],['prompt'=>'Izaberi ocenu']) ?>
 
-    <?= $form->field($model, 'id_ucenik')->dropDownList(ArrayHelper::map(ucenik::find()->all(),
+    <?= $form->field($model, 'id_ucenik')
+            ->dropDownList(ArrayHelper::map(
+                    ucenik::find()->where(['id_odeljenje' => $ido])->all(),
         'id_ucenik', 'username'),['prompt' => 'Izaberi ucenika']) ?>
+
+
 
     <?= $form->field($model, 'id_predmet')->dropDownList(ArrayHelper::map(predmet::find()->all(),
         'id_predmet', 'naziv'), ['prompt' => 'Izaberi predmet']) ?>

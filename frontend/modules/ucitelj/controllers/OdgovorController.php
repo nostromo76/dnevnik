@@ -33,46 +33,6 @@ class OdgovorController extends Controller
     }
 
     /**
-     * Lists all Odgovor models.
-     * @return mixed
-     */
-    public function actionIndex()
-    {
-        if(Yii::$app->user->can('ucitelj')){
-            $searchModel = new OdgovorSearch();
-            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-            return $this->render('index', [
-                'searchModel' => $searchModel,
-                'dataProvider' => $dataProvider,
-            ]);
-        } else if(Yii::$app->user->isGuest){
-            $this->redirect(['../site/login']);
-        } else {
-            throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
-        }
-    }
-
-    /**
-     * Displays a single Odgovor model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        if(Yii::$app->user->can('ucitelj')){
-            return $this->render('view', [
-                'model' => $this->findModel($id),
-            ]);
-        } else if(Yii::$app->user->isGuest){
-            $this->redirect(['../site/login']);
-        } else {
-            throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
-        }
-    }
-
-    /**
      * Creates a new Odgovor model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
@@ -85,11 +45,12 @@ class OdgovorController extends Controller
 
             if ($model->load(Yii::$app->request->post())) {
                 $model->id_roditelj = $rod;
-                $model->id_ucitelj = $ucitelj->id_ucitelj;
+                $model->id_ucitelj = $ucitelj->id_ucitelj
 
                 if($model->save()){
                     Yii::$app->session->setFlash('success','Uspešno ste odgovorili na zahtev za otvorena vrata!');
                     return $this->redirect(['../ucitelj/ucitelj-o']);
+
                 }
             }
             return $this->render('create', [
@@ -100,40 +61,6 @@ class OdgovorController extends Controller
         } else {
             throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
         }
-    }
-
-    /**
-     * Updates an existing Odgovor model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->odgovor_id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Deletes an existing Odgovor model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
     }
 
     /**

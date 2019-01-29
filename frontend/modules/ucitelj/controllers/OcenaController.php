@@ -8,6 +8,8 @@ use yii\web\ForbiddenHttpException;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use frontend\modules\ucitelj\models\Ucitelj;
+use frontend\modules\ucitelj\models\Odeljenje;
 
 /**
  * OcenaController implements the CRUD actions for Ocena model.
@@ -38,6 +40,11 @@ class OcenaController extends Controller
     public function actionCreate()
     {
         if(Yii::$app->user->can('ucitelj')){
+
+            $odeljenje = Ucitelj::find()->select('id_odeljenje')->where(['user_id' => Yii::$app->user->id ])->one();
+            $ocena = Odeljenje::find()->select('id_odeljenje')->where(['id_odeljenje' => $odeljenje ])->one();
+            $ido = $ocena->id_odeljenje;
+
             $model = new Ocena();
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -46,6 +53,7 @@ class OcenaController extends Controller
 
             return $this->render('create', [
                 'model' => $model,
+                'ido' => $ido,
             ]);
         } else if(Yii::$app->user->isGuest){
             $this->redirect(['../site/login']);

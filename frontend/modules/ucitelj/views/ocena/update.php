@@ -14,6 +14,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Ocene', 'url' => ['/ucitelj/ucitel
 
     <?= $this->render('_form', [
         'model' => $model,
+        'ido' => $ido,
     ]) ?>
 
 </div>
