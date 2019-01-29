@@ -42,8 +42,8 @@ class OdgovorController extends Controller
         if(Yii::$app->user->can('roditelj')){
 
             $ucitelj = Roditelj::find()->select('ucitelj_id')->where(['user_id' => Yii::$app->user->id ])->one();
-            $odeljenje_id = Odeljenje::find()->select('id_odeljenje')->where(['ucitelj_id' => $ucitelj ])->one();
-            $ido = $odeljenje_id->id_odeljenje;
+            $ucitelj_id = Odeljenje::find()->select('ucitelj_id')->where(['ucitelj_id' => $ucitelj ])->one();
+            $ido = $ucitelj_id->ucitelj_id;
 
             $model = Odgovor::find()
                 ->select('*')
