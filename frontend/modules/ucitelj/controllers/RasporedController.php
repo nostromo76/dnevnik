@@ -38,8 +38,8 @@ class RasporedController extends Controller
     {
         if(Yii::$app->user->can('ucitelj')){
 
-            $ucitelj = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
-            $odeljenje_id = Odeljenje::find()->select('id_odeljenje')->where(['ucitelj_id' => $ucitelj ])->one();
+            $odeljenje = Ucitelj::find()->select('id_odeljenje')->where(['user_id' => Yii::$app->user->id ])->one();
+            $odeljenje_id = Odeljenje::find()->select('id_odeljenje')->where(['id_odeljenje' => $odeljenje ])->one();
             $ido = $odeljenje_id->id_odeljenje;
 
             $prvi = Raspored::find()->where(['br_casa' => 1, 'id_odeljenje' => $ido])->all();

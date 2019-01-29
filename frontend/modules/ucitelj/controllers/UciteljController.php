@@ -2,6 +2,7 @@
 
 namespace frontend\modules\ucitelj\controllers;
 
+use frontend\modules\ucitelj\models\Odeljenje;
 use yii\web\ForbiddenHttpException;
 use frontend\modules\ucitelj\models\Ucenik;
 use Yii;
@@ -40,7 +41,7 @@ class UciteljController extends Controller
         if(Yii::$app->user->can('ucitelj')){
 
             $odeljenje = Ucitelj::find()->select('id_odeljenje')->where(['user_id' => Yii::$app->user->id ])->one();
-            $ocena = Ocena::find()->select('id_odeljenje')->where(['id_odeljenje' => $odeljenje ])->one();
+            $ocena = Odeljenje::find()->select('id_odeljenje')->where(['id_odeljenje' => $odeljenje ])->one();
             $idu = $ocena->id_odeljenje;
 
             $ucenik = Ucenik::find()
