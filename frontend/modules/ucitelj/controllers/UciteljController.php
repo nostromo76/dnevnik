@@ -39,9 +39,9 @@ class UciteljController extends Controller
     {
         if(Yii::$app->user->can('ucitelj')){
 
-            $ucitelj = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
-            $ocena = Ocena::find()->select('id_ucenik')->where(['id_ucenik' => $ucitelj ])->one();
-            $idu = $ocena->id_ucenik;
+            $odeljenje = Ucitelj::find()->select('id_odeljenje')->where(['user_id' => Yii::$app->user->id ])->one();
+            $ocena = Ocena::find()->select('id_odeljenje')->where(['id_odeljenje' => $odeljenje ])->one();
+            $idu = $ocena->id_odeljenje;
 
             $ucenik = Ucenik::find()
                 ->select('*')
