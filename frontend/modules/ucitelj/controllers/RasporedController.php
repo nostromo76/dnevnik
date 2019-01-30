@@ -42,20 +42,15 @@ class RasporedController extends Controller
             $odeljenje_id = Odeljenje::find()->select('id_odeljenje')->where(['id_odeljenje' => $odeljenje ])->one();
             $ido = $odeljenje_id->id_odeljenje;
 
-            $prvi = Raspored::find()->where(['br_casa' => 1, 'id_odeljenje' => $ido])->all();
-            $drugi = Raspored::find()->where(['br_casa' => 2, 'id_odeljenje' => $ido])->all();
-            $treci = Raspored::find()->where(['br_casa' => 3, 'id_odeljenje' => $ido])->all();
-            $cetv = Raspored::find()->where(['br_casa' => 4, 'id_odeljenje' => $ido])->all();
-            $peti = Raspored::find()->where(['br_casa' => 5, 'id_odeljenje' => $ido])->all();
-            $sesti = Raspored::find()->where(['br_casa' => 6, 'id_odeljenje' => $ido])->all();
+            $q = Yii::$app->db->createCommand('
+                SELECT * FROM `raspored` 
+	                JOIN `predmet` ON `raspored`.`id_predmet` = `predmet`.`id_predmet`
+	                WHERE `raspored`.`id_odeljenje` = '.$ido.'
+                ');
+            $model = $q->queryAll();
 
             return $this->render('index', [
-                'prvi' => $prvi,
-                'drugi' => $drugi,
-                'treci' => $treci,
-                'cetv' => $cetv,
-                'peti' => $peti,
-                'sesti' => $sesti,
+                'model' => $model,
             ]);
         } else if(Yii::$app->user->isGuest){
             $this->redirect(['../site/login']);
