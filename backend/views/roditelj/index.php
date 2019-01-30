@@ -37,7 +37,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=>'user.username',
             ],
             //'user_id',
-            'ucitelj_id',
+            //'ucitelj_id',
+            [
+                'attribute'=>'ucitelj_id',
+                'value'=>'ucitelj.user.username',
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
