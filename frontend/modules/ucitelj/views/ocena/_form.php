@@ -30,8 +30,6 @@ use frontend\modules\ucitelj\models\Odeljenje;
     <?= $form->field($model, 'id_predmet')->dropDownList(ArrayHelper::map(predmet::find()->all(),
         'id_predmet', 'naziv'), ['prompt' => 'Izaberi predmet']) ?>
 
-    <?= $form->field($model, 'id_odeljenje')->dropDownList(ArrayHelper::map(odeljenje::find()->all(),
-        'id_odeljenje', 'naziv'), ['prompt' => 'Izaberi odeljenje']) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Sačuvaj', ['class' => 'btn btn-success']) ?>

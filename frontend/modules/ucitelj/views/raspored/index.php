@@ -15,7 +15,7 @@ $this->title = 'Raspored';
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?php
-        if(empty($prvi)||empty($drugi)||empty($treci)||empty($cetv)||empty($peti)||empty($sest)){
+        if(empty($prvi)||empty($drugi)||empty($treci)||empty($cetv)||empty($peti)){
             echo '<h4>Trenutno nema rasporeda za vaše odeljenje</h4>';
         } else { ?>
 

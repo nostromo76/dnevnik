@@ -47,8 +47,11 @@ class OcenaController extends Controller
 
             $model = new Ocena();
 
-            if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                return $this->redirect(['/ucitelj/ucitelj']);
+            if ($model->load(Yii::$app->request->post())) {
+                $model->id_odeljenje = $ido;
+                if($model->save()){
+                    return $this->redirect(['/ucitelj/ucitelj']);
+                }
             }
 
             return $this->render('create', [
