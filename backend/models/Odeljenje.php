@@ -33,7 +33,7 @@ class Odeljenje extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['naziv', 'ucitelj_id'], 'required'],
+            [['naziv'], 'required'],
             [['ucitelj_id'], 'integer'],
             [['naziv'], 'string', 'max' => 45],
             [['ucitelj_id'], 'exist', 'skipOnError' => true, 'targetClass' => Ucitelj::className(), 'targetAttribute' => ['ucitelj_id' => 'id_ucitelj']],

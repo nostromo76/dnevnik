@@ -15,6 +15,8 @@ use backend\models\Ucitelj;
 
     <?= $form->field($model, 'naziv')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'ucitelj_id')->dropDownList(ArrayHelper::map(Ucitelj::find()->all(),'id_ucitelj','user.fullname')) ?>
+
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
