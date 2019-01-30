@@ -12,66 +12,51 @@ $this->title = 'Raspored';
 ?>
 <div class="raspored-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h2><?= Html::encode($this->title) ?></h2>
 
     <?php
-        if(empty($prvi)||empty($drugi)||empty($treci)||empty($cetv)||empty($peti)){
+       if(empty($model)){
             echo '<h4>Trenutno nema rasporeda za vaše odeljenje</h4>';
         } else { ?>
 
-        <table class="table table-striped table-bordered">
-            <tr>
-                <th>Br Casa</th>
-                <th>Ponedeljak</th>
-                <th>Utorak</th>
-                <th>Sreda</th>
-                <th>Cetvrtak</th>
-                <th>Petak</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <?php foreach ($prvi as $prv){
-                    echo '<td>'.$prv->predmet->naziv.'</td>';
+            <?php
+                $days = ['Ponedeljak','Utorak','Sreda','Cetvrtak','Petak'];
+                $broj = ['1','2','3','4','5'];
+                foreach ($days as $modelDays){
+                    $day = $modelDays;
+
+                    $array_day[$day] = array_filter($model, function ($element) use ($day) {
+                        return ($element['dan'] == $day);
+                    });
+
+                    $subjects[$day]= array_column($array_day[$day], 'naziv');
+
                 }
-                ?>
-            </tr>
-            <tr>
-                <td>2</td>
-                <?php foreach ($drugi as $dru){
-                    echo '<td>'.$dru->predmet->naziv.'</td>';
-                }
-                ?>
-            </tr>
-            <tr>
-                <td>3</td>
-                <?php foreach ($treci as $tre){
-                    echo '<td>'.$tre->predmet->naziv.'</td>';
-                }
-                ?>
-            </tr>
-            <tr>
-                <td>4</td>
-                <?php foreach ($cetv as $cet){
-                    echo '<td>'.$cet->predmet->naziv.'</td>';
-                }
-                ?>
-            </tr>
-            <tr>
-                <td>5</td>
-                <?php foreach ($peti as $pet){
-                    echo '<td>'.$pet->predmet->naziv.'</td>';
-                }
-                ?>
-            </tr>
-            <tr>
-                <td>6</td>
-                <?php foreach ($sesti as $sest){
-                    echo '<td>'.$sest->predmet->naziv.'</td>';
-                }
-                ?>
-            </tr>
-        </table>
+            ?>
+
+            <div class="row">
+                <div class="col-sm-1">
+                    <h3>Cas</h3>
+                    <?php
+                    foreach ($broj as $br){
+                        echo '<p class = "text-center">'. $br .'</p>';
+                    }
+                    ?>
+                </div>
+
+            <div class="col-sm-11">
+              <?php foreach($days as $modelDay){
+                        $day = $modelDay;
+                        echo '
+                        <div class="col-sm-2">
+                          <h3>'.$day.'</h3>';
+                        foreach($subjects[$day] as $subject){
+                         echo' <p>'.$subject.'</p>';
+                        }
+                        echo '</div>';
+              }?>
+            </div>
+            </div><!-- End of row -->
 
     <?php } ?>
-
 </div>
