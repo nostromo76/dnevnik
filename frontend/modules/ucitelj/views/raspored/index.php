@@ -21,7 +21,7 @@ $this->title = 'Raspored';
 
             <?php
                 $days = ['Ponedeljak','Utorak','Sreda','Cetvrtak','Petak'];
-                $broj = ['1','2','3','4','5'];
+                $broj = ['1','2','3','4','5','6'];
                 foreach ($days as $modelDays){
                     $day = $modelDays;
 

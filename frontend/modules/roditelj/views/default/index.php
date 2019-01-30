@@ -1,12 +1,11 @@
 <div class="roditelj-default-index">
-    <h1><?= $this->context->action->uniqueId ?></h1>
-    <p>
-        This is the view content for action "<?= $this->context->action->id ?>".
-        The action belongs to the controller "<?= get_class($this->context) ?>"
-        in the "<?= $this->context->module->id ?>" module.
-    </p>
-    <p>
-        You may customize this page by editing the following file:<br>
-        <code><?= __FILE__ ?></code>
-    </p>
+    <div class="jumbotron">
+        <h1><?= Yii::$app->user->identity->username ?></h1>
+        <p>Ovo je odeljak gde mozete</p>
+        <p>Da vidite obavestenja vezana za odeljenje</p>
+        <p>Da zakazete "Otvorena Vrata"</p>
+        <p>Da vitite odgovor ucitelje na "Otvorena vrata"</p>
+        <p>Da vidite ocene svog deteta</p>
+        <p>Da posaljete Poruku ucitelju svog deteta</p>
+    </div>
 </div>
