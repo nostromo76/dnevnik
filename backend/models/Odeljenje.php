@@ -9,7 +9,7 @@ use Yii;
  *
  * @property int $id_odeljenje
  * @property string $naziv
- * @property int $ucitelj_id
+ *
  *
  * @property Dnevnik[] $dnevniks
  * @property Obavestenja[] $obavestenjas
@@ -34,9 +34,7 @@ class Odeljenje extends \yii\db\ActiveRecord
     {
         return [
             [['naziv'], 'required'],
-            [['ucitelj_id'], 'integer'],
             [['naziv'], 'string', 'max' => 45],
-            [['ucitelj_id'], 'exist', 'skipOnError' => true, 'targetClass' => Ucitelj::className(), 'targetAttribute' => ['ucitelj_id' => 'id_ucitelj']],
         ];
     }
 
@@ -48,7 +46,6 @@ class Odeljenje extends \yii\db\ActiveRecord
         return [
             'id_odeljenje' => 'Id Odeljenje',
             'naziv' => 'Naziv',
-            'ucitelj_id' => 'Ucitelj ID',
         ];
     }
 
