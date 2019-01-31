@@ -4,6 +4,7 @@ namespace frontend\modules\roditelj\controllers;
 
 use frontend\modules\roditelj\models\Odeljenje;
 use frontend\modules\roditelj\models\Roditelj;
+use frontend\modules\roditelj\models\Ucenik;
 use Yii;
 use frontend\modules\roditelj\models\Obavestenja;
 use frontend\modules\roditelj\models\ObavestenjaSearch;
@@ -39,10 +40,10 @@ class ObavestenjaController extends Controller
     public function actionIndex()
     {
         if(Yii::$app->user->can('roditelj')){
-			
-            $ucitelj = Roditelj::find()->select('ucitelj_id')->where(['user_id' => Yii::$app->user->id ])->one();
-            $odeljenje_id = Odeljenje::find()->select('id_odeljenje')->where(['ucitelj_id' => $ucitelj ])->one();
-            $ido = $odeljenje_id->id_odeljenje;
+
+            $roditelj = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
+            $ucenik_roditelj = Ucenik::find()->select('id_odeljenje')->where(['id_roditelj' => $roditelj->id_roditelj])->one();
+            $ido = $ucenik_roditelj->id_odeljenje;
 
             $model = Obavestenja::find()
                 ->select('id_obavestenja, naziv, opis, vreme, id_odeljenje')

@@ -7,7 +7,7 @@ $this->title = 'My Yii Application';
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Dobrodosao <?= Yii::$app->user->identity->username ?></h1>
+        <h1>Dobrodošao <?= Yii::$app->user->identity->username ?></h1>
     </div>
 
 </div>
