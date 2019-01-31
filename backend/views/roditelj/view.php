@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model backend\models\Roditelj */
 
 $this->title = $model->id_roditelj;
-$this->params['breadcrumbs'][] = ['label' => 'Roditeljs', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Roditelj', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="roditelj-view">
@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id_roditelj], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id_roditelj], [
+        <?= Html::a('Ažuriraj', ['update', 'id' => $model->id_roditelj], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Obriši', ['delete', 'id' => $model->id_roditelj], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',

@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Raspored */
 
-$this->title = 'Create Raspored';
+$this->title = 'Kreiraj Raspored';
 $this->params['breadcrumbs'][] = ['label' => 'Raspored', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

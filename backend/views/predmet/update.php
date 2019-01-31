@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Predmet */
 
-$this->title = 'Update Predmet: {nameAttribute}';
+$this->title = 'Ažuriraj Predmet: ' . $model->naziv;
 $this->params['breadcrumbs'][] = ['label' => 'Predmet', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id_predmet, 'url' => ['view', 'id' => $model->id_predmet]];
 $this->params['breadcrumbs'][] = 'Update';

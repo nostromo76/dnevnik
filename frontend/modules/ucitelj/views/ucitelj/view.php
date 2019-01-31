@@ -15,11 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <h2>Ucenik <?= $ime ?></h2>
+    <h2>Učenik <?= $ime ?></h2>
    <table class="table table-striped table-bordered">
        <tr>
            <th>Trenutna ocena</th>
-           <th>Zakljucena ocena</th>
+           <th>Zaključena ocena</th>
            <th>Predmet</th>
        </tr>
            <?php foreach ($ocene as $ocena) { ?>

@@ -9,7 +9,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel frontend\modules\ucitelj\models\UciteljOSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Ucitelj Zahtevi';
+$this->title = 'Učitelj Zahtevi';
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ucitelj-o-index">

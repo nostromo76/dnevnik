@@ -44,7 +44,7 @@ class Odeljenje extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_odeljenje' => 'Id Odeljenje',
+            'id_odeljenje' => 'Odeljenje',
             'naziv' => 'Naziv',
         ];
     }

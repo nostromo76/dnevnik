@@ -24,18 +24,18 @@ use backend\models\Roditelj;
 
     <?= $form->field($model, 'id_odeljenje')->dropDownList(
         ArrayHelper::map(odeljenje::find()->all(), 'id_odeljenje', 'naziv'),
-        ['prompt'=> 'Select Odeljenje']
+        ['prompt'=> 'Odaberi Odeljenje']
     ) ?>
     <!-- id_odeljenje textInput -->
 
     <?= $form->field($model, 'id_roditelj')->dropDownList(
         ArrayHelper::map(roditelj::find()->all(), 'id_roditelj', 'user.username'),
-        ['prompt'=> 'Select Roditelj']
+        ['prompt'=> 'Odaberi Roditelja']
     ) ?>
     <!-- id_roditelj textInput -->
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Sačuvaj', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

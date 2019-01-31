@@ -47,8 +47,9 @@ class Ucitelj extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_ucitelj' => 'Id Ucitelj',
-            'user_id' => 'User ID',
+            'id_ucitelj' => 'Učitelj',
+            'user_id' => 'Korisnik',
+            'id_odeljenje' => 'Odeljenje'
         ];
     }
 

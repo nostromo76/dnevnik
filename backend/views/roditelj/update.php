@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Roditelj */
 
-$this->title = 'Update Roditelj: {nameAttribute}';
-$this->params['breadcrumbs'][] = ['label' => 'Roditeljs', 'url' => ['index']];
+$this->title = 'Ažuriraj Roditelja';
+$this->params['breadcrumbs'][] = ['label' => 'Roditelj', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id_roditelj, 'url' => ['view', 'id' => $model->id_roditelj]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Ažuriraj';
 ?>
 <div class="roditelj-update">
 

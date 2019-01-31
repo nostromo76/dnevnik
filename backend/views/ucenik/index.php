@@ -8,7 +8,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\UcenikSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Ucenik';
+$this->title = 'Učenik';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ucenik-index">
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Ucenik', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Kreiraj Novog Učenika', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([

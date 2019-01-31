@@ -18,8 +18,8 @@ $rola = Yii::$app->user->identity->role;
 switch ($rola){
     case 2:
         $menuItems = [
-            ['label' => 'Dir', 'url' => ['/direktor/ocena']],
-            ['label' => 'Dir O', 'url' => ['/direktor/ocena/direktor']],
+            ['label' => 'Statistika na nivou škole', 'url' => ['/direktor/ocena']],
+            ['label' => 'Statistika na nivou odeljenja', 'url' => ['/direktor/ocena/direktor']],
         ];
         break;
     case 4:

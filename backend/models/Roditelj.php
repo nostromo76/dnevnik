@@ -52,9 +52,9 @@ class Roditelj extends \yii\db\ActiveRecord
     {
         return [
             'id_roditelj' => 'Id Roditelj',
-            'id_ucenik' => 'Id Ucenik',
-            'user_id' => 'User ID',
-            'ucitelj_id' => 'Ucitelj ID',
+            'id_ucenik' => 'Učenik',
+            'user_id' => 'Korisnik',
+            'ucitelj_id' => 'Učitelj',
         ];
     }
 

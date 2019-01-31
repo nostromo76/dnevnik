@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Odeljenje */
 
-$this->title = 'Create Odeljenje';
+$this->title = 'Kreiraj Odeljenje';
 $this->params['breadcrumbs'][] = ['label' => 'Odeljenje', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

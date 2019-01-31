@@ -18,18 +18,18 @@ use backend\models\Ucitelj;
 	
 	<?= $form->field($model, 'id_ucenik')->dropDownList(
         ArrayHelper::map(ucenik::find()->all(), 'id_ucenik', 'username'),
-        ['prompt'=> 'Select Ucenik']
+        ['prompt'=> 'Odaberi Učenika']
     ) ?>
     <!-- id_ucenik textInput -->
 
     <?= $form->field($model, 'user_id')->dropDownList(
         ArrayHelper::map(user::find()->all(), 'id', 'username'),
-        ['prompt'=> 'Select User']
+        ['prompt'=> 'Odaberi Korisnika']
     ) ?>
     <!-- user_id textInput -->
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Sačuvaj', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -20,7 +20,7 @@ use frontend\modules\ucitelj\models\Ucitelj;
     <?= $form->field($model, 'ne')->checkbox([true]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Sačuvaj', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

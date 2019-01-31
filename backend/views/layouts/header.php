@@ -22,14 +22,14 @@ if(Yii::$app->user->identity->role == 1){
         ['label' => 'Raspored', 'url' => ['/raspored/index']],
         ['label' => 'Predmet', 'url' => ['/predmet/index']],
         ['label' => 'Odeljenje', 'url' => ['/odeljenje/index']],
-        ['label' => 'Ucenik', 'url' => ['/ucenik/index']],
+        ['label' => 'Učenik', 'url' => ['/ucenik/index']],
         ['label' => 'Roditelj', 'url' => ['/roditelj/index']],
-        ['label' => 'Ucitelj', 'url' => ['/ucitelj/index']],
-        ['label' => 'Obavestenja', 'url' => ['/obavestenja/index']],
+        ['label' => 'Učitelj', 'url' => ['/ucitelj/index']],
+        ['label' => 'Obaveštenja', 'url' => ['/obavestenja/index']],
     ];
 }}
 if (Yii::$app->user->isGuest) {
-    $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+    $menuItems[] = ['label' => 'Uloguj se', 'url' => ['/site/login']];
 } else {
     $menuItems[] = '<li>'
         . Html::beginForm(['/site/logout'], 'post')

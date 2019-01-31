@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'role')->dropDownList
-                    ([ '1' => 'A', '2' => 'D', '4' => 'U', '8' => 'R', ], ['prompt' => 'Select']) ?>
+                    ([ '1' => 'Admin', '2' => 'Direktor', '4' => 'Učitelj', '8' => 'Roditelj', ], ['prompt' => 'Odaberi Rolu']) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Sačuvaj', ['class' => 'btn btn-success']) ?>

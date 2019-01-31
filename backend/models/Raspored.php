@@ -48,9 +48,9 @@ class Raspored extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'dan' => 'Dan',
-            'br_casa' => 'Br Casa',
-            'id_predmet' => 'Id Predmet',
-            'id_odeljenje' => 'Id Odeljenje',
+            'br_casa' => 'Broj Časa',
+            'id_predmet' => 'Predmet',
+            'id_odeljenje' => 'Odeljenje',
         ];
     }
 

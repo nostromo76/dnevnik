@@ -6,10 +6,10 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model backend\models\User */
 
-$this->title = 'Update User: ' . $model->first_name;
-$this->params['breadcrumbs'][] = ['label' => 'User', 'url' => ['index']];
+$this->title = 'Ažuriraj Korisnika: ' . $model->first_name;
+$this->params['breadcrumbs'][] = ['label' => 'Korisnik', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Ažuriraj';
 ?>
 <div class="user-update">
 
@@ -26,10 +26,10 @@ $this->params['breadcrumbs'][] = 'Update';
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'role')->dropDownList
-                ([ '1' => 'A', '2' => 'D', '4' => 'U', '8' => 'R', ], ['prompt' => 'Select']) ?>
+                ([ '1' => 'Admin', '2' => 'Direktor', '4' => 'Učitelj', '8' => 'Roditelj', ], ['prompt' => 'Odaberi Rolu']) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Sačuvaj', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
