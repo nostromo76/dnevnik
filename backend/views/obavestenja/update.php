@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Obavestenja */
 
-$this->title = 'Update Obavestenja: ' . $model->naziv;
+$this->title = 'Ažuriraj Obaveštenje: ' . $model->naziv;
 $this->params['breadcrumbs'][] = ['label' => 'Obavestenja', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id_obavestenja, 'url' => ['view', 'id' => $model->id_obavestenja]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Ažuriraj';
 ?>
 <div class="obavestenja-update">
 

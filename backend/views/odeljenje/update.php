@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Odeljenje */
 
-$this->title = 'Update Odeljenje: {nameAttribute}';
+$this->title = 'Ažuriraj Odeljenje';
 $this->params['breadcrumbs'][] = ['label' => 'Odeljenje', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id_odeljenje, 'url' => ['view', 'id' => $model->id_odeljenje]];
 $this->params['breadcrumbs'][] = 'Update';

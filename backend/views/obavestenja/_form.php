@@ -20,11 +20,11 @@ use backend\models\Odeljenje;
 
     <?= $form->field($model, 'id_odeljenje')->dropDownList(
             ArrayHelper::map(Odeljenje::find()->all(), 'id_odeljenje','naziv'),
-            ['prompt' => 'Select odeljenje']
+            ['prompt' => 'Odaberi odeljenje']
     ) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Sačuvaj', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

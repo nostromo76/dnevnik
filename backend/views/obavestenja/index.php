@@ -8,7 +8,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\ObavestenjaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Obavestenja';
+$this->title = 'Obaveštenja';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="obavestenja-index">
@@ -20,16 +20,13 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Obavestenja', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Kreiraj Novo Obaveštenje', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            //['class' => 'yii\grid\SerialColumn'],
-
-            //'id_obavestenja',
             'naziv',
             'opis:ntext',
             [

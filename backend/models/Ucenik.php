@@ -54,9 +54,9 @@ class Ucenik extends \yii\db\ActiveRecord
             'id_ucenik' => 'Id Ucenik',
             'ime' => 'Ime',
             'prezime' => 'Prezime',
-            'username' => 'Username',
-            'id_odeljenje' => 'Id Odeljenje',
-            'id_roditelj' => 'Id Roditelj',
+            'username' => 'Korisničko ime',
+            'id_odeljenje' => 'Odeljenje',
+            'id_roditelj' => 'Roditelj',
         ];
     }
 

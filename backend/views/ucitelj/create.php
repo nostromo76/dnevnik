@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Ucitelj */
 
-$this->title = 'Create Ucitelj';
-$this->params['breadcrumbs'][] = ['label' => 'Ucitelj', 'url' => ['index']];
+$this->title = 'Kreiraj Učitelja';
+$this->params['breadcrumbs'][] = ['label' => 'Učitelj', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ucitelj-create">

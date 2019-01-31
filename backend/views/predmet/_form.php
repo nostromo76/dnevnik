@@ -14,10 +14,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'naziv')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'status')->dropDownList([ 'obavezni' => 'Obavezni', 'izborni' => 'Izborni', '' => '', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'status')->dropDownList([ 'obavezni' => 'Obavezni', 'izborni' => 'Izborni'], ['prompt' => 'Odaberi Status']) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Sačuvaj', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

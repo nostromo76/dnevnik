@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Obavestenja */
 
-$this->title = 'Create Obavestenja';
-$this->params['breadcrumbs'][] = ['label' => 'Obavestenja', 'url' => ['index']];
+$this->title = 'Kreiraj Obaveštenje';
+$this->params['breadcrumbs'][] = ['label' => 'Obaveštenja', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="obavestenja-create">

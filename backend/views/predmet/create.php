@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Predmet */
 
-$this->title = 'Create Predmet';
+$this->title = 'Kreiraj Predmet';
 $this->params['breadcrumbs'][] = ['label' => 'Predmet', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

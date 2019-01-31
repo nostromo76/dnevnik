@@ -16,7 +16,7 @@ use backend\models\Ucitelj;
     <?= $form->field($model, 'naziv')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Sačuvaj', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
