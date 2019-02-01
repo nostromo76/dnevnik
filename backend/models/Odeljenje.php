@@ -9,18 +9,18 @@ use Yii;
  *
  * @property int $id_odeljenje
  * @property string $naziv
+ * @property int $ucitelj_id
  *
- *
- * @property Dnevnik[] $dnevniks
  * @property Obavestenja[] $obavestenjas
  * @property Ucitelj $ucitelj
  * @property Raspored[] $rasporeds
  * @property Ucenik[] $uceniks
+ * @property Ucitelj[] $uciteljs
  */
 class Odeljenje extends \yii\db\ActiveRecord
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public static function tableName()
     {
@@ -28,33 +28,28 @@ class Odeljenje extends \yii\db\ActiveRecord
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function rules()
     {
         return [
             [['naziv'], 'required'],
+            [['ucitelj_id'], 'integer'],
             [['naziv'], 'string', 'max' => 45],
+            [['ucitelj_id'], 'exist', 'skipOnError' => true, 'targetClass' => Ucitelj::className(), 'targetAttribute' => ['ucitelj_id' => 'id_ucitelj']],
         ];
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function attributeLabels()
     {
         return [
-            'id_odeljenje' => 'Odeljenje',
+            'id_odeljenje' => 'Id Odeljenje',
             'naziv' => 'Naziv',
+            'ucitelj_id' => 'Ucitelj ID',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getDnevniks()
-    {
-        return $this->hasMany(Dnevnik::className(), ['id_odeljenje' => 'id_odeljenje']);
     }
 
     /**
@@ -87,5 +82,13 @@ class Odeljenje extends \yii\db\ActiveRecord
     public function getUceniks()
     {
         return $this->hasMany(Ucenik::className(), ['id_odeljenje' => 'id_odeljenje']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUciteljs()
+    {
+        return $this->hasMany(Ucitelj::className(), ['id_odeljenje' => 'id_odeljenje']);
     }
 }
