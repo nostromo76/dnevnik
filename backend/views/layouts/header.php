@@ -19,12 +19,12 @@ if(!Yii::$app->user->isGuest){
 if(Yii::$app->user->identity->role == 1){
     $menuItems = [
         ['label' => 'Korisnici', 'url' => ['/user/index']],
-        ['label' => 'Raspored', 'url' => ['/raspored/index']],
-        ['label' => 'Predmet', 'url' => ['/predmet/index']],
         ['label' => 'Odeljenje', 'url' => ['/odeljenje/index']],
         ['label' => 'Učenik', 'url' => ['/ucenik/index']],
         ['label' => 'Roditelj', 'url' => ['/roditelj/index']],
         ['label' => 'Učitelj', 'url' => ['/ucitelj/index']],
+        ['label' => 'Predmet', 'url' => ['/predmet/index']],
+        ['label' => 'Raspored', 'url' => ['/raspored/index']],
         ['label' => 'Obaveštenja', 'url' => ['/obavestenja/index']],
     ];
 }}

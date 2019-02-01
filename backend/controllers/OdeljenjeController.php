@@ -50,6 +50,8 @@ class OdeljenjeController extends Controller
     {
         if(Yii::$app->user->can('admin')){
             $searchModel = new OdeljenjeSearch();
+
+            //get all odeljenje
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
             return $this->render('index', [

@@ -23,7 +23,7 @@ use backend\models\Ucitelj;
     <!-- id_ucenik textInput -->
 
     <?= $form->field($model, 'user_id')->dropDownList(
-        ArrayHelper::map(user::find()->all(), 'id', 'username'),
+        ArrayHelper::map(user::find()->where(['role'=>8])->all(), 'id', 'username'),
         ['prompt'=> 'Odaberi Korisnika']
     ) ?>
     <!-- user_id textInput -->

@@ -28,7 +28,8 @@ use backend\models\Ucitelj;
     ) ?>
 
 
-    <?= $form->field($model, 'ucitelj_id')->dropDownList(ArrayHelper::map(Ucitelj::find()->all(),'id_ucitelj','user.fullname')) ?>
+    <?= $form->field($model, 'ucitelj_id')->dropDownList(
+            ArrayHelper::map(Ucitelj::find()->all(),'id_ucitelj','user.fullname')) ?>
 
     <!-- ucitelj_id textInput -->
 

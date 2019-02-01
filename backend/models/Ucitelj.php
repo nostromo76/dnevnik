@@ -77,6 +77,11 @@ class Ucitelj extends \yii\db\ActiveRecord
         return $this->hasMany(Odgovor::className(), ['id_ucitelj' => 'id_ucitelj']);
     }
 
+    public function getOdeljenje()
+    {
+        return $this->hasOne(Odeljenje::className(), ['id_odeljenje' => 'id_odeljenje']);
+    }
+
     /**
      * @return \yii\db\ActiveQuery
      */
