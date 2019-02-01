@@ -49,7 +49,7 @@ class OdgovorController extends Controller
 
             $model = Odgovor::find()
                 ->select('*')
-                ->where(['odgovor.id_ucitelj'=> $ucitelj->ucitelj_id ])
+                ->where(['odgovor.id_ucitelj'=> $ido ])
                 ->limit(15)
                 ->all();
 

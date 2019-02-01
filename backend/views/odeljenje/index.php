@@ -28,10 +28,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
             //'id_odeljenje',
             'naziv',
-            /*[
+            [
                     'attribute' => 'ucitelj_id',
                     'value' => 'ucitelj.user.fullname'
-            ],*/
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
