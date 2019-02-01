@@ -4,20 +4,20 @@ namespace frontend\modules\ucitelj\models;
 
 use Yii;
 
-/**
- * This is the model class for table "ocena".
- *
+/** 
+ * This is the model class for table "ocena". 
+ * 
  * @property int $id_ocena
- * @property int $vrednost_ocena
+ * @property string $vrednost_ocena
  * @property int $zakljucena_ocena
  * @property int $id_ucenik
  * @property int $id_predmet
  * @property int $id_odeljenje
- *
+ * 
  * @property Ucenik $ucenik
  * @property Odeljenje $odeljenje
  * @property Predmet $predmet
- */
+ */ 
 class Ocena extends \yii\db\ActiveRecord
 {
     /**
@@ -34,7 +34,8 @@ class Ocena extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['vrednost_ocena', 'zakljucena_ocena', 'id_ucenik', 'id_predmet', 'id_odeljenje'], 'integer'],
+            [['vrednost_ocena'], 'string'],
+            [['zakljucena_ocena', 'id_ucenik', 'id_predmet', 'id_odeljenje'], 'integer'],
             [['id_ucenik'], 'exist', 'skipOnError' => true, 'targetClass' => Ucenik::className(), 'targetAttribute' => ['id_ucenik' => 'id_ucenik']],
             [['id_odeljenje'], 'exist', 'skipOnError' => true, 'targetClass' => Odeljenje::className(), 'targetAttribute' => ['id_odeljenje' => 'id_odeljenje']],
             [['id_predmet'], 'exist', 'skipOnError' => true, 'targetClass' => Predmet::className(), 'targetAttribute' => ['id_predmet' => 'id_predmet']],
