@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\modules\poruke\models\Poruke */
@@ -11,11 +12,16 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="poruke-view">
 
+
     <?php
         $rola = Yii::$app->user->identity->role;
     ?>
-
     <h1><?= Html::encode($this->title) ?></h1>
+    <?php Pjax::begin(); ?>
+    <?= Html::a("Refresh", ['view?id='.$_GET['id']], ['class' => 'invisible', 'id' => 'refreshButton']) ?>
+
+
+
     <?php if($rola == 4){ ?>
     <?php foreach ($porukeUcitelj as $poruka): ?>
             <?php
@@ -71,6 +77,13 @@ $this->params['breadcrumbs'][] = $this->title;
     }
         echo Html::button('Na vrh',['class' => 'btn btn-primary pull-right','id' => 'toTop']);
     ?>
+
+
+
+
+    <?php Pjax::end(); ?>
+
+
 </div>
 
 
@@ -100,6 +113,10 @@ $(document).ready(function(){
         return false;
     });
 
+});
+
+$(document).ready(function() {
+    setInterval(function(){ $("#refreshButton").click(); }, 5000);
 });
 JS;
 $this->registerJs($script);
