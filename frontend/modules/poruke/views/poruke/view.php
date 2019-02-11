@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\modules\poruke\models\Poruke */
@@ -9,6 +10,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Nazad', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
+
 <div class="poruke-view">
 
     <?php
@@ -99,8 +101,17 @@ $(document).ready(function(){
         $('html, body').animate({scrollTop : 0},800);
         return false;
     });
-
+    
+    
 });
+let params = (new URL(document.location)).searchParams;
+let id = params.get('id');
+/*
+function refresh(){
+   location.reload(true);
+}
+setInterval(refresh,5000);*/
+
 JS;
 $this->registerJs($script);
 ?>
