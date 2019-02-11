@@ -9,6 +9,7 @@ use frontend\modules\roditelj\models\Roditelj;
 use frontend\modules\roditelj\models\Odeljenje;
 use frontend\modules\roditelj\models\Obavestenja;
 use frontend\modules\roditelj\models\OdgovorSearch;
+use yii\helpers\Json;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -65,6 +66,30 @@ class OdgovorController extends Controller
             $this->redirect(['../site/login']);
         } else {
             throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
+        }
+    }
+
+    public function actionFetch(){
+        // if request is AJAX
+        if(Yii::$app->request->isAjax){
+            // get user id
+            $roditelj_id = Roditelj::find()->where(['user_id' => Yii::$app->user->identity->id])->one();
+            // get all odgovor where status = 0 and id_roditelj = $roditelj_id
+            $odgovor = Odgovor::find()->where(['status' => 0, 'id_roditelj' => $roditelj_id])->all();
+            // count all odgovor
+            $odgovor = count($odgovor);
+            echo Json::encode($odgovor);
+        }
+    }
+
+    public function actionInsert(){
+        // if request is AJAX
+        if(Yii::$app->request->isAjax){
+            $roditelj_id = Roditelj::find()->where(['user_id' => Yii::$app->user->identity->id])->one();
+            // create model Odgovor
+            $odgovor = new Odgovor();
+            // update all statuses where is status = 0 and id_roditelj = $roditelj_id with value 1
+            $odgovor::updateAll(['status' => 1], 'status = 0 && id_roditelj = '.$roditelj_id->id_roditelj.'');
         }
     }
 

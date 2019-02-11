@@ -10,6 +10,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Nazad', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
+
 <div class="poruke-view">
 
 
@@ -112,12 +113,15 @@ $(document).ready(function(){
         $('html, body').animate({scrollTop : 0},800);
         return false;
     });
-
+    
+    
 });
+
 
 $(document).ready(function() {
     setInterval(function(){ $("#refreshButton").click(); }, 5000);
 });
+
 JS;
 $this->registerJs($script);
 ?>

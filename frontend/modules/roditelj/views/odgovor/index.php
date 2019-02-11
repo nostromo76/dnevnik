@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\modules\roditelj\models\OdgovorSearch */
@@ -16,7 +17,6 @@ $this->title = 'Odgovor';
         echo '<h4>Trenutno nema odgovora na vas zahtev za otvorena vrata!</h4>';
     } else { ?>
     <?php foreach($model as $odgovor){?>
-
         <?php  if( $odgovor->da==1){
             //echo 'Korisnik'.' <strong>'.$odgovor->roditelj->user->username. '</strong> Cetvrtak 15.00h '. ' Zakazano'.'<br>';
             echo Html::tag('h1', 'Korisnik'.' <strong>'.$odgovor->roditelj->user->username. '</strong> Četvrtak 15.00h '. ' Zakazano');

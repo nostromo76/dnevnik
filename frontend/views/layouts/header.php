@@ -3,7 +3,7 @@
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\helpers\Html;
-
+use yii\helpers\Url;
 ?>
 
 <?php
@@ -44,6 +44,23 @@ switch ($rola){
 
 if (Yii::$app->user->isGuest) {
     $menuItems[] = ['label' => 'Prijavi se', 'url' => ['/site/login']];
+}   else if(Yii::$app->user->identity->role == 8){
+    $menuItems[] = '<li>'
+        . Html::beginForm(['/site/logout'], 'post')
+        . Html::submitButton(
+            'Odjavi se (' . Yii::$app->user->identity->username . ')',
+            ['class' => 'btn btn-link logout']
+        )
+    . Html::endForm()
+    .'</li>'
+    . '<li style="padding-left: 10px; padding-top: 5px">'
+    .Html::tag('span','',['class' => 'label label-pill label-danger count','style' => ['border-radius' => '10px']])
+    . Html::tag('span','',['class' => 'glyphicon glyphicon-bell', 'id' => 'bell','style' => [
+        'font-size' => '18px',
+        'color' => '#f4f4f4',
+        'padding-top' => '10px'
+    ]])
+    .'</li>';
 } else {
     $menuItems[] = '<li>'
         . Html::beginForm(['/site/logout'], 'post')
@@ -51,8 +68,7 @@ if (Yii::$app->user->isGuest) {
             'Odjavi se (' . Yii::$app->user->identity->username . ')',
             ['class' => 'btn btn-link logout']
         )
-        . Html::endForm()
-        . '</li>';
+        . Html::endForm();
 }
 echo Nav::widget([
     'options' => ['class' => 'navbar-nav navbar-right'],
@@ -60,3 +76,8 @@ echo Nav::widget([
 ]);
 NavBar::end();
 ?>
+<?php
+
+
+
+
