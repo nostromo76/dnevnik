@@ -40,7 +40,7 @@ class OdgovorController extends Controller
      */
     public function actionIndex()
     {
-        if(Yii::$app->user->can('roditelj')){
+      if(Yii::$app->user->can('roditelj')){
 
             $ucitelj = Roditelj::find()->select('ucitelj_id')->where(['user_id' => Yii::$app->user->id ])->one();
 
@@ -66,8 +66,9 @@ class OdgovorController extends Controller
             $this->redirect(['../site/login']);
         } else {
             throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
-        }
-    }
+        }  
+		
+	}
 
     public function actionFetch(){
         // if request is AJAX

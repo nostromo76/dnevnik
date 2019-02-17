@@ -135,7 +135,7 @@ class Breadcrumbs extends Widget
         $links = [];
         if ($this->homeLink === null) {
             $links[] = $this->renderItem([
-                'label' => Yii::t('yii', 'Početna'),
+                'label' => Yii::t('yii', 'Home'),
                 'url' => Yii::$app->homeUrl,
             ], $this->itemTemplate);
         } elseif ($this->homeLink !== false) {

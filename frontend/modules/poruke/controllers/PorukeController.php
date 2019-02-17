@@ -5,6 +5,7 @@ namespace frontend\modules\poruke\controllers;
 use frontend\modules\poruke\models\Roditelj;
 use Yii;
 use frontend\modules\poruke\models\Poruke;
+use yii\helpers\Json;
 use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
@@ -37,7 +38,7 @@ class PorukeController extends Controller
     public function actionIndex()
     {
 
-        if(Yii::$app->user->can('ucitelj') || Yii::$app->user->can('roditelj')){
+           if(Yii::$app->user->can('ucitelj') || Yii::$app->user->can('roditelj')){
             $rola = Yii::$app->user->identity->role;
             $ucitelj_id = Ucitelj::find()->select('id_ucitelj')->where(['user_id' => Yii::$app->user->id ])->one();
             $roditelj_id = Roditelj::find()->select('id_roditelj')->where(['user_id' => Yii::$app->user->id ])->one();
@@ -60,7 +61,8 @@ class PorukeController extends Controller
             $this->redirect(['../site/login']);
         } else {
             throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
-        }
+        }   	
+		
     }
 
     /**
@@ -187,6 +189,40 @@ class PorukeController extends Controller
             throw new ForbiddenHttpException('Nemate pravo pristupa ovoj stranici');
         }
     }
+	
+	public function actionGet(){
+		// if request is AJAX
+		if(Yii::$app->request->isAjax){
+			
+			// get user id
+            $roditelj_id = Roditelj::find()->where(['user_id' => Yii::$app->user->identity->id])->one();
+			
+			// get all poruke where status = 0 and roditelj_id = $roditelj_id
+			$poruke = Poruke::find()->where(['status' => 0, 'roditelj_id' => $roditelj_id])->all();
+			
+			// count all poruke
+			$poruke = count($poruke);
+		    echo Json::encode($poruke);
+				  
+		}
+	}
+	
+	public function actionIn(){
+		// if request is AJAX  
+		if(Yii::$app->request->isAjax){ 
+			
+			// get user id
+			$roditelj_id = Roditelj::find()->where(['user_id' => Yii::$app->user->identity->id])->one();
+			
+			// create model Poruke
+			$poruke = new Poruke();
+		  
+			// update all statuses where is status = 0 and roditelj_id = $roditelj_id with value 1
+			$poruke::updateAll(['status' => 1], 'status = 0 && roditelj_id = '.$roditelj_id->id_roditelj.'');
+		
+		}
+	}	
+	
 
     /**
      * Deletes an existing Poruke model.
